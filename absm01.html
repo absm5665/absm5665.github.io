@@ -1,0 +1,2706 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>水泥流变学入门手册：从理论到表征</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@400;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'headline': ['Tiempos Headline', 'serif'],
+                        'body': ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        'primary': '#1e293b',
+                        'secondary': '#64748b',
+                        'accent': '#d97706',
+                        'muted': '#f8fafc'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 280px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-right: 1px solid #e2e8f0;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 2rem;
+            height: 70vh;
+        }
+        
+        .hero-title {
+            grid-column: 1 / -1;
+            grid-row: 1;
+        }
+        
+        .hero-visual {
+            grid-column: 1;
+            grid-row: 2;
+        }
+        
+        .hero-summary {
+            grid-column: 2;
+            grid-row: 2;
+        }
+        
+        .citation-link {
+            color: #d97706;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .citation-link:hover {
+            color: #b45309;
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, #e2e8f0 50%, transparent 100%);
+            margin: 3rem 0;
+        }
+        
+        @media (max-width: 1024px) {
+            .toc-fixed {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .toc-fixed.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .hero-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                height: auto;
+            }
+            
+            .hero-title {
+                grid-column: 1;
+                grid-row: 1;
+            }
+            
+            .hero-visual {
+                grid-column: 1;
+                grid-row: 2;
+            }
+            
+            .hero-summary {
+                grid-column: 1;
+                grid-row: 3;
+            }
+        }
+    </style>
+  <base target="_blank">
+</head>
+
+  <body class="bg-muted font-body">
+    <!-- Mobile TOC Toggle -->
+    <button id="mobile-toc-toggle" class="lg:hidden fixed top-4 left-4 z-50 bg-primary text-white p-3 rounded-full shadow-lg">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Table of Contents -->
+    <nav id="toc" class="toc-fixed">
+      <div class="mb-8">
+        <h2 class="font-headline text-xl font-bold text-primary mb-4">目录导航</h2>
+        <div class="space-y-2 text-sm">
+          <a href="#introduction" class="block py-2 px-3 text-secondary hover:text-primary hover:bg-white rounded transition-colors">引言</a>
+          <a href="#chapter1" class="block py-2 px-3 text-secondary hover:text-primary hover:bg-white rounded transition-colors">1. 流变学基础理论</a>
+          <div class="ml-4 space-y-1 text-xs">
+            <a href="#section1-1" class="block py-1 px-2 text-secondary hover:text-primary hover:bg-white rounded transition-colors">1.1 核心概念图解</a>
+            <a href="#section1-2" class="block py-1 px-2 text-secondary hover:text-primary hover:bg-white rounded transition-colors">1.2 非牛顿流体世界</a>
+            <a href="#section1-3" class="block py-1 px-2 text-secondary hover:text-primary hover:bg-white rounded transition-colors">1.3 经典流变模型</a>
+          </div>
+          <a href="#chapter2" class="block py-2 px-3 text-secondary hover:text-primary hover:bg-white rounded transition-colors">2. 胶体化学原理</a>
+          <a href="#chapter3" class="block py-2 px-3 text-secondary hover:text-primary hover:bg-white rounded transition-colors">3. 减水剂作用机理</a>
+          <a href="#chapter4" class="block py-2 px-3 text-secondary hover:text-primary hover:bg-white rounded transition-colors">4. 材料体系与配比</a>
+          <a href="#chapter5" class="block py-2 px-3 text-secondary hover:text-primary hover:bg-white rounded transition-colors">5. 流变测试技术</a>
+          <a href="#chapter6" class="block py-2 px-3 text-secondary hover:text-primary hover:bg-white rounded transition-colors">6. 性能参数解读</a>
+          <a href="#chapter7" class="block py-2 px-3 text-secondary hover:text-primary hover:bg-white rounded transition-colors">7. 数据分析建模</a>
+          <a href="#chapter8" class="block py-2 px-3 text-secondary hover:text-primary hover:bg-white rounded transition-colors">8. 影响因素研究</a>
+          <a href="#chapter9" class="block py-2 px-3 text-secondary hover:text-primary hover:bg-white rounded transition-colors">9. 深度研究资源</a>
+        </div>
+      </div>
+
+      <div class="border-t pt-4">
+        <h3 class="font-semibold text-sm text-primary mb-2">核心关键词</h3>
+        <div class="flex flex-wrap gap-1">
+          <span class="px-2 py-1 bg-white text-xs rounded">流变学</span>
+          <span class="px-2 py-1 bg-white text-xs rounded">屈服应力</span>
+          <span class="px-2 py-1 bg-white text-xs rounded">触变性</span>
+          <span class="px-2 py-1 bg-white text-xs rounded">PCE</span>
+          <span class="px-2 py-1 bg-white text-xs rounded">旋转流变仪</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="bg-gradient-to-br from-slate-50 to-blue-50 py-16 px-8">
+        <div class="max-w-7xl mx-auto">
+          <div class="hero-grid">
+            <!-- Hero Title -->
+            <div class="hero-title">
+              <h1 class="font-headline text-4xl lg:text-6xl font-bold text-primary leading-tight mb-6">
+                <em class="text-accent">水泥流变学</em>
+                <br/>
+                入门手册
+              </h1>
+              <p class="text-xl text-secondary font-medium max-w-3xl">
+                从基础理论到表征技术的完整知识体系
+                <br/>
+                <span class="text-accent">本科科研新人的流变学指南</span>
+              </p>
+            </div>
+
+            <!-- Hero Visual -->
+            <div class="hero-visual">
+              <div class="relative h-full min-h-[300px] bg-gradient-to-r from-slate-100 to-blue-100 rounded-2xl overflow-hidden">
+                <img src="https://kimi-web-img.moonshot.cn/img/sklt.tsinghua.edu.cn/37bd71e3372961c50effce18b0c1155b5c4e5695.jpg" alt="旋转流变仪设备展示" class="w-full h-full object-cover opacity-90" size="large" aspect="wide" style="photo" query="旋转流变仪" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+                <div class="absolute bottom-4 left-4 text-white">
+                  <div class="text-sm font-medium">旋转流变仪测试系统</div>
+                  <div class="text-xs opacity-75">水泥浆流变特性表征</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hero Summary -->
+            <div class="hero-summary">
+              <div class="bg-white rounded-2xl p-6 shadow-lg h-full">
+                <h3 class="font-headline text-lg font-semibold text-primary mb-4">手册概览</h3>
+                <div class="space-y-3 text-sm text-secondary">
+                  <div class="flex items-center space-x-3">
+                    <i class="fas fa-book text-accent"></i>
+                    <span>9大核心章节，覆盖完整知识体系</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <i class="fas fa-flask text-accent"></i>
+                    <span>理论与实践结合，图文并茂</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <i class="fas fa-robot text-accent"></i>
+                    <span>机器学习辅助流变预测方法</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <i class="fas fa-graduation-cap text-accent"></i>
+                    <span>专为本科科研新人设计</span>
+                  </div>
+                </div>
+                <div class="mt-6 p-3 bg-accent/10 rounded-lg">
+                  <p class="text-xs text-accent font-medium">
+                    <i class="fas fa-lightbulb mr-2"></i>
+                    特别聚焦聚羧酸减水剂(PCE)作用机理
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Introduction -->
+      <section id="introduction" class="py-16 px-8 bg-white">
+        <div class="max-w-4xl mx-auto">
+          <div class="prose prose-lg max-w-none">
+            <p class="text-xl text-secondary leading-relaxed mb-8">
+              这是一份为本科科研新手编写的<strong class="text-primary">水泥流变学入门手册</strong>，系统涵盖从基础理论到测试表征的完整知识体系，特别聚焦聚羧酸减水剂（PCE）的作用机理与机器学习辅助的流变预测方法。内容生动基础、图文并茂，模拟教科书章节结构，助你快速建立水泥流变学的核心认知框架。
+            </p>
+
+            <div class="bg-gradient-to-r from-blue-50 to-slate-50 rounded-xl p-8 mb-8">
+              <h3 class="font-headline text-xl font-semibold text-primary mb-4">为什么学习水泥流变学？</h3>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="font-semibold text-primary mb-2">工程意义</h4>
+                  <p class="text-sm text-secondary">新鲜水泥浆、砂浆和混凝土的泵送、浇筑、振捣等施工操作，无不依赖于对其流动行为的精准调控。</p>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-primary mb-2">科学价值</h4>
+                  <p class="text-sm text-secondary">从分子尺度（PCE吸附、双电层）到宏观尺度（混凝土施工性能）的多层次知识体系。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chapter 1 -->
+      <section id="chapter1" class="py-16 px-8 bg-muted">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="font-headline text-3xl font-bold text-primary mb-12">1. 流变学基础：水泥浆为什么会&#34;流动&#34;</h2>
+
+          <!-- Section 1.1 -->
+          <div id="section1-1" class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">1.1 核心概念图解</h3>
+
+            <!-- Shear Stress vs Shear Rate -->
+            <div class="mb-12">
+              <h4 class="font-semibold text-lg text-primary mb-6">剪切应力与剪切速率：推动与响应的关系</h4>
+
+              <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <h5 class="font-semibold text-primary mb-4">基本概念</h5>
+                  <ul class="space-y-3 text-sm text-secondary">
+                    <li><strong>剪切应力 (τ)</strong>：单位面积上的平行驱动力，Pa</li>
+                    <li><strong>剪切速率 (γ̇)</strong>：材料内部速度梯度，s⁻¹</li>
+                    <li><strong>牛顿流体</strong>：τ与γ̇严格线性关系</li>
+                    <li><strong>非牛顿流体</strong>：水泥浆的典型特征</li>
+                  </ul>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <h5 class="font-semibold text-primary mb-4">工程意义</h5>
+                  <p class="text-sm text-secondary mb-4">施工操作中的实际应用：</p>
+                  <ul class="space-y-2 text-sm text-secondary">
+                    <li>• 泵送压力计算</li>
+                    <li>• 浇筑流动性控制</li>
+                    <li>• 振捣能耗优化</li>
+                  </ul>
+                </div>
+              </div>
+
+              <blockquote class="border-l-4 border-accent pl-6 italic text-secondary bg-white rounded-r-lg p-4">
+                &#34;流变学的本质在于描述材料如何响应外力作用。对于水泥基材料，这一学科具有直接的工程意义——新鲜水泥浆、砂浆和混凝土的泵送、浇筑、振捣等施工操作，无不依赖于对其流动行为的精准调控。&#34;
+              </blockquote>
+            </div>
+
+            <!-- Viscosity -->
+            <div class="mb-12">
+              <h4 class="font-semibold text-lg text-primary mb-6">粘度：流动的&#34;阻力系数&#34;</h4>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm mb-6">
+                <table class="w-full text-sm">
+                  <thead>
+                    <tr class="border-b border-gray-200">
+                      <th class="text-left py-3 font-semibold text-primary">粘度类型</th>
+                      <th class="text-left py-3 font-semibold text-primary">定义</th>
+                      <th class="text-left py-3 font-semibold text-primary">物理意义</th>
+                      <th class="text-left py-3 font-semibold text-primary">典型范围</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-secondary">
+                    <tr class="border-b border-gray-100">
+                      <td class="py-3 font-medium">表观粘度 ηₐₚₚ</td>
+                      <td class="py-3">τ/γ̇（瞬时比值）</td>
+                      <td class="py-3">特定剪切条件下的流动阻力</td>
+                      <td class="py-3">0.01–10 Pa·s（强烈剪切依赖）</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-3 font-medium">塑性粘度 μₚ</td>
+                      <td class="py-3">Bingham模型斜率</td>
+                      <td class="py-3">结构破坏后的纯粘性阻力</td>
+                      <td class="py-3">0.1–1 Pa·s</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3 font-medium">零剪切粘度 η₀</td>
+                      <td class="py-3">γ̇→0时的极限</td>
+                      <td class="py-3">完全结构化状态的流动阻力</td>
+                      <td class="py-3">理论上→∞（有屈服应力时）</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="bg-accent/10 rounded-lg p-4">
+                <h5 class="font-semibold text-accent mb-2">剪切变稀现象</h5>
+                <p class="text-sm text-secondary">高剪切速率下表观粘度大幅降低，泵送工况（γ̇ ≈ 100 s⁻¹）下的表观粘度可能仅为静置状态的十分之一。</p>
+              </div>
+            </div>
+
+            <!-- Yield Stress -->
+            <div class="mb-12">
+              <h4 class="font-semibold text-lg text-primary mb-6">屈服应力：水泥浆的&#34;启动门槛&#34;</h4>
+
+              <div class="grid lg:grid-cols-3 gap-6 mb-6">
+                <div class="bg-white rounded-xl p-4 shadow-sm border-l-4 border-blue-500">
+                  <h5 class="font-semibold text-primary mb-2">静态屈服应力 τ₀,ₛ</h5>
+                  <p class="text-xs text-secondary mb-2">材料从完全静止状态启动的临界应力</p>
+                  <div class="text-sm text-accent font-medium">50-500 Pa (无减水剂)</div>
+                </div>
+
+                <div class="bg-white rounded-xl p-4 shadow-sm border-l-4 border-green-500">
+                  <h5 class="font-semibold text-primary mb-2">动态屈服应力 τ₀,𝒹</h5>
+                  <p class="text-xs text-secondary mb-2">结构部分破坏后维持流动所需应力</p>
+                  <div class="text-sm text-accent font-medium">1-10 Pa (含PCE)</div>
+                </div>
+
+                <div class="bg-white rounded-xl p-4 shadow-sm border-l-4 border-accent">
+                  <h5 class="font-semibold text-primary mb-2">降低幅度</h5>
+                  <p class="text-xs text-secondary mb-2">减水剂的作用效果</p>
+                  <div class="text-sm text-accent font-medium">90-98%</div>
+                </div>
+              </div>
+
+              <p class="text-sm text-secondary">
+                水泥浆屈服应力的微观起源是<strong>颗粒间絮凝网络的强度</strong>。高效减水剂的加入通过静电斥力与空间位阻效应拆解这一结构，降幅达1-2个数量级。
+                <a href="#" class="citation-link">[1]</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Section 1.2 -->
+          <div id="section1-2" class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">1.2 非牛顿流体的世界</h3>
+
+            <!-- Shear Thinning -->
+            <div class="mb-12">
+              <h4 class="font-semibold text-lg text-primary mb-6">剪切变稀：越搅越稀的奥秘</h4>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm mb-6">
+                <h5 class="font-semibold text-primary mb-4">速率指数 n 的意义</h5>
+                <div class="overflow-x-auto">
+                  <table class="w-full text-sm">
+                    <thead>
+                      <tr class="border-b border-gray-200">
+                        <th class="text-left py-2 font-semibold text-primary">材料类型</th>
+                        <th class="text-left py-2 font-semibold text-primary">n值范围</th>
+                        <th class="text-left py-2 font-semibold text-primary">流变行为</th>
+                        <th class="text-left py-2 font-semibold text-primary">工程表现</th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-secondary">
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2">理想牛顿流体</td>
+                        <td class="py-2">1.0</td>
+                        <td class="py-2">线性流动</td>
+                        <td class="py-2">粘度恒定，与剪切无关</td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2">普通水泥浆</td>
+                        <td class="py-2">0.3–0.7</td>
+                        <td class="py-2">强剪切变稀</td>
+                        <td class="py-2">搅拌变稀，静置变稠</td>
+                      </tr>
+                      <tr>
+                        <td class="py-2">高流动性混凝土</td>
+                        <td class="py-2">0.8–0.95</td>
+                        <td class="py-2">弱剪切变稀</td>
+                        <td class="py-2">流动性稳定，易于控制</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h5 class="font-semibold text-primary mb-4">微观机理</h5>
+                <div class="relative">
+                  <img src="https://kimi-web-img.moonshot.cn/imagegen/20260309/021773064935749350bfaaa79090b0185450c2e11b2823d788fbd_0.jpeg" alt="水泥颗粒絮凝结构剪切破坏显微照片" class="w-full h-48 object-cover rounded-lg mb-4" size="medium" aspect="wide" style="photo" query="水泥颗粒絮凝结构显微镜图" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg flex items-end">
+                    <p class="text-white text-sm p-4">剪切变稀的微观机理：絮凝结构的剪切诱导破坏与颗粒定向排列</p>
+                  </div>
+                </div>
+                <p class="text-sm text-secondary">
+                  低剪切时，颗粒形成各向同性的三维网络，有效体积分数高；高剪切时，水动力克服颗粒间吸引力，网络破坏，颗粒定向排列，粘度随之下降。
+                  <a href="#" class="citation-link">[2]</a>
+                </p>
+              </div>
+            </div>
+
+            <!-- Thixotropy -->
+            <div class="mb-12">
+              <h4 class="font-semibold text-lg text-primary mb-6">触变性：时间带来的记忆效应</h4>
+
+              <div class="grid lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <h5 class="font-semibold text-primary mb-4">触变循环过程</h5>
+                  <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-play text-blue-600 text-xs"></i>
+                      </div>
+                      <div>
+                        <div class="font-medium text-sm">剪切破坏</div>
+                        <div class="text-xs text-secondary">粘度降低，结构破坏</div>
+                      </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-pause text-green-600 text-xs"></i>
+                      </div>
+                      <div>
+                        <div class="font-medium text-sm">静置恢复</div>
+                        <div class="text-xs text-secondary">粘度恢复，结构重建</div>
+                      </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <div class="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                        <i class="fas fa-redo text-accent text-xs"></i>
+                      </div>
+                      <div>
+                        <div class="font-medium text-sm">可逆循环</div>
+                        <div class="text-xs text-secondary">理想触变材料的完全恢复</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <h5 class="font-semibold text-primary mb-4">测试方法</h5>
+                  <div class="space-y-3 text-sm">
+                    <div class="p-3 bg-gray-50 rounded">
+                      <div class="font-medium text-secondary">滞后环实验</div>
+                      <div class="text-xs text-secondary mt-1">上升曲线与下降曲线围成的面积即为触变性的量度</div>
+                    </div>
+                    <div class="p-3 bg-gray-50 rounded">
+                      <div class="font-medium text-secondary">阶跃剪切协议</div>
+                      <div class="text-xs text-secondary mt-1">预剪切后监测应力恢复，直接获取结构恢复动力学</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Viscoelasticity -->
+            <div class="mb-12">
+              <h4 class="font-semibold text-lg text-primary mb-6">粘弹性：固体与液体的双重身份</h4>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm mb-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h5 class="font-semibold text-primary mb-3">动态力学测试</h5>
+                    <div class="space-y-2 text-sm text-secondary">
+                      <p><strong>储能模量 G&#39;</strong> = (τ₀/γ₀)cosδ —— 弹性储存能力</p>
+                      <p><strong>损耗模量 G&#39;&#39;</strong> = (τ₀/γ₀)sinδ —— 粘性耗散能力</p>
+                      <p><strong>损耗因子 tanδ</strong> = G&#39;&#39;/G&#39; —— 粘弹比</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 class="font-semibold text-primary mb-3">行为判据</h5>
+                    <div class="space-y-2">
+                      <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                        <span class="text-sm">G&#39; &gt; G&#39;&#39;：类固体行为</span>
+                      </div>
+                      <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        <span class="text-sm">G&#39; = G&#39;&#39;：流动起始</span>
+                      </div>
+                      <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 bg-accent rounded-full"></div>
+                        <span class="text-sm">G&#39;&#39; &gt; G&#39;：类液体行为</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 1.3 -->
+          <div id="section1-3" class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">1.3 经典流变模型</h3>
+
+            <!-- Bingham Model -->
+            <div class="mb-12">
+              <h4 class="font-semibold text-lg text-primary mb-6">Bingham模型：最简单的塑性流体描述</h4>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm mb-6">
+                <div class="text-center mb-4">
+                  <div class="text-lg font-mono bg-gray-100 p-3 rounded">
+                    τ = τ₀ + μₚ·γ̇ (τ &gt; τ₀)
+                  </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h5 class="font-semibold text-primary mb-3">模型特点</h5>
+                    <ul class="space-y-2 text-sm text-secondary">
+                      <li>• 应力低于τ₀时：刚性固体，无流动</li>
+                      <li>• 超过τ₀后：牛顿流体方式流动</li>
+                      <li>• 参数：τ₀（屈服应力），μₚ（塑性粘度）</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 class="font-semibold text-primary mb-3">工程应用</h5>
+                    <ul class="space-y-2 text-sm text-secondary">
+                      <li>• 泵送压力计算</li>
+                      <li>• 模板侧压力估算</li>
+                      <li>• 质量控制标准</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                <h5 class="font-semibold text-yellow-800 mb-2">
+                  <i class="fas fa-exclamation-triangle mr-2"></i>
+                  模型局限性
+                </h5>
+                <p class="text-sm text-yellow-700">
+                  无法描述剪切变稀行为，实际水泥浆流动曲线通常向下弯曲，直接线性拟合会导致τ₀高估、μₚ低估。
+                </p>
+              </div>
+            </div>
+
+            <!-- Herschel-Bulkley Model -->
+            <div class="mb-12">
+              <h4 class="font-semibold text-lg text-primary mb-6">Herschel-Bulkley模型：捕捉剪切变稀的幂律行为</h4>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm mb-6">
+                <div class="text-center mb-4">
+                  <div class="text-lg font-mono bg-gray-100 p-3 rounded">
+                    τ = τ₀ + K·γ̇ⁿ
+                  </div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                  <div>
+                    <h5 class="font-semibold text-primary mb-2">τ₀</h5>
+                    <p class="text-xs text-secondary">屈服应力，零剪切应力截距</p>
+                  </div>
+                  <div>
+                    <h5 class="font-semibold text-primary mb-2">K</h5>
+                    <p class="text-xs text-secondary">稠度系数，反映整体粘度水平</p>
+                  </div>
+                  <div>
+                    <h5 class="font-semibold text-primary mb-2">n</h5>
+                    <p class="text-xs text-secondary">速率指数，表征剪切变稀程度</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                <h5 class="font-semibold text-green-800 mb-2">
+                  <i class="fas fa-check-circle mr-2"></i>
+                  模型优势
+                </h5>
+                <p class="text-sm text-green-700">
+                  以三个参数为代价，显著扩展描述能力，成为<strong>水泥浆流变研究的首选模型</strong>。当n = 1时退化为Bingham模型，n &lt; 1描述剪切变稀。 </p>
+              </div>
+            </div>
+
+            <!-- Casson Model -->
+            <div class="mb-12">
+              <h4 class="font-semibold text-lg text-primary mb-6">Casson模型：油墨与巧克力的启发</h4>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <div class="text-center mb-4">
+                  <div class="text-lg font-mono bg-gray-100 p-3 rounded">
+                    √τ = √τ₀,𝒸 + √(μ𝒸·γ̇)
+                  </div>
+                </div>
+                <div class="mt-6">
+                  <h5 class="font-semibold text-primary mb-3">模型特点</h5>
+                  <p class="text-sm text-secondary">
+                    对低剪切行为的&#34;柔和&#34;描述：当γ̇ → 0时，τ → τ₀,𝒸，但曲线斜率dτ/dγ̇ → ∞，更接近实际材料的渐进屈服特性。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Model Comparison -->
+            <div class="mb-12">
+              <h4 class="font-semibold text-lg text-primary mb-6">三种模型对比</h4>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <div class="overflow-x-auto">
+                  <table class="w-full text-sm">
+                    <thead>
+                      <tr class="border-b border-gray-200">
+                        <th class="text-left py-3 font-semibold text-primary">模型</th>
+                        <th class="text-left py-3 font-semibold text-primary">参数数量</th>
+                        <th class="text-left py-3 font-semibold text-primary">核心特征</th>
+                        <th class="text-left py-3 font-semibold text-primary">最佳适用场景</th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-secondary">
+                      <tr class="border-b border-gray-100">
+                        <td class="py-3 font-medium">Bingham</td>
+                        <td class="py-3">2</td>
+                        <td class="py-3">线性屈服后流动</td>
+                        <td class="py-3">工程估算、质量控制</td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-3 font-medium">Herschel-Bulkley</td>
+                        <td class="py-3">3</td>
+                        <td class="py-3">幂律型剪切变稀</td>
+                        <td class="py-3">全剪切范围精确描述</td>
+                      </tr>
+                      <tr>
+                        <td class="py-3 font-medium">Casson</td>
+                        <td class="py-3">2</td>
+                        <td class="py-3">渐进屈服，平方根形式</td>
+                        <td class="py-3">低剪切行为重要时</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Chapter 2 -->
+      <section id="chapter2" class="py-16 px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="font-headline text-3xl font-bold text-primary mb-12">2. 胶体化学：水泥颗粒的&#34;社交法则&#34;</h2>
+
+          <!-- Double Electric Layer -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">2.1 双电层与Zeta电位</h3>
+
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+              <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6">
+                <h4 class="font-semibold text-primary mb-4">双电层理论发展</h4>
+                <div class="space-y-4">
+                  <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span class="text-blue-600 font-bold text-xs">1</span>
+                    </div>
+                    <div>
+                      <div class="font-medium text-sm">Helmholtz模型</div>
+                      <div class="text-xs text-secondary">紧密离子平板电容器</div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span class="text-green-600 font-bold text-xs">2</span>
+                    </div>
+                    <div>
+                      <div class="font-medium text-sm">Gouy-Chapman模型</div>
+                      <div class="text-xs text-secondary">离子热扩散分布</div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span class="text-accent font-bold text-xs">3</span>
+                    </div>
+                    <div>
+                      <div class="font-medium text-sm">Stern模型</div>
+                      <div class="text-xs text-secondary">紧密层 + 扩散层</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm border">
+                <h4 class="font-semibold text-primary mb-4">Zeta电位稳定性判据</h4>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center p-2 bg-red-50 rounded">
+                    <span class="text-sm">0 – ±5 mV</span>
+                    <span class="text-xs text-red-600">快速凝结</span>
+                  </div>
+                  <div class="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                    <span class="text-sm">±10 – ±30 mV</span>
+                    <span class="text-xs text-yellow-600">开始不稳定</span>
+                  </div>
+                  <div class="flex justify-between items-center p-2 bg-blue-50 rounded">
+                    <span class="text-sm">±30 – ±40 mV</span>
+                    <span class="text-xs text-blue-600">稳定性一般</span>
+                  </div>
+                  <div class="flex justify-between items-center p-2 bg-green-50 rounded">
+                    <span class="text-sm">±40 – ±60 mV</span>
+                    <span class="text-xs text-green-600">稳定性较好</span>
+                  </div>
+                  <div class="flex justify-between items-center p-2 bg-green-100 rounded">
+                    <span class="text-sm">&gt; ±61 mV</span>
+                    <span class="text-xs text-green-700">稳定性极好</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm mb-8">
+              <h4 class="font-semibold text-primary mb-4">静电斥力的定量描述</h4>
+              <div class="bg-gray-50 p-4 rounded-lg text-center mb-4">
+                <div class="text-lg font-mono">
+                  P<sub>rep</sub> ∝ εᵣε₀κ²ζ²exp(-κh)
+                </div>
+              </div>
+              <div class="grid md:grid-cols-2 gap-6 text-sm">
+                <div>
+                  <h5 class="font-medium text-primary mb-2">关键特征</h5>
+                  <ul class="space-y-1 text-secondary">
+                    <li>• 斥力随Zeta电位平方增大</li>
+                    <li>• 随距离指数衰减</li>
+                    <li>• 高离子强度下作用受限</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="font-medium text-primary mb-2">水泥体系特点</h5>
+                  <ul class="space-y-1 text-secondary">
+                    <li>• 离子强度：0.1–0.5 M</li>
+                    <li>• Debye长度：0.5–1 nm</li>
+                    <li>• 静电作用为短程力</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Steric Hindrance -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">2.2 空间位阻效应</h3>
+
+            <div class="grid lg:grid-cols-3 gap-6 mb-8">
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">PCE分子结构</h4>
+                <div class="mb-4">
+                  <img src="https://kimi-web-img.moonshot.cn/imagegen/20260309/02177306500574060aca928cac1d578fd0339d475d6e2552693c7_0.jpeg" alt="聚羧酸减水剂梳形分子结构示意图" class="w-full h-32 object-cover rounded-lg" size="medium" aspect="wide" style="linedrawing" query="聚羧酸减水剂分子结构" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                </div>
+                <div class="space-y-2 text-xs">
+                  <div class="flex justify-between">
+                    <span class="text-secondary">主链聚合度</span>
+                    <span class="font-medium">50-200</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-secondary">侧链分子量</span>
+                    <span class="font-medium">500-5000 g/mol</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-secondary">接枝密度</span>
+                    <span class="font-medium">0.1-0.5</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">位阻机理</h4>
+                <div class="space-y-4">
+                  <div class="p-3 bg-blue-50 rounded">
+                    <div class="font-medium text-blue-800 text-sm mb-1">渗透排斥</div>
+                    <div class="text-xs text-blue-600">侧链重叠产生渗透压差</div>
+                  </div>
+                  <div class="p-3 bg-green-50 rounded">
+                    <div class="font-medium text-green-800 text-sm mb-1">弹性排斥</div>
+                    <div class="text-xs text-green-600">构象熵减少产生恢复力</div>
+                  </div>
+                </div>
+                <div class="mt-4 p-2 bg-gray-50 rounded">
+                  <div class="text-xs text-secondary">与静电排斥不同，位阻排斥在h ≈ 2L处开始显著，形成&#34;硬壁&#34;效应</div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">协同效应</h4>
+                <div class="space-y-3">
+                  <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                    <span class="text-sm">静电斥力 (1-10 nm)</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span class="text-sm">空间位阻 (10-50 nm)</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-accent rounded-full"></div>
+                    <span class="text-sm">协同稳定 (全距离)</span>
+                  </div>
+                </div>
+                <div class="mt-4 p-3 bg-accent/10 rounded">
+                  <div class="text-xs text-accent font-medium">减水率可达30%-40%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hydration -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">2.3 水泥水化与诱导期</h3>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm mb-8">
+              <h4 class="font-semibold text-primary mb-4">水化反应的流变影响</h4>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h5 class="font-medium text-primary mb-3">主要反应</h5>
+                  <div class="space-y-2">
+                    <div class="p-3 bg-blue-50 rounded">
+                      <div class="font-medium text-blue-800 text-sm">C₃S水化</div>
+                      <div class="text-xs text-blue-600">C₃S + H₂O → C-S-H + Ca(OH)₂</div>
+                      <div class="text-xs text-blue-500 mt-1">主导早期强度发展</div>
+                    </div>
+                    <div class="p-3 bg-green-50 rounded">
+                      <div class="font-medium text-green-800 text-sm">C₃A水化</div>
+                      <div class="text-xs text-green-600">C₃A + 石膏 → 钙矾石(AFt)</div>
+                      <div class="text-xs text-green-500 mt-1">快速反应需缓凝调控</div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h5 class="font-medium text-primary mb-3">时变行为</h5>
+                  <div class="space-y-3">
+                    <div class="p-3 bg-gray-50 rounded">
+                      <div class="font-medium text-sm">静态屈服应力增长</div>
+                      <div class="text-xs text-secondary">τ₀(t) = τ₀₀ + A·tⁿ (n ≈ 0.5-1.0)</div>
+                    </div>
+                    <div class="p-3 bg-gray-50 rounded">
+                      <div class="font-medium text-sm">诱导期</div>
+                      <div class="text-xs text-secondary">1-4小时，工作性保持关键阶段</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Chapter 3 -->
+      <section id="chapter3" class="py-16 px-8 bg-muted">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="font-headline text-3xl font-bold text-primary mb-12">3. 减水剂：水泥浆的&#34;流动魔术师&#34;</h2>
+
+          <!-- PCE Structure -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">3.1 聚羧酸减水剂（PCE）的结构奥秘</h3>
+
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">分子设计参数</h4>
+                <div class="space-y-4">
+                  <div class="border-l-4 border-blue-500 pl-4">
+                    <div class="font-medium text-primary text-sm">主链聚合度 (DP)</div>
+                    <div class="text-xs text-secondary">50-200，影响吸附构型</div>
+                  </div>
+                  <div class="border-l-4 border-green-500 pl-4">
+                    <div class="font-medium text-primary text-sm">羧基密度</div>
+                    <div class="text-xs text-secondary">20%-60%，决定电荷密度</div>
+                  </div>
+                  <div class="border-l-4 border-accent pl-4">
+                    <div class="font-medium text-primary text-sm">侧链分子量</div>
+                    <div class="text-xs text-secondary">500-5000 g/mol，最优2000-3000</div>
+                  </div>
+                  <div class="border-l-4 border-purple-500 pl-4">
+                    <div class="font-medium text-primary text-sm">接枝密度</div>
+                    <div class="text-xs text-secondary">0.1-0.5，影响覆盖均匀性</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">竞争吸附现象</h4>
+                <div class="mb-4">
+                  <img src="https://kimi-web-img.moonshot.cn/imagegen/20260309/0217730649500502eab9fabc9ad84f0428d102c7bd74a7c16a6f5_0.jpeg" alt="水泥颗粒表面聚合物分子竞争吸附现象的显微图像" class="w-full h-32 object-cover rounded-lg" size="medium" aspect="wide" style="photo" query="水泥颗粒聚合物竞争吸附" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                </div>
+                <div class="space-y-3 text-xs">
+                  <div class="p-2 bg-red-50 rounded">
+                    <div class="font-medium text-red-800">短侧链 vs 长侧链</div>
+                    <div class="text-red-600">竞争吸附导致位阻作用变弱</div>
+                  </div>
+                  <div class="p-2 bg-blue-50 rounded">
+                    <div class="font-medium text-blue-800">协同吸附策略</div>
+                    <div class="text-blue-600">快速吸附 + 慢速高稳定性</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Adsorption Mechanism -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">3.2 吸附与分散机理</h3>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm mb-8">
+              <h4 class="font-semibold text-primary mb-4">PCE在水泥表面的吸附行为</h4>
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-magnet text-blue-600 text-xl"></i>
+                  </div>
+                  <h5 class="font-medium text-primary mb-2">静电作用</h5>
+                  <p class="text-xs text-secondary">主链羧酸根与表面Ca²⁺的配位键</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-link text-green-600 text-xl"></i>
+                  </div>
+                  <h5 class="font-medium text-primary mb-2">配位键合</h5>
+                  <p class="text-xs text-secondary">主要吸附力，键能20-40 kJ/mol</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-handshake text-accent text-xl"></i>
+                  </div>
+                  <h5 class="font-medium text-primary mb-2">氢键作用</h5>
+                  <p class="text-xs text-secondary">C-S-H表面Si-OH参与</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Zeta Potential Change -->
+            <div class="bg-white rounded-xl p-6 shadow-sm mb-8">
+              <h4 class="font-semibold text-primary mb-4">Zeta电位变化：从+10mV到-30mV的逆转</h4>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h5 class="font-medium text-primary mb-3">电荷逆转过程</h5>
+                  <div class="space-y-2">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                      <span class="text-sm">0% PCE: +5至+15 mV</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                      <span class="text-sm">0.1-0.3%: 降至0附近</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                      <span class="text-sm">0.3-0.8%: -20至-40 mV</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                      <span class="text-sm">&gt;1.0%: 平台或轻微负移</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h5 class="font-medium text-primary mb-3">分散状态演变</h5>
+                  <div class="space-y-2 text-sm text-secondary">
+                    <div class="p-2 bg-red-50 rounded">快速絮凝，高屈服应力</div>
+                    <div class="p-2 bg-yellow-50 rounded">最不稳定，可能暂时增稠</div>
+                    <div class="p-2 bg-green-50 rounded">良好分散，低屈服应力</div>
+                    <div class="p-2 bg-blue-50 rounded">过稳定，可能粘度反弹</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rheological Effects -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">3.3 减水剂对流变性能的影响</h3>
+
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">屈服应力的显著降低</h4>
+                <div class="space-y-4">
+                  <div class="p-3 bg-gray-50 rounded">
+                    <div class="flex justify-between items-center mb-1">
+                      <span class="text-sm font-medium">无减水剂</span>
+                      <span class="text-sm text-secondary">100-500 Pa</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                      <div class="bg-red-500 h-2 rounded-full" style="width: 100%"></div>
+                    </div>
+                  </div>
+                  <div class="p-3 bg-gray-50 rounded">
+                    <div class="flex justify-between items-center mb-1">
+                      <span class="text-sm font-medium">0.5% PCE</span>
+                      <span class="text-sm text-secondary">10-50 Pa</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                      <div class="bg-yellow-500 h-2 rounded-full" style="width: 20%"></div>
+                    </div>
+                  </div>
+                  <div class="p-3 bg-gray-50 rounded">
+                    <div class="flex justify-between items-center mb-1">
+                      <span class="text-sm font-medium">1.0% PCE</span>
+                      <span class="text-sm text-secondary">1-10 Pa</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                      <div class="bg-green-500 h-2 rounded-full" style="width: 5%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-4 p-3 bg-green-50 rounded">
+                  <div class="text-sm text-green-800 font-medium">降低幅度：90-98%</div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">塑性粘度的优化</h4>
+                <div class="space-y-4">
+                  <div class="border-l-4 border-blue-500 pl-4">
+                    <div class="font-medium text-blue-800 text-sm mb-1">低掺量 (&lt; 0.3%)</div>
+                        <div class="text-xs text-blue-600">絮凝体拆解 vs PCE溶液增粘竞争</div>
+                    </div>
+                    <div class="border-l-4 border-green-500 pl-4">
+                      <div class="font-medium text-green-800 text-sm mb-1">中掺量 (0.3-0.8%)</div>
+                      <div class="text-xs text-green-600">分散效应主导，有效体积分数降低</div>
+                    </div>
+                    <div class="border-l-4 border-accent pl-4">
+                      <div class="font-medium text-accent text-sm mb-1">高掺量 (&gt; 1.0%)</div>
+                      <div class="text-xs">有序结构形成，溶剂化层增厚</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">触变性的调控</h4>
+                <div class="overflow-x-auto">
+                  <table class="w-full text-sm">
+                    <thead>
+                      <tr class="border-b border-gray-200">
+                        <th class="text-left py-2 font-semibold text-primary">指标</th>
+                        <th class="text-left py-2 font-semibold text-primary">无PCE</th>
+                        <th class="text-left py-2 font-semibold text-primary">含PCE</th>
+                        <th class="text-left py-2 font-semibold text-primary">变化趋势</th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-secondary">
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2 font-medium">滞后环面积</td>
+                        <td class="py-2">大</td>
+                        <td class="py-2">小</td>
+                        <td class="py-2 text-green-600">减小</td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-2 font-medium">触变指数 TI</td>
+                        <td class="py-2">&gt;5</td>
+                        <td class="py-2">2-5</td>
+                        <td class="py-2 text-green-600">降低</td>
+                      </tr>
+                      <tr>
+                        <td class="py-2 font-medium">结构恢复率</td>
+                        <td class="py-2">&lt; 80%</td>
+                            <td class="py-2">&gt; 90%</td>
+                        <td class="py-2 text-green-600">提高</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="mt-4 p-3 bg-blue-50 rounded">
+                  <div class="text-sm text-blue-800">
+                    <i class="fas fa-info-circle mr-1"></i>
+                    PCE通过维持颗粒分散，延缓物理絮凝，改善结构破坏-重建的可逆性
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Chapter 4 -->
+      <section id="chapter4" class="py-16 px-8 bg-muted">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="font-headline text-3xl font-bold text-primary mb-12">4. 水泥基材料体系：从净浆到混凝土</h2>
+
+          <!-- Basic Composition -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">4.1 基本组成与配比参数</h3>
+
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">关键配比参数</h4>
+                <div class="space-y-4">
+                  <div class="p-4 bg-blue-50 rounded-lg">
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="font-medium text-blue-800">水灰比 w/c</span>
+                      <span class="text-sm text-blue-600">0.40-0.60</span>
+                    </div>
+                    <div class="text-xs text-blue-600">降低→粘度↑，强度↑，耐久性↑</div>
+                  </div>
+                  <div class="p-4 bg-green-50 rounded-lg">
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="font-medium text-green-800">水胶比 w/b</span>
+                      <span class="text-sm text-green-600">多元胶凝体系</span>
+                    </div>
+                    <div class="text-xs text-green-600">更准确反映胶凝材料总量</div>
+                  </div>
+                  <div class="p-4 bg-accent/10 rounded-lg">
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="font-medium">胶砂比 c:s</span>
+                      <span class="text-sm">瓷砖胶1:3，灌浆料1:1</span>
+                    </div>
+                    <div class="text-xs">影响砂浆稠度和保水性</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">水泥细度影响</h4>
+                <div class="space-y-3">
+                  <div class="border-l-4 border-blue-500 pl-4">
+                    <div class="font-medium text-blue-800 text-sm">普通硅酸盐水泥</div>
+                    <div class="text-xs text-blue-600">300-400 m²/kg，标准流变行为</div>
+                  </div>
+                  <div class="border-l-4 border-green-500 pl-4">
+                    <div class="font-medium text-green-800 text-sm">超细水泥</div>
+                    <div class="text-xs text-green-600">&gt;600 m²/kg，强烈时变，高粘度</div>
+                  </div>
+                  <div class="border-l-4 border-accent pl-4">
+                    <div class="font-medium text-sm">硅灰</div>
+                    <div class="text-xs">15,000-30,000 m²/kg，极高水需求</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mineral Admixtures -->
+            <div class="bg-white rounded-xl p-6 shadow-sm mb-8">
+              <h4 class="font-semibold text-primary mb-4">矿物掺合料的流变效应</h4>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead>
+                    <tr class="border-b border-gray-200">
+                      <th class="text-left py-3 font-semibold text-primary">掺合料</th>
+                      <th class="text-left py-3 font-semibold text-primary">颗粒特征</th>
+                      <th class="text-left py-3 font-semibold text-primary">流变效应</th>
+                      <th class="text-left py-3 font-semibold text-primary">与PCE交互</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-secondary">
+                    <tr class="border-b border-gray-100">
+                      <td class="py-3 font-medium">粉煤灰（FA）</td>
+                      <td class="py-3">球形玻璃微珠，表面光滑</td>
+                      <td class="py-3">&#34;滚珠效应&#34;降低摩擦</td>
+                      <td class="py-3">低钙FA提高PCE效率</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-3 font-medium">矿粉（GGBFS）</td>
+                      <td class="py-3">棱角形，表面粗糙</td>
+                      <td class="py-3">初期略增粘，长期优化</td>
+                      <td class="py-3">碱性激发影响诱导期</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3 font-medium">硅灰（SF）</td>
+                      <td class="py-3">极细球形，d₅₀~0.1 μm</td>
+                      <td class="py-3">极高比表面积，剧烈增粘</td>
+                      <td class="py-3">竞争PCE，需专用配方</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Functional Materials -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">4.2 功能性材料</h3>
+
+            <div class="grid lg:grid-cols-3 gap-6 mb-8">
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">高触变砂浆</h4>
+                <div class="mb-4">
+                  <div class="text-sm font-medium text-secondary mb-2">核心矛盾</div>
+                  <div class="text-xs text-secondary">施工时低粘度 vs 施工后高粘度</div>
+                </div>
+                <div class="space-y-2 text-xs">
+                  <div class="flex justify-between">
+                    <span>PCE减水剂</span>
+                    <span class="text-accent">0.2%-0.5%</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>纤维素醚</span>
+                    <span class="text-accent">0.05%-0.2%</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>粘土矿物</span>
+                    <span class="text-accent">0.5%-2%</span>
+                  </div>
+                </div>
+                <div class="mt-4 p-2 bg-green-50 rounded">
+                  <div class="text-xs text-green-800">最优配比：PCE 0.03% + HPMC 0.10%</div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">自密实混凝土</h4>
+                <div class="space-y-3">
+                  <div class="p-2 bg-blue-50 rounded">
+                    <div class="font-medium text-blue-800 text-xs">τ₀,𝒹 &lt; 50 Pa</div>
+                        <div class="text-xs text-blue-600">高效PCE，低屈服应力</div>
+                    </div>
+                    <div class="p-2 bg-green-50 rounded">
+                      <div class="font-medium text-green-800 text-xs">μₚ: 20-150 Pa·s</div>
+                      <div class="text-xs text-green-600">优化级配，粘度改性剂</div>
+                    </div>
+                    <div class="p-2 bg-accent/10 rounded">
+                      <div class="font-medium text-xs">筛分稳定率&gt;90%</div>
+                      <div class="text-xs">高粘度、适度触变性</div>
+                    </div>
+                  </div>
+                  <div class="mt-4 text-xs text-secondary">
+                    设计方法：欧洲填料优化 + 日本增稠剂 + 美国结合
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <h4 class="font-semibold text-primary mb-4">喷射混凝土</h4>
+                  <div class="space-y-3">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-pump-soap text-blue-600 text-xs"></i>
+                      </div>
+                      <div>
+                        <div class="font-medium text-sm">泵送</div>
+                        <div class="text-xs text-secondary">低粘度、良好流动性</div>
+                      </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-spray-can text-green-600 text-xs"></i>
+                      </div>
+                      <div>
+                        <div class="font-medium text-sm">喷嘴雾化</div>
+                        <div class="text-xs text-secondary">适当粘度、易于雾化</div>
+                      </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <div class="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                        <i class="fas fa-wall-brick text-accent text-xs"></i>
+                      </div>
+                      <div>
+                        <div class="font-medium text-sm">撞击壁面</div>
+                        <div class="text-xs text-secondary">快速增稠、粘附、抗流挂</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mt-4 p-2 bg-accent/10 rounded">
+                    <div class="text-xs text-accent">速凝剂与PCE的精确平衡</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Chapter 5 -->
+      <section id="chapter5" class="py-16 px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="font-headline text-3xl font-bold text-primary mb-12">5. 流变测试技术：仪器与协议</h2>
+
+          <!-- Rotational Rheometer -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">5.1 旋转流变仪的构造与原理</h3>
+
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+              <div class="bg-white rounded-xl p-6 shadow-sm border">
+                <h4 class="font-semibold text-primary mb-4">同轴圆筒：水泥浆测试首选</h4>
+                <div class="mb-4">
+                  <img src="https://kimi-web-img.moonshot.cn/img/pic4.zhimg.com/4237e44a743a07ae450a1727d16492092a48e2f8.jpg" alt="旋转流变仪同轴圆筒夹具" class="w-full h-48 object-cover rounded-lg" size="medium" aspect="wide" style="photo" query="同轴圆筒流变仪" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                    <span class="text-sm font-medium">间隙宽度 d</span>
+                    <span class="text-sm text-secondary">1-5 mm (净浆)</span>
+                  </div>
+                  <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                    <span class="text-sm font-medium">间隙比 δ</span>
+                    <span class="text-sm text-secondary">0.02-0.1</span>
+                  </div>
+                  <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                    <span class="text-sm font-medium">表面粗糙度</span>
+                    <span class="text-sm text-secondary">Ra 5-20 μm</span>
+                  </div>
+                </div>
+                <div class="mt-4 p-3 bg-blue-50 rounded">
+                  <div class="text-xs text-blue-800">
+                    <strong>设计原则：</strong>间隙 &gt; 5-10倍最大颗粒粒径，避免堵塞
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm border">
+                <h4 class="font-semibold text-primary mb-4">其他几何配置</h4>
+                <div class="space-y-4">
+                  <div class="p-4 border border-gray-200 rounded-lg">
+                    <div class="flex items-center space-x-3 mb-2">
+                      <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-layer-group text-gray-600 text-xs"></i>
+                      </div>
+                      <span class="font-medium text-primary">平行板</span>
+                    </div>
+                    <div class="text-xs text-secondary">间隙可调，便于观察，适用于膏体材料</div>
+                  </div>
+                  <div class="p-4 border border-gray-200 rounded-lg">
+                    <div class="flex items-center space-x-3 mb-2">
+                      <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-shapes text-gray-600 text-xs"></i>
+                      </div>
+                      <span class="font-medium text-primary">锥板</span>
+                    </div>
+                    <div class="text-xs text-secondary">理论剪切速率均匀，适用于均匀流体</div>
+                  </div>
+                </div>
+                <div class="mt-6 p-3 bg-green-50 rounded">
+                  <div class="text-xs text-green-800">
+                    <i class="fas fa-check-circle mr-1"></i>
+                    <strong>推荐：</strong>同轴圆筒是水泥浆测试的标准配置
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm mb-8">
+              <h4 class="font-semibold text-primary mb-4">仪器校准与间隙设定</h4>
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-balance-scale text-blue-600 text-xl"></i>
+                  </div>
+                  <h5 class="font-medium text-primary mb-2">扭矩校准</h5>
+                  <p class="text-xs text-secondary">标准粘度液（硅油）</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-ruler text-green-600 text-xl"></i>
+                  </div>
+                  <h5 class="font-medium text-primary mb-2">间隙校准</h5>
+                  <p class="text-xs text-secondary">标准厚度规，零点确定</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-thermometer-half text-accent text-xl"></i>
+                  </div>
+                  <h5 class="font-medium text-primary mb-2">温度校准</h5>
+                  <p class="text-xs text-secondary">标准温度计，循环水浴</p>
+                </div>
+              </div>
+              <div class="mt-6 p-4 bg-yellow-50 rounded-lg">
+                <div class="text-sm text-yellow-800">
+                  <i class="fas fa-exclamation-triangle mr-2"></i>
+                  <strong>关键控制：</strong>温度20±0.5°C，样品恒温时间&gt;5分钟，避免水化放热干扰
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Steady State Tests -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">5.2 稳态流变测试</h3>
+
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">剪切速率扫描协议</h4>
+                <div class="space-y-4">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                      <span class="text-blue-600 font-bold text-xs">1</span>
+                    </div>
+                    <div>
+                      <div class="font-medium text-sm">预剪切</div>
+                      <div class="text-xs text-secondary">100 s⁻¹，60-120秒</div>
+                    </div>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                      <span class="text-green-600 font-bold text-xs">2</span>
+                    </div>
+                    <div>
+                      <div class="font-medium text-sm">静置恢复</div>
+                      <div class="text-xs text-secondary">30-60秒</div>
+                    </div>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                      <span class="text-accent font-bold text-xs">3</span>
+                    </div>
+                    <div>
+                      <div class="font-medium text-sm">对数递增扫描</div>
+                      <div class="text-xs text-secondary">10-20个点/十倍程</div>
+                    </div>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                      <span class="text-purple-600 font-bold text-xs">4</span>
+                    </div>
+                    <div>
+                      <div class="font-medium text-sm">范围覆盖</div>
+                      <div class="text-xs text-secondary">10⁻²–10² s⁻¹</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-4 p-3 bg-blue-50 rounded">
+                  <div class="text-xs text-blue-800">建议采用阶梯式扫描，确保每点达到稳态</div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">应力扫描：确定线性粘弹区</h4>
+                <div class="mb-4">
+                  <img src="https://kimi-web-img.moonshot.cn/img/www.tainstruments.com.cn/f59ec8afe0b819f1c7731af73918bc97c6d0049e.png" alt="实验室中的流变仪设备" class="w-full h-32 object-cover rounded-lg" size="medium" aspect="wide" style="photo" query="流变仪" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                </div>
+                <div class="space-y-3">
+                  <div class="p-3 bg-green-50 rounded">
+                    <div class="font-medium text-green-800 text-sm mb-1">线性粘弹区 (LVR)</div>
+                    <div class="text-xs text-green-600">G&#39;恒定，结构未破坏</div>
+                  </div>
+                  <div class="p-3 bg-yellow-50 rounded">
+                    <div class="font-medium text-yellow-800 text-sm mb-1">临界应变 γc</div>
+                    <div class="text-xs text-yellow-600">G&#39;下降5%或10%</div>
+                  </div>
+                  <div class="p-3 bg-red-50 rounded">
+                    <div class="font-medium text-red-800 text-sm mb-1">非线性区</div>
+                    <div class="text-xs text-red-600">G&#39;急剧下降，结构破坏</div>
+                  </div>
+                </div>
+                <div class="mt-4 p-2 bg-gray-50 rounded">
+                  <div class="text-xs text-secondary">水泥浆的γc通常&lt; 1%，反映絮凝结构的脆弱性</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm mb-8">
+                <h4 class="font-semibold text-primary mb-4">屈服应力的测定方法</h4>
+                <div class="overflow-x-auto">
+                  <table class="w-full text-sm">
+                    <thead>
+                      <tr class="border-b border-gray-200">
+                        <th class="text-left py-3 font-semibold text-primary">方法</th>
+                        <th class="text-left py-3 font-semibold text-primary">原理</th>
+                        <th class="text-left py-3 font-semibold text-primary">测得值</th>
+                        <th class="text-left py-3 font-semibold text-primary">特点</th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-secondary">
+                      <tr class="border-b border-gray-100">
+                        <td class="py-3 font-medium">流动曲线外推</td>
+                        <td class="py-3">Bingham/H-B/Casson拟合</td>
+                        <td class="py-3">动态屈服应力 τ₀,𝒹</td>
+                        <td class="py-3">模型依赖，操作简便</td>
+                      </tr>
+                      <tr class="border-b border-gray-100">
+                        <td class="py-3 font-medium">应力增长实验</td>
+                        <td class="py-3">线性增加应力，检测流动起始</td>
+                        <td class="py-3">静态屈服应力 τ₀,ₛ</td>
+                        <td class="py-3">直接测量，速率依赖</td>
+                      </tr>
+                      <tr>
+                        <td class="py-3 font-medium">振荡振幅扫描</td>
+                        <td class="py-3">G&#39;急剧下降点</td>
+                        <td class="py-3">线性屈服应力</td>
+                        <td class="py-3">与LVR关联</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic Tests -->
+            <div class="mb-16">
+              <h3 class="font-headline text-2xl font-semibold text-primary mb-8">5.3 动态流变测试</h3>
+
+              <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <h4 class="font-semibold text-primary mb-4">频率扫描：储能模量与损耗模量</h4>
+                  <div class="space-y-4">
+                    <div class="p-3 bg-blue-50 rounded">
+                      <div class="font-medium text-blue-800 text-sm mb-1">低频 (ω &lt; 1 rad/s)</div>
+                          <div class="text-xs text-blue-600">G&#39;平台或弱增长，长期结构稳定性</div>
+                      </div>
+                      <div class="p-3 bg-green-50 rounded">
+                        <div class="font-medium text-green-800 text-sm mb-1">高频 (ω &gt; 10 rad/s)</div>
+                        <div class="text-xs text-green-600">G&#39; ∝ ω^α，短程弹性响应</div>
+                      </div>
+                      <div class="p-3 bg-accent/10 rounded">
+                        <div class="font-medium text-sm mb-1">交叉频率 ωc</div>
+                        <div class="text-xs">G&#39;=G&#39;&#39;，特征松弛时间 τ = 1/ωc</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <h4 class="font-semibold text-primary mb-4">振荡测试：粘弹性量化</h4>
+                    <div class="space-y-3">
+                      <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                        <span class="text-sm font-medium">复数模量 G*</span>
+                        <span class="text-sm text-secondary">√(G&#39;² + G&#39;&#39;²)</span>
+                      </div>
+                      <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                        <span class="text-sm font-medium">损耗因子 tanδ</span>
+                        <span class="text-sm text-secondary">G&#39;&#39;/G&#39;</span>
+                      </div>
+                      <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                        <span class="text-sm font-medium">复数粘度 η*</span>
+                        <span class="text-sm text-secondary">G*/ω</span>
+                      </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-blue-50 rounded">
+                      <div class="text-xs text-blue-800">
+                        <strong>物理意义：</strong>综合反映材料的粘弹比和总刚度
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Thixotropy Tests -->
+              <div class="mb-16">
+                <h3 class="font-headline text-2xl font-semibold text-primary mb-8">5.4 触变性测试协议</h3>
+
+                <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                  <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <h4 class="font-semibold text-primary mb-4">预剪切与静置恢复程序</h4>
+                    <div class="space-y-4">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                          <span class="text-red-600 font-bold text-xs">1</span>
+                        </div>
+                        <div>
+                          <div class="font-medium text-sm">预剪切</div>
+                          <div class="text-xs text-secondary">高剪切，破坏结构</div>
+                        </div>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+                          <span class="text-yellow-600 font-bold text-xs">2</span>
+                        </div>
+                        <div>
+                          <div class="font-medium text-sm">静置恢复</div>
+                          <div class="text-xs text-secondary">零剪切，时间tᵣ</div>
+                        </div>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                          <span class="text-green-600 font-bold text-xs">3</span>
+                        </div>
+                        <div>
+                          <div class="font-medium text-sm">测试</div>
+                          <div class="text-xs text-secondary">低剪切粘度或动态模量</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-red-50 rounded">
+                      <div class="text-xs text-red-800">标准三段式协议，评估结构恢复程度</div>
+                    </div>
+                  </div>
+
+                  <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <h4 class="font-semibold text-primary mb-4">滞后环实验</h4>
+                    <div class="mb-4">
+                      <img src="https://kimi-web-img.moonshot.cn/img/csg-upload.oss-cn-beijing.aliyuncs.com/b8ce3474956dcba03a2cd4fb0235ef2c3a759435.png" alt="旋转流变仪测试样品" class="w-full h-32 object-cover rounded-lg" size="medium" aspect="wide" style="photo" query="旋转流变仪" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                    </div>
+                    <div class="space-y-3">
+                      <div class="p-3 bg-blue-50 rounded">
+                        <div class="font-medium text-blue-800 text-sm mb-1">上升曲线</div>
+                        <div class="text-xs text-blue-600">剪切速率对数增加至γ̇ₘₐₓ</div>
+                      </div>
+                      <div class="p-3 bg-green-50 rounded">
+                        <div class="font-medium text-green-800 text-sm mb-1">下降曲线</div>
+                        <div class="text-xs text-green-600">对称降回γ̇ₘᵢₙ</div>
+                      </div>
+                      <div class="p-3 bg-accent/10 rounded">
+                        <div class="font-medium text-sm mb-1">滞后环面积</div>
+                        <div class="text-xs">总能量耗散，触变性量度</div>
+                      </div>
+                    </div>
+                    <div class="mt-4 p-2 bg-yellow-50 rounded">
+                      <div class="text-xs text-yellow-800">
+                        <i class="fas fa-exclamation-triangle mr-1"></i>
+                        面积强烈依赖测试条件，跨研究比较需谨慎
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <h4 class="font-semibold text-primary mb-4">触变指数与结构恢复率</h4>
+                  <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                      <thead>
+                        <tr class="border-b border-gray-200">
+                          <th class="text-left py-3 font-semibold text-primary">指标</th>
+                          <th class="text-left py-3 font-semibold text-primary">定义</th>
+                          <th class="text-left py-3 font-semibold text-primary">应用</th>
+                        </tr>
+                      </thead>
+                      <tbody class="text-secondary">
+                        <tr class="border-b border-gray-100">
+                          <td class="py-3 font-medium">触变指数 TI</td>
+                          <td class="py-3">η_low/η_high 或 τ_low/τ_high</td>
+                          <td class="py-3">快速比较，工程常用</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                          <td class="py-3 font-medium">结构恢复率 SR</td>
+                          <td class="py-3">(η_recovered - η_min)/(η_initial - η_min) × 100%</td>
+                          <td class="py-3">定量恢复程度</td>
+                        </tr>
+                        <tr>
+                          <td class="py-3 font-medium">恢复速率常数 k</td>
+                          <td class="py-3">拟合η(t) = η_eq + (η₀-η_eq)exp(-kt)</td>
+                          <td class="py-3">动力学表征</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Chapter 6 -->
+      <section id="chapter6" class="py-16 px-8 bg-muted">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="font-headline text-3xl font-bold text-primary mb-12">6. 性能参数解读：从数据到物理意义</h2>
+
+          <!-- Yield Stress -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">6.1 屈服应力的多重面貌</h3>
+
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">静态屈服应力：从静止到流动的临界点</h4>
+                <div class="mb-4">
+                  <img src="https://kimi-web-img.moonshot.cn/imagegen/20260309/021773064993103a292fc2ba91e79c594f032f5a64a4fe020b1b0_0.jpeg" alt="水泥浆体屈服应力测试实验过程照片" class="w-full h-32 object-cover rounded-lg" size="medium" aspect="wide" style="photo" query="水泥浆屈服应力测试" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                </div>
+                <div class="space-y-3">
+                  <div class="p-3 bg-blue-50 rounded">
+                    <div class="font-medium text-blue-800 text-sm mb-1">定义</div>
+                    <div class="text-xs text-blue-600">材料从完全静止状态开始流动的最大阻力</div>
+                  </div>
+                  <div class="p-3 bg-green-50 rounded">
+                    <div class="font-medium text-green-800 text-sm mb-1">测定方法</div>
+                    <div class="text-xs text-green-600">应力增长实验，蠕变恢复实验</div>
+                  </div>
+                  <div class="p-3 bg-accent/10 rounded">
+                    <div class="font-medium text-sm mb-1">工程关联</div>
+                    <div class="text-xs">模板填充稳定性、抗沉降能力</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">动态屈服应力：持续流动中的残余结构</h4>
+                <div class="space-y-3">
+                  <div class="p-3 bg-blue-50 rounded">
+                    <div class="font-medium text-blue-800 text-sm mb-1">定义</div>
+                    <div class="text-xs text-blue-600">结构部分破坏后维持流动所需的应力</div>
+                  </div>
+                  <div class="p-3 bg-green-50 rounded">
+                    <div class="font-medium text-green-800 text-sm mb-1">测定方法</div>
+                    <div class="text-xs text-green-600">流动曲线模型拟合</div>
+                  </div>
+                  <div class="p-3 bg-accent/10 rounded">
+                    <div class="font-medium text-sm mb-1">工程关联</div>
+                    <div class="text-xs">泵送阻力、连续浇筑流动性</div>
+                  </div>
+                </div>
+                <div class="mt-4 p-3 bg-yellow-50 rounded">
+                  <div class="text-sm text-yellow-800">
+                    <strong>关系：</strong>τ₀,ₛ - τ₀,𝒹 = 可逆结构强度，与触变性直接相关
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm mb-8">
+              <h4 class="font-semibold text-primary mb-4">两种屈服应力的测定与比较</h4>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead>
+                    <tr class="border-b border-gray-200">
+                      <th class="text-left py-3 font-semibold text-primary">特征</th>
+                      <th class="text-left py-3 font-semibold text-primary">静态屈服应力 τ₀,ₛ</th>
+                      <th class="text-left py-3 font-semibold text-primary">动态屈服应力 τ₀,𝒹</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-secondary">
+                    <tr class="border-b border-gray-100">
+                      <td class="py-3 font-medium">数值关系</td>
+                      <td class="py-3">较高</td>
+                      <td class="py-3">较低（通常低20%-100%）</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-3 font-medium">结构状态</td>
+                      <td class="py-3">完全建立</td>
+                      <td class="py-3">部分破坏</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-3 font-medium">测定方法</td>
+                      <td class="py-3">应力增长、蠕变</td>
+                      <td class="py-3">流动曲线外推</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3 font-medium">主要应用</td>
+                      <td class="py-3">启动行为、稳定性</td>
+                      <td class="py-3">持续流动、泵送设计</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Viscosity Family -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">6.2 粘度家族</h3>
+
+            <div class="grid lg:grid-cols-3 gap-6 mb-8">
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">塑性粘度</h4>
+                <div class="mb-4">
+                  <div class="text-lg font-mono bg-gray-100 p-3 rounded text-center">
+                    μₚ (Bingham模型)
+                  </div>
+                </div>
+                <div class="space-y-3">
+                  <div class="p-3 bg-blue-50 rounded">
+                    <div class="font-medium text-blue-800 text-sm mb-1">物理意义</div>
+                    <div class="text-xs text-blue-600">结构完全破坏后的纯粘性阻力</div>
+                  </div>
+                  <div class="p-3 bg-green-50 rounded">
+                    <div class="font-medium text-green-800 text-sm mb-1">来源</div>
+                    <div class="text-xs text-green-600">颗粒-流体摩擦、颗粒碰撞</div>
+                  </div>
+                  <div class="p-3 bg-accent/10 rounded">
+                    <div class="font-medium text-sm mb-1">典型范围</div>
+                    <div class="text-xs">水泥净浆：0.1-1 Pa·s</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">表观粘度</h4>
+                <div class="mb-4">
+                  <div class="text-lg font-mono bg-gray-100 p-3 rounded text-center">
+                    ηₐₚₚ = τ/γ̇
+                  </div>
+                </div>
+                <div class="space-y-3">
+                  <div class="p-3 bg-blue-50 rounded">
+                    <div class="font-medium text-blue-800 text-sm mb-1">特点</div>
+                    <div class="text-xs text-blue-600">特定条件下的瞬时比值</div>
+                  </div>
+                  <div class="p-3 bg-green-50 rounded">
+                    <div class="font-medium text-green-800 text-sm mb-1">依赖性</div>
+                    <div class="text-xs text-green-600">强烈剪切依赖</div>
+                  </div>
+                  <div class="p-3 bg-accent/10 rounded">
+                    <div class="font-medium text-sm mb-1">工程应用</div>
+                    <div class="text-xs">报告特定剪切速率下的值</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">零剪切粘度</h4>
+                <div class="mb-4">
+                  <div class="text-lg font-mono bg-gray-100 p-3 rounded text-center">
+                    η₀ (γ̇→0极限)
+                  </div>
+                </div>
+                <div class="space-y-3">
+                  <div class="p-3 bg-blue-50 rounded">
+                    <div class="font-medium text-blue-800 text-sm mb-1">特性</div>
+                    <div class="text-xs text-blue-600">具有屈服应力材料的理论极限</div>
+                  </div>
+                  <div class="p-3 bg-yellow-50 rounded">
+                    <div class="font-medium text-yellow-800 text-sm mb-1">行为</div>
+                    <div class="text-xs text-yellow-600">理论上→∞（有屈服应力时）</div>
+                  </div>
+                  <div class="p-3 bg-accent/10 rounded">
+                    <div class="font-medium text-sm mb-1">描述</div>
+                    <div class="text-xs">极低剪切下用粘弹性模型更恰当</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Viscoelastic Parameters -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">6.3 粘弹性参数</h3>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm mb-8">
+              <h4 class="font-semibold text-primary mb-4">储能模量G&#39;与损耗模量G&#39;&#39;</h4>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h5 class="font-medium text-primary mb-3">储能模量 G&#39;</h5>
+                  <div class="space-y-2 text-sm">
+                    <div class="p-2 bg-blue-50 rounded">
+                      <div class="font-medium text-blue-800 text-xs mb-1">物理意义</div>
+                      <div class="text-xs text-blue-600">弹性储存能力，颗粒网络弹性变形</div>
+                    </div>
+                    <div class="p-2 bg-green-50 rounded">
+                      <div class="font-medium text-green-800 text-xs mb-1">典型值</div>
+                      <div class="text-xs text-green-600">新鲜水泥浆：10²–10⁴ Pa</div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h5 class="font-medium text-primary mb-3">损耗模量 G&#39;&#39;</h5>
+                  <div class="space-y-2 text-sm">
+                    <div class="p-2 bg-blue-50 rounded">
+                      <div class="font-medium text-blue-800 text-xs mb-1">物理意义</div>
+                      <div class="text-xs text-blue-600">粘性耗散能力，能量转化为热</div>
+                    </div>
+                    <div class="p-2 bg-green-50 rounded">
+                      <div class="font-medium text-green-800 text-xs mb-1">来源</div>
+                      <div class="text-xs text-green-600">颗粒滑移、液相流动、结构重排</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+              <h4 class="font-semibold text-primary mb-4">综合粘弹性指标</h4>
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-wave-square text-blue-600 text-xl"></i>
+                  </div>
+                  <h5 class="font-medium text-primary mb-2">复数模量 G*</h5>
+                  <p class="text-sm font-mono mb-1">√(G&#39;² + G&#39;&#39;²)</p>
+                  <p class="text-xs text-secondary">总抵抗变形能力</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-balance-scale text-green-600 text-xl"></i>
+                  </div>
+                  <h5 class="font-medium text-primary mb-2">损耗因子 tanδ</h5>
+                  <p class="text-sm font-mono mb-1">G&#39;&#39;/G&#39;</p>
+                  <p class="text-xs text-secondary">粘弹比：&lt;1弹性，&gt;1粘性</p>
+                  </div>
+                  <div class="text-center">
+                    <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <i class="fas fa-clock text-accent text-xl"></i>
+                    </div>
+                    <h5 class="font-medium text-primary mb-2">特征时间 τ</h5>
+                    <p class="text-sm font-mono mb-1">1/ωc</p>
+                    <p class="text-xs text-secondary">结构响应的时间尺度</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div></section>
+
+      <div class="section-divider"></div>
+
+      <!-- Chapter 7 -->
+      <section id="chapter7" class="py-16 px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="font-headline text-3xl font-bold text-primary mb-12">7. 数据分析与建模：从实验到理论</h2>
+
+          <!-- Model Fitting -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">7.1 流动曲线的模型拟合</h3>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm border mb-8">
+              <h4 class="font-semibold text-primary mb-4">Origin软件中的非线性拟合</h4>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h5 class="font-medium text-primary mb-3">操作步骤</h5>
+                  <div class="space-y-2 text-sm">
+                    <div class="flex items-center space-x-2">
+                      <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                        <span class="text-blue-600 text-xs font-bold">1</span>
+                      </div>
+                      <span class="text-secondary">数据导入：剪切速率-剪切应力数据对</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                      <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                        <span class="text-green-600 text-xs font-bold">2</span>
+                      </div>
+                      <span class="text-secondary">模型选择：Analysis → Fitting → Nonlinear Curve Fit</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                      <div class="w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center">
+                        <span class="text-accent text-xs font-bold">3</span>
+                      </div>
+                      <span class="text-secondary">自定义函数编写（H-B模型）</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                      <div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center">
+                        <span class="text-purple-600 text-xs font-bold">4</span>
+                      </div>
+                      <span class="text-secondary">参数约束与迭代优化</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                      <div class="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center">
+                        <span class="text-orange-600 text-xs font-bold">5</span>
+                      </div>
+                      <span class="text-secondary">结果评估：R²、残差图、置信区间</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h5 class="font-medium text-primary mb-3">Herschel-Bulkley函数</h5>
+                  <div class="bg-gray-100 p-3 rounded-lg font-mono text-sm">
+                    y = y0 + A * pow(x, n)
+                    <br/>
+                    <span class="text-xs text-secondary">// τ = τ₀ + K·γ̇ⁿ</span>
+                  </div>
+                  <div class="mt-4 space-y-2">
+                    <div class="p-2 bg-yellow-50 rounded">
+                      <div class="text-xs text-yellow-800">参数约束：n &gt; 0，建议n &lt; 2</div>
+                      </div>
+                      <div class="p-2 bg-blue-50 rounded">
+                        <div class="text-xs text-blue-800">算法：Levenberg-Marquardt</div>
+                      </div>
+                      <div class="p-2 bg-green-50 rounded">
+                        <div class="text-xs text-green-800">评估：R² &gt; 0.99优秀</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid lg:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <h4 class="font-semibold text-primary mb-4">Bingham模型拟合</h4>
+                  <div class="space-y-3">
+                    <div class="p-3 bg-blue-50 rounded">
+                      <div class="font-medium text-blue-800 text-sm mb-1">策略</div>
+                      <div class="text-xs text-blue-600">线性拟合 τ vs γ̇（γ̇ &gt; γ̇_critical）</div>
+                    </div>
+                    <div class="p-3 bg-green-50 rounded">
+                      <div class="font-medium text-green-800 text-sm mb-1">初值估计</div>
+                      <div class="text-xs text-green-600">τ₀≈低γ̇外推，μₚ≈斜率</div>
+                    </div>
+                    <div class="p-3 bg-yellow-50 rounded">
+                      <div class="font-medium text-yellow-800 text-sm mb-1">注意</div>
+                      <div class="text-xs text-yellow-600">仅使用线性区数据</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <h4 class="font-semibold text-primary mb-4">Herschel-Bulkley拟合</h4>
+                  <div class="space-y-3">
+                    <div class="p-3 bg-blue-50 rounded">
+                      <div class="font-medium text-blue-800 text-sm mb-1">策略</div>
+                      <div class="text-xs text-blue-600">非线性拟合，对数坐标</div>
+                    </div>
+                    <div class="p-3 bg-green-50 rounded">
+                      <div class="font-medium text-green-800 text-sm mb-1">初值估计</div>
+                      <div class="text-xs text-green-600">τ₀≈Bingham值，K≈μₚ，n≈0.5-1</div>
+                    </div>
+                    <div class="p-3 bg-yellow-50 rounded">
+                      <div class="font-medium text-yellow-800 text-sm mb-1">注意</div>
+                      <div class="text-xs text-yellow-600">多参数相关，需约束</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <h4 class="font-semibold text-primary mb-4">Casson模型拟合</h4>
+                  <div class="space-y-3">
+                    <div class="p-3 bg-blue-50 rounded">
+                      <div class="font-medium text-blue-800 text-sm mb-1">策略</div>
+                      <div class="text-xs text-blue-600">线性拟合 √τ vs √γ̇</div>
+                    </div>
+                    <div class="p-3 bg-green-50 rounded">
+                      <div class="font-medium text-green-800 text-sm mb-1">初值估计</div>
+                      <div class="text-xs text-green-600">√τ₀≈截距，√μ𝒸≈斜率</div>
+                    </div>
+                    <div class="p-3 bg-yellow-50 rounded">
+                      <div class="font-medium text-yellow-800 text-sm mb-1">注意</div>
+                      <div class="text-xs text-yellow-600">低γ̇数据权重高</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Time-Dependent Behavior -->
+            <div class="mb-16">
+              <h3 class="font-headline text-2xl font-semibold text-primary mb-8">7.2 时变行为的数学描述</h3>
+
+              <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <h4 class="font-semibold text-primary mb-4">幂函数关系</h4>
+                  <div class="mb-4">
+                    <div class="text-lg font-mono bg-gray-100 p-3 rounded text-center">
+                      τ₀(t) = τ₀₀·[1 + d₂·(t-t₀₂)^λ₂]
+                    </div>
+                  </div>
+                  <div class="space-y-2 text-sm">
+                    <div class="p-2 bg-blue-50 rounded">
+                      <div class="font-medium text-blue-800 text-xs">τ₀₀</div>
+                      <div class="text-xs text-blue-600">初始屈服应力</div>
+                    </div>
+                    <div class="p-2 bg-green-50 rounded">
+                      <div class="font-medium text-green-800 text-xs">t₀₂</div>
+                      <div class="text-xs text-green-600">延迟时间</div>
+                    </div>
+                    <div class="p-2 bg-accent/10 rounded">
+                      <div class="font-medium text-xs">d₂, λ₂</div>
+                      <div class="text-xs">幅度系数和幂指数（λ₂通常0.5-1.0）</div>
+                    </div>
+                  </div>
+                  <div class="mt-4 p-3 bg-blue-50 rounded">
+                    <div class="text-xs text-blue-800">适用于物理絮凝主导的阶段</div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <h4 class="font-semibold text-primary mb-4">指数函数关系</h4>
+                  <div class="mb-4">
+                    <div class="text-lg font-mono bg-gray-100 p-3 rounded text-center">
+                      τ₀(t) = τ₀₀·exp[λ₂(t-t₀₂)]
+                    </div>
+                  </div>
+                  <div class="space-y-2 text-sm">
+                    <div class="p-2 bg-blue-50 rounded">
+                      <div class="font-medium text-blue-800 text-xs">适用条件</div>
+                      <div class="text-xs text-blue-600">快速水化阶段</div>
+                    </div>
+                    <div class="p-2 bg-green-50 rounded">
+                      <div class="font-medium text-green-800 text-xs">物理机制</div>
+                      <div class="text-xs text-green-600">化学反应驱动的结构建立</div>
+                    </div>
+                    <div class="p-2 bg-accent/10 rounded">
+                      <div class="font-medium text-xs">特点</div>
+                      <div class="text-xs">适用于加速期开始后</div>
+                    </div>
+                  </div>
+                  <div class="mt-4 p-3 bg-green-50 rounded">
+                    <div class="text-xs text-green-800">化学水化反应主导的结构建立</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm mb-8">
+                <h4 class="font-semibold text-primary mb-4">结构动力学模型</h4>
+                <div class="mb-4">
+                  <div class="text-lg font-mono bg-gray-100 p-3 rounded text-center">
+                    dλ/dt = (1-λ)/tᵣₑc - k·γ̇·λ
+                  </div>
+                  <div class="text-center text-sm text-secondary mt-1">Moore模型</div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                  <div class="text-center">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <span class="text-blue-600 font-bold">λ</span>
+                    </div>
+                    <h5 class="font-medium text-primary mb-1">结构参数</h5>
+                    <p class="text-xs text-secondary">0=完全破坏，1=完全建立</p>
+                  </div>
+                  <div class="text-center">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <span class="text-green-600 font-bold">tᵣₑc</span>
+                    </div>
+                    <h5 class="font-medium text-primary mb-1">恢复特征时间</h5>
+                    <p class="text-xs text-secondary">结构恢复的时间常数</p>
+                  </div>
+                  <div class="text-center">
+                    <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <span class="text-accent font-bold">k</span>
+                    </div>
+                    <h5 class="font-medium text-primary mb-1">剪切破坏效率</h5>
+                    <p class="text-xs text-secondary">剪切对结构的破坏能力</p>
+                  </div>
+                </div>
+                <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                  <h5 class="font-medium text-blue-800 mb-2">扩展模型</h5>
+                  <p class="text-xs text-blue-700">
+                    引入水化动力学耦合，λ_eq随时间变化，或双结构参数（可逆+不可逆）
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Machine Learning -->
+            <div class="mb-16">
+              <h3 class="font-headline text-2xl font-semibold text-primary mb-8">7.3 机器学习辅助的流变预测</h3>
+
+              <div class="grid lg:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <h4 class="font-semibold text-primary mb-4">实验数据驱动模型</h4>
+                  <div class="space-y-3">
+                    <div class="p-3 bg-blue-50 rounded">
+                      <div class="font-medium text-blue-800 text-sm mb-1">输入特征</div>
+                      <div class="text-xs text-blue-600">配合比、PCE参数、温度、时间</div>
+                    </div>
+                    <div class="p-3 bg-green-50 rounded">
+                      <div class="font-medium text-green-800 text-sm mb-1">输出目标</div>
+                      <div class="text-xs text-green-600">流变参数（τ₀、μₚ、n、G&#39;、G&#39;&#39;）</div>
+                    </div>
+                    <div class="p-3 bg-accent/10 rounded">
+                      <div class="font-medium text-sm mb-1">算法选择</div>
+                      <div class="text-xs">随机森林、XGBoost、神经网络</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <h4 class="font-semibold text-primary mb-4">温度-添加剂交互识别</h4>
+                  <div class="mb-4">
+                    <img src="https://kimi-web-img.moonshot.cn/img/placeholder-0620/图片6.png" alt="机器学习预测水泥流变性的概念图" class="w-full h-24 object-cover rounded-lg" size="small" aspect="wide" style="clipart" query="机器学习 水泥流变性" referrerpolicy="no-referrer" data-modified="1"/>
+                  </div>
+                  <div class="space-y-3">
+                    <div class="p-3 bg-yellow-50 rounded">
+                      <div class="font-medium text-yellow-800 text-sm mb-1">挑战</div>
+                      <div class="text-xs text-yellow-600">温度效应非线性，与PCE交互</div>
+                    </div>
+                    <div class="p-3 bg-blue-50 rounded">
+                      <div class="font-medium text-blue-800 text-sm mb-1">方法</div>
+                      <div class="text-xs text-blue-600">引入耦合特征，非线性模型</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <h4 class="font-semibold text-primary mb-4">三阶段预测算法</h4>
+                  <div class="space-y-3">
+                    <div class="p-3 border-l-4 border-blue-500 bg-blue-50">
+                      <div class="font-medium text-blue-800 text-xs mb-1">即时 (t &lt; 10 min)</div>
+                          <div class="text-xs text-blue-600">配合比-PCE直接映射</div>
+                      </div>
+                      <div class="p-3 border-l-4 border-green-500 bg-green-50">
+                        <div class="font-medium text-green-800 text-xs mb-1">短期 (10 min–2 h)</div>
+                        <div class="text-xs text-green-600">结构动力学+ML混合</div>
+                      </div>
+                      <div class="p-3 border-l-4 border-accent bg-accent/10">
+                        <div class="font-medium text-xs mb-1">长期 (&gt;2 h)</div>
+                        <div class="text-xs">水化动力学耦合模型</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      </div></section>
+
+      <div class="section-divider"></div>
+
+      <!-- Chapter 8 -->
+      <section id="chapter8" class="py-16 px-8 bg-muted">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="font-headline text-3xl font-bold text-primary mb-12">8. 影响因素系统研究</h2>
+
+          <!-- Material Factors -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">8.1 材料因素</h3>
+
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">减水剂掺量与分子参数优化</h4>
+                <div class="space-y-4">
+                  <div class="p-4 bg-blue-50 rounded-lg">
+                    <h5 class="font-medium text-blue-800 mb-2">最优掺量确定</h5>
+                    <div class="text-sm text-blue-600 mb-2">通过流动曲线-掺量关系，识别饱和点</div>
+                    <div class="text-xs text-blue-500">Zeta电位平台起始或扩展度-掺量曲线拐点</div>
+                  </div>
+                  <div class="p-4 bg-green-50 rounded-lg">
+                    <h5 class="font-medium text-green-800 mb-2">分子参数优化</h5>
+                    <div class="space-y-2 text-sm text-green-600">
+                      <div>• 高碱水泥：长侧链、适中电荷密度</div>
+                      <div>• 高C₃A水泥：高电荷密度、快速吸附主链</div>
+                      <div>• 低水灰比：高分子量、高侧链密度</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">配合比设计：水胶比与颗粒级配</h4>
+                <div class="space-y-4">
+                  <div class="p-4 border border-gray-200 rounded-lg">
+                    <h5 class="font-medium text-gray-800 mb-2">颗粒堆积优化</h5>
+                    <div class="text-sm text-gray-600 mb-2">Andreasen方程或Dinger-Funk模型</div>
+                    <div class="text-xs text-gray-500">目标：最小空隙率</div>
+                  </div>
+                  <div class="p-4 border border-gray-200 rounded-lg">
+                    <h5 class="font-medium text-gray-800 mb-2">浆体-骨料界面</h5>
+                    <div class="text-sm text-gray-600 mb-2">界面过渡区（ITZ）流变行为</div>
+                    <div class="text-xs text-gray-500">需考虑壁面效应</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm mb-8">
+              <h4 class="font-semibold text-primary mb-4">温度效应与含气量调控</h4>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead>
+                    <tr class="border-b border-gray-200">
+                      <th class="text-left py-3 font-semibold text-primary">温度效应</th>
+                      <th class="text-left py-3 font-semibold text-primary">机制</th>
+                      <th class="text-left py-3 font-semibold text-primary">对策</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-secondary">
+                    <tr class="border-b border-gray-100">
+                      <td class="py-3 font-medium">高温（&gt;30°C）</td>
+                      <td class="py-3">水化加速，诱导期缩短</td>
+                      <td class="py-3">缓凝型PCE，冰拌，夜间施工</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-3 font-medium">低温（&lt; 10°C）</td>
+                          <td class="py-3">水化延缓，强度发展慢</td>
+                          <td class="py-3">早强剂，加热养护</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3 font-medium">含气量</td>
+                      <td class="py-3">气泡润滑降粘，但引气剂与PCE竞争</td>
+                      <td class="py-3">专用引气型PCE，分掺工艺</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- External Factors -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">8.2 外部因素与测试条件</h3>
+
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">剪切历史与静置时间的记忆效应</h4>
+                <div class="space-y-4">
+                  <div class="p-4 bg-blue-50 rounded-lg">
+                    <h5 class="font-medium text-blue-800 mb-2">标准化协议</h5>
+                    <div class="text-sm text-blue-600 mb-2">RILEM推荐协议</div>
+                    <div class="text-xs text-blue-500">搅拌后5分钟开始测试，预 shear消除历史</div>
+                  </div>
+                  <div class="p-4 border border-gray-200 rounded-lg">
+                    <h5 class="font-medium text-gray-800 mb-2">关键控制</h5>
+                    <div class="space-y-1 text-xs text-gray-600">
+                      <div>• 搅拌结束至测试开始的时间</div>
+                      <div>• 测试前的剪切历史</div>
+                      <div>• 明确报告静置时间</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">样品制备的标准化</h4>
+                <div class="space-y-4">
+                  <div class="p-4 bg-green-50 rounded-lg">
+                    <h5 class="font-medium text-green-800 mb-2">搅拌参数</h5>
+                    <div class="grid grid-cols-2 gap-2 text-sm text-green-600">
+                      <div>速度：先低速30s，再高速120s</div>
+                      <div>时间：总时间2-3分钟</div>
+                    </div>
+                  </div>
+                  <div class="p-4 border border-gray-200 rounded-lg">
+                    <h5 class="font-medium text-gray-800 mb-2">投料顺序</h5>
+                    <div class="text-sm text-gray-600">建议：水+减水剂预混，再加水泥</div>
+                    <div class="text-xs text-gray-500 mt-1">影响吸附行为和混合均匀性</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+              <h4 class="font-semibold text-primary mb-4">测试温度与热历史控制</h4>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h5 class="font-medium text-primary mb-3">实验室条件</h5>
+                  <div class="p-4 bg-blue-50 rounded-lg">
+                    <div class="flex items-center space-x-3 mb-2">
+                      <i class="fas fa-thermometer-half text-blue-600"></i>
+                      <span class="font-medium text-blue-800">Peltier温控系统</span>
+                    </div>
+                    <div class="text-sm text-blue-600">±0.1°C精度，快速响应</div>
+                  </div>
+                </div>
+                <div>
+                  <h5 class="font-medium text-primary mb-3">特殊考量</h5>
+                  <div class="p-4 bg-yellow-50 rounded-lg">
+                    <div class="flex items-center space-x-3 mb-2">
+                      <i class="fas fa-fire text-yellow-600"></i>
+                      <span class="font-medium text-yellow-800">大体积混凝土</span>
+                    </div>
+                    <div class="text-sm text-yellow-600">绝热温升50-70°C，需模拟实际温度历史</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Chapter 9 -->
+      <section id="chapter9" class="py-16 px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="font-headline text-3xl font-bold text-primary mb-12">9. 深度研究资源导航</h2>
+
+          <!-- Database Strategies -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">9.1 中英文数据库检索策略</h3>
+
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+              <div class="bg-white rounded-xl p-6 shadow-sm border">
+                <h4 class="font-semibold text-primary mb-4">知网/万方核心关键词组合</h4>
+                <div class="space-y-3">
+                  <div class="p-3 bg-blue-50 rounded">
+                    <div class="font-medium text-blue-800 text-sm mb-1">基础理论综述</div>
+                    <div class="text-xs text-blue-600">水泥浆 流变学 基础 综述</div>
+                  </div>
+                  <div class="p-3 bg-green-50 rounded">
+                    <div class="font-medium text-green-800 text-sm mb-1">测试方法掌握</div>
+                    <div class="text-xs text-green-600">旋转流变仪 水泥 操作 protocol</div>
+                  </div>
+                  <div class="p-3 bg-accent/10 rounded">
+                    <div class="font-medium text-sm mb-1">减水剂机理</div>
+                    <div class="text-xs">聚羧酸减水剂 吸附 流变性能 机理</div>
+                  </div>
+                  <div class="p-3 bg-purple-50 rounded">
+                    <div class="font-medium text-purple-800 text-sm mb-1">触变性研究</div>
+                    <div class="text-xs text-purple-600">水泥浆 触变性 测试方法 结构恢复</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm border">
+                <h4 class="font-semibold text-primary mb-4">Web of Science/Scopus高级检索</h4>
+                <div class="space-y-3">
+                  <div class="p-3 border border-blue-200 rounded">
+                    <div class="font-medium text-blue-800 text-sm mb-1">基础表征</div>
+                    <div class="text-xs text-blue-600">cement paste rheology characterization</div>
+                  </div>
+                  <div class="p-3 border border-green-200 rounded">
+                    <div class="font-medium text-green-800 text-sm mb-1">屈服应力测定</div>
+                    <div class="text-xs text-green-600">fresh concrete yield stress measurement</div>
+                  </div>
+                  <div class="p-3 border border-accent rounded">
+                    <div class="font-medium text-sm mb-1">减水剂吸附</div>
+                    <div class="text-xs">PCE superplasticizer adsorption rheology</div>
+                  </div>
+                  <div class="p-3 border border-purple-200 rounded">
+                    <div class="font-medium text-purple-800 text-sm mb-1">前沿综述</div>
+                    <div class="text-xs text-purple-600">cement paste rheology 2023 2024 review</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm mb-8">
+              <h4 class="font-semibold text-primary mb-4">排除干扰词的搜索技巧</h4>
+              <div class="bg-gray-100 p-4 rounded-lg font-mono text-sm mb-4">
+                cement paste rheology -&#34;3D printing&#34; -&#34;additive manufacturing&#34; -&#34;machine learning&#34; -&#34;neural network&#34; -&#34;BIM&#34;
+              </div>
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="text-center">
+                  <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <i class="fas fa-minus text-red-600"></i>
+                  </div>
+                  <h5 class="font-medium text-primary mb-1">3D打印</h5>
+                  <p class="text-xs text-secondary">排除3D打印相关内容</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <i class="fas fa-minus text-blue-600"></i>
+                  </div>
+                  <h5 class="font-medium text-primary mb-1">机器学习</h5>
+                  <p class="text-xs text-secondary">排除ML相关内容</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <i class="fas fa-plus text-green-600"></i>
+                  </div>
+                  <h5 class="font-medium text-primary mb-1">精准检索</h5>
+                  <p class="text-xs text-secondary">提高检索精确度</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Classic Literature -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">9.2 经典文献与作者追踪</h3>
+
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">国际权威专家</h4>
+                <div class="space-y-4">
+                  <div class="p-4 border-l-4 border-blue-500 bg-blue-50">
+                    <div class="font-medium text-blue-800 mb-1">Nicolas Roussel</div>
+                    <div class="text-sm text-blue-600 mb-1">法国IFSTTAR</div>
+                    <div class="text-xs text-blue-500">水泥流变学权威，SCC流变设计</div>
+                  </div>
+                  <div class="p-4 border-l-4 border-green-500 bg-green-50">
+                    <div class="font-medium text-green-800 mb-1">Peter Banfill</div>
+                    <div class="text-sm text-green-600 mb-1">英国Heriot-Watt大学</div>
+                    <div class="text-xs text-green-500">流变测试方法先驱，砂浆混凝土流变</div>
+                  </div>
+                  <div class="p-4 border-l-4 border-accent bg-accent/10">
+                    <div class="font-medium mb-1">Alessandro Perrot</div>
+                    <div class="text-sm mb-1">法国INSA Rennes</div>
+                    <div class="text-xs">触变性测试专家，3D打印混凝土</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">追踪策略</h4>
+                <div class="space-y-4">
+                  <div class="p-4 bg-purple-50 rounded-lg">
+                    <h5 class="font-medium text-purple-800 mb-2">作者主页追踪</h5>
+                    <div class="text-sm text-purple-600">ResearchGate, Google Scholar主页</div>
+                    <div class="text-xs text-purple-500 mt-1">关注最新发表论文</div>
+                  </div>
+                  <div class="p-4 bg-orange-50 rounded-lg">
+                    <h5 class="font-medium text-orange-800 mb-2">引用网络分析</h5>
+                    <div class="text-sm text-orange-600">Web of Science引用报告</div>
+                    <div class="text-xs text-orange-500 mt-1">发现相关研究脉络</div>
+                  </div>
+                  <div class="p-4 border border-gray-200 rounded-lg">
+                    <h5 class="font-medium text-gray-800 mb-2">关键词订阅</h5>
+                    <div class="text-sm text-gray-600">设置数据库关键词提醒</div>
+                    <div class="text-xs text-gray-500 mt-1">及时获取最新文献</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advanced Learning Path -->
+          <div class="mb-16">
+            <h3 class="font-headline text-2xl font-semibold text-primary mb-8">9.3 进阶学习路径</h3>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm mb-8">
+              <h4 class="font-semibold text-primary mb-4">六步进阶：从基础理论到系统研究</h4>
+              <div class="relative">
+                <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+                <div class="space-y-6">
+                  <div class="flex items-start space-x-4">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span class="text-blue-600 font-bold text-xl">1</span>
+                    </div>
+                    <div class="flex-1">
+                      <h5 class="font-medium text-primary mb-1">流变学基础理论</h5>
+                      <p class="text-sm text-secondary mb-1">Bingham模型、非牛顿流体特性</p>
+                      <div class="text-xs text-blue-600">建立基础概念框架</div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-4">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span class="text-green-600 font-bold text-xl">2</span>
+                    </div>
+                    <div class="flex-1">
+                      <h5 class="font-medium text-primary mb-1">水泥浆特殊流变行为</h5>
+                      <p class="text-sm text-secondary mb-1">触变性、屈服应力来源</p>
+                      <div class="text-xs text-green-600">理解水泥体系特性</div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-4">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span class="text-yellow-600 font-bold text-xl">3</span>
+                    </div>
+                    <div class="flex-1">
+                      <h5 class="font-medium text-primary mb-1">减水剂作用机理</h5>
+                      <p class="text-sm text-secondary mb-1">分散、吸附、双电层理论</p>
+                      <div class="text-xs text-yellow-600">掌握PCE作用机制</div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-4">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span class="text-purple-600 font-bold text-xl">4</span>
+                    </div>
+                    <div class="flex-1">
+                      <h5 class="font-medium text-primary mb-1">流变测试技术</h5>
+                      <p class="text-sm text-secondary mb-1">旋转流变仪操作、测试协议</p>
+                      <div class="text-xs text-purple-600">掌握实验技能</div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-4">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span class="text-orange-600 font-bold text-xl">5</span>
+                    </div>
+                    <div class="flex-1">
+                      <h5 class="font-medium text-primary mb-1">数据分析与建模</h5>
+                      <p class="text-sm text-secondary mb-1">Origin拟合、参数提取</p>
+                      <div class="text-xs text-orange-600">学会数据处理</div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-4">
+                    <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span class="text-accent font-bold text-xl">6</span>
+                    </div>
+                    <div class="flex-1">
+                      <h5 class="font-medium text-primary mb-1">影响因素系统研究</h5>
+                      <p class="text-sm text-secondary mb-1">配合比、时间、温度</p>
+                      <div class="text-xs text-accent">形成系统研究能力</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">理论与表征的交叉关键词</h4>
+                <div class="space-y-4">
+                  <div class="p-4 border-l-4 border-blue-500 bg-blue-50">
+                    <h5 class="font-medium text-blue-800 mb-1">流变本构方程</h5>
+                    <div class="text-xs text-blue-600">参数拟合、回归分析、模型验证</div>
+                  </div>
+                  <div class="p-4 border-l-4 border-green-500 bg-green-50">
+                    <h5 class="font-medium text-green-800 mb-1">触变模型</h5>
+                    <div class="text-xs text-green-600">结构动力学模型、可逆絮凝模型</div>
+                  </div>
+                  <div class="p-4 border-l-4 border-accent bg-accent/10">
+                    <h5 class="font-medium mb-1">颗粒相互作用</h5>
+                    <div class="text-xs">DLVO理论、胶体相互作用、颗粒间力</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h4 class="font-semibold text-primary mb-4">前沿追踪：2023-2024年度综述</h4>
+                <div class="space-y-4">
+                  <div class="p-4 bg-purple-50 rounded-lg">
+                    <h5 class="font-medium text-purple-800 mb-2">机器学习辅助流变预测</h5>
+                    <div class="text-sm text-purple-600">&#34;machine learning&#34; &#34;cement rheology&#34; &#34;prediction&#34;</div>
+                  </div>
+                  <div class="p-4 bg-orange-50 rounded-lg">
+                    <h5 class="font-medium text-orange-800 mb-2">可持续胶凝材料流变</h5>
+                    <div class="text-sm text-orange-600">&#34;alternative binder&#34; &#34;rheology&#34; &#34;geopolymer&#34;</div>
+                  </div>
+                  <div class="p-4 border border-gray-200 rounded-lg">
+                    <h5 class="font-medium text-gray-800 mb-2">3D打印混凝土流变</h5>
+                    <div class="text-sm text-gray-600">&#34;3D concrete printing&#34; &#34;rheology&#34; &#34;thixotropy&#34;</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Final Summary -->
+            <div class="bg-gradient-to-r from-blue-50 to-green-50 rounded-xl p-8 mb-8">
+              <h4 class="font-headline text-xl font-semibold text-primary mb-4">手册编写说明</h4>
+              <p class="text-secondary leading-relaxed mb-4">
+                本手册系统整合水泥流变学的基础理论、胶体化学原理、减水剂作用机制、测试表征技术、数据分析方法及前沿研究方向，特别针对本科科研新人的学习需求，强调概念的直观理解、实验的可操作性与研究的进阶路径。
+              </p>
+              <div class="grid md:grid-cols-3 gap-4">
+                <div class="text-center">
+                  <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <i class="fas fa-microscope text-blue-600"></i>
+                  </div>
+                  <h5 class="font-medium text-primary text-sm">分子尺度</h5>
+                  <p class="text-xs text-secondary">PCE吸附、双电层理论</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <i class="fas fa-flask text-green-600"></i>
+                  </div>
+                  <h5 class="font-medium text-primary text-sm">宏观尺度</h5>
+                  <p class="text-xs text-secondary">混凝土施工性能</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <i class="fas fa-robot text-accent"></i>
+                  </div>
+                  <h5 class="font-medium text-primary text-sm">前沿方法</h5>
+                  <p class="text-xs text-secondary">机器学习辅助预测</p>
+                </div>
+              </div>
+              <div class="mt-6 text-center">
+                <p class="text-sm text-accent font-medium">
+                  <i class="fas fa-lightbulb mr-2"></i>
+                  为读者建立完整的知识框架和持续深入的研究基础
+                </p>
+              </div>
+            </div>
+          </div>
+      </div></section>
+
+      <!-- Footer -->
+      <footer class="bg-primary text-white py-8 px-8">
+        <div class="max-w-6xl mx-auto text-center">
+          <p class="text-sm opacity-75">
+            本手册仅供学术研究参考，实际应用请结合具体情况并咨询专业人士
+          </p>
+          <div class="mt-4 flex justify-center space-x-6">
+            <a href="#" class="text-sm opacity-75 hover:opacity-100 transition-opacity">
+              <i class="fas fa-book mr-1"></i>参考文献
+            </a>
+            <a href="#" class="text-sm opacity-75 hover:opacity-100 transition-opacity">
+              <i class="fas fa-flask mr-1"></i>实验协议
+            </a>
+            <a href="#" class="text-sm opacity-75 hover:opacity-100 transition-opacity">
+              <i class="fas fa-graduation-cap mr-1"></i>进阶资源
+            </a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+        // Mobile TOC Toggle
+        const mobileToggle = document.getElementById('mobile-toc-toggle');
+        const toc = document.getElementById('toc');
+        
+        mobileToggle.addEventListener('click', () => {
+            toc.classList.toggle('open');
+        });
+        
+        // Close TOC when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!toc.contains(e.target) && !mobileToggle.contains(e.target)) {
+                toc.classList.remove('open');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile TOC after clicking
+                    toc.classList.remove('open');
+                }
+            });
+        });
+        
+        // Highlight active section in TOC
+        const sections = document.querySelectorAll('section[id]');
+        const tocLinks = document.querySelectorAll('#toc a[href^="#"]');
+        
+        function updateActiveTocLink() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            tocLinks.forEach(link => {
+                link.classList.remove('bg-white', 'text-primary');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('bg-white', 'text-primary');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateActiveTocLink);
+        updateActiveTocLink(); // Initial call
+        
+        // Citation click handlers
+        document.querySelectorAll('.citation-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Simulate citation popup or navigate to references
+                alert('引文功能：将跳转到参考文献部分');
+            });
+        });
+    </script>
+  
+
+</body></html>
