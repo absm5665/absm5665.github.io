@@ -119,7 +119,7 @@
     text-shadow:0 0 16px rgba(240,170,70,.55);
   }
   #radio .unit { font-size:9px; letter-spacing:.2em; color:#8a7250; }
-  #radio .bars { margin-left:auto; display:flex; align-items:flex-end; gap:2px; height:12px; }
+  #radio .bars { margin-left:10px; display:flex; align-items:flex-end; gap:2px; height:12px; }
   #radio .bars i {
     display:block; width:2.5px; background:#c98a3e; border-radius:1px;
     opacity:.30; transition:opacity .35s ease, height .35s ease;
@@ -181,6 +181,30 @@
     margin-top:7px; padding-top:6px; border-top:1px solid rgba(208,166,104,.09);
     font-size:9.5px; letter-spacing:.01em; color:#5e5342; line-height:1.75;
   }
+  #radio .power {
+    position:absolute; right:50px; top:10px; width:17px; height:17px; padding:0;
+    background:rgba(212,164,100,.05); border:1px solid rgba(208,166,104,.20);
+    border-radius:50%; cursor:pointer; color:#7d6a4c; transition:all .3s ease;
+  }
+  #radio .power:hover { color:#f0d9b0; border-color:rgba(220,176,112,.55); }
+  #radio .power.on { color:#ffcf8a; border-color:rgba(240,180,100,.6);
+                     box-shadow:0 0 9px rgba(240,170,80,.40); }
+  #radio .power::before {
+    content:''; position:absolute; left:50%; top:50%; width:7px; height:7px;
+    margin:-3.5px 0 0 -3.5px; border:1.2px solid currentColor; border-radius:50%;
+    clip-path:polygon(0 0, 100% 0, 100% 42%, 0 42%);
+  }
+  #radio .power::after {
+    content:''; position:absolute; left:50%; top:3px; width:1.2px; height:6px;
+    margin-left:-0.6px; background:currentColor;
+  }
+  #radio.off .body { opacity:.62; }
+  #radio.off .freq { color:#4a4236; text-shadow:none; }
+  #radio.off .needle { opacity:.12; box-shadow:none; }
+  #radio.off .dial { opacity:.45; }
+  #radio.off .list { opacity:.38; }
+  #radio.off .bars i { opacity:.12 !important; }
+
   #radio .toggle {
     position:absolute; right:11px; top:11px; cursor:pointer; color:#7d6a4c;
     font-size:10px; letter-spacing:.1em; user-select:none;
@@ -238,6 +262,7 @@
     <div class="list" id="rd-list"></div>
     <div class="hintline" id="rd-hint">把音频文件放进 music/ 文件夹即可播原曲</div>
   </div>
+  <button class="power on" id="rd-power" type="button" aria-label="开关收音机"></button>
   <div class="toggle" id="rd-toggle">收起</div>
 </div>
 

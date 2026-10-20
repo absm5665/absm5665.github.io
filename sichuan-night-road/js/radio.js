@@ -40,7 +40,7 @@ export class Radio {
     this.ctx = opts.ctx;
     this.dest = opts.destination;      // 通常是 Sound.master
     this.onState = opts.onState || (() => {});
-    this.volume = 0.42;
+    this.volume = 0.34;
     this.proximity = 1;          // 1 = 就在车里，0 = 离得听不见
     this.muted = false;
     this.available = [];               // 每首歌是否找到文件
@@ -50,6 +50,14 @@ export class Radio {
     this.drift = 0;
     this.nextDriftAt = 0;
     this.synthTimer = null;
+
+    this.enabled = true;         // 收音机电源
+    this.padTimer = 0;           // 「听不见了」持续了几秒
+    this.ambientGain = null;     // 氛围垫音（第二层，很小）
+    this.ambientVoices = null;
+    this.ambientLfo = null;
+    this.ambientLevel = 0.05;
+    this.synthVoices = null;
   }
 
   /* ---------- 初始化信号链 ---------- */
@@ -280,7 +288,8 @@ export class Radio {
   }
 
   _targetGain() {
-    return this.muted ? 0 : this.volume * this.proximity;
+    if (!this.enabled || this.muted) return 0;
+    return this.volume * this.proximity;
   }
 
   state() {
@@ -290,6 +299,7 @@ export class Radio {
       track: s,
       available: this.available.slice(),
       muted: this.muted,
+      enabled: this.enabled,
       usingSynth: this.usingSynth,
       playing: this.started && this.out && this.out.gain.value > 0.001,
       volume: this.volume,
@@ -449,8 +459,10 @@ export class Radio {
         v.g.gain.linearRampToValueAtTime(0.0001, t + dur);
       });
 
+      this.synthVoices = layer;
       setTimeout(() => {
         layer.forEach((v) => { try { v.o.stop(); v.o.disconnect(); v.g.disconnect(); } catch (e) {} });
+        if (this.synthVoices === layer) this.synthVoices = null;
       }, (dur + 0.4) * 1000);
 
       step++;
@@ -461,6 +473,79 @@ export class Radio {
 
   stopSynth() {
     if (this.synthTimer) { clearTimeout(this.synthTimer); this.synthTimer = null; }
+    // 正在响的那一批快速淡出，避免关机/重开时两批垫音叠在一起
+    if (this.synthVoices && this.synthVoices.length && this.ctx) {
+      const t = this.ctx.currentTime;
+      const vs = this.synthVoices;
+      this.synthVoices = null;
+      vs.forEach((v) => {
+        try {
+          v.g.gain.cancelScheduledValues(t);
+          v.g.gain.setTargetAtTime(0, t, 0.10);
+        } catch (e) {}
+      });
+      setTimeout(() => {
+        vs.forEach((v) => { try { v.o.stop(); v.o.disconnect(); v.g.disconnect(); } catch (e) {} });
+      }, 800);
+    }
+  }
+
+  /* ---------- 氛围垫音：人走远了以后补一层很轻的底 ---------- */
+  startAmbient() {
+    if (this.ambientGain || !this.ctx || !this.enabled) return;
+    const c = this.ctx, t = c.currentTime;
+
+    const g = c.createGain();
+    g.gain.value = 0;
+    g.connect(this.dest);
+
+    const lp = c.createBiquadFilter();
+    lp.type = 'lowpass'; lp.frequency.value = 2400; lp.Q.value = 0.4;
+    lp.connect(g);
+
+    // 三个很轻的高音，缓慢起伏，不抢环境音
+    const voices = [329.63, 440.00, 493.88].map((f, i) => {
+      const o = c.createOscillator();
+      o.type = 'sine';
+      o.frequency.value = f;
+      o.detune.value = (Math.random() - 0.5) * 14;
+      const vg = c.createGain();
+      vg.gain.value = 0.34 / (i + 1.8);
+      o.connect(vg); vg.connect(lp);
+      o.start();
+      return o;
+    });
+
+    const lfo = c.createOscillator();
+    lfo.type = 'sine';
+    lfo.frequency.value = 0.043;
+    const lg = c.createGain();
+    lg.gain.value = 0.011;
+    lfo.connect(lg); lg.connect(g.gain);
+    lfo.start();
+
+    g.gain.setTargetAtTime(this.ambientLevel, t, 2.4);   // 慢慢浮上来
+
+    this.ambientGain = g;
+    this.ambientVoices = voices;
+    this.ambientLfo = lfo;
+  }
+
+  stopAmbient() {
+    if (!this.ambientGain) return;
+    const g = this.ambientGain, voices = this.ambientVoices, lfo = this.ambientLfo;
+    const t = this.ctx ? this.ctx.currentTime : 0;
+    this.ambientGain = null;
+    this.ambientVoices = null;
+    this.ambientLfo = null;
+    try { g.gain.cancelScheduledValues(t); g.gain.setTargetAtTime(0, t, 0.9); } catch (e) {}
+    setTimeout(() => {
+      try {
+        voices && voices.forEach(o => { try { o.stop(); o.disconnect(); } catch (e) {} });
+        lfo && (lfo.stop(), lfo.disconnect());
+        g.disconnect();
+      } catch (e) {}
+    }, 3500);
   }
 
   /* ---------- 每帧：信号漂移 / 偶发失谐 ---------- */
@@ -476,6 +561,16 @@ export class Radio {
       if (Math.abs(want - this.out.gain.value) > 0.012) {
         this.out.gain.setTargetAtTime(want, t, 0.2);
       }
+    }
+
+    // 氛围垫音：收音机开着、但已经完全听不见了，持续 5 秒后才补一层底。
+    // 一走近（proximity 回升）立刻撤掉。
+    if (this.enabled && this.proximity < 0.02) {
+      this.padTimer += dt || 0;
+      if (this.padTimer > 5 && !this.ambientGain) this.startAmbient();
+    } else {
+      this.padTimer = 0;
+      if (this.ambientGain) this.stopAmbient();
     }
 
     if (t > this.nextDriftAt) {
@@ -502,6 +597,46 @@ export class Radio {
     this.out.gain.linearRampToValueAtTime(target * 0.55, t + back);
     this.out.gain.linearRampToValueAtTime(target, t + back + 0.30);
     this._holdUntil = t + back + 0.35;
+  }
+
+  /** 电源开关。关掉 = 没有音乐也没有垫音，只剩环境音。 */
+  setEnabled(on) {
+    this.enabled = !!on;
+    if (!this.ctx) { this.onState(this.state()); return; }
+
+    if (!this.enabled) {
+      if (this.audio) { try { this.audio.pause(); } catch (e) {} }
+      this.stopSynth();
+      this.stopAmbient();
+      this.padTimer = 0;
+      this.out.gain.setTargetAtTime(0, this.ctx.currentTime, 0.22);
+    } else {
+      // 开机：记住的台就继续，没有就停在「未选台」放垫音
+      if (this.index >= 0) {
+        this.play(this.index, { skipProbe: true });
+      } else {
+        this.standby();
+      }
+      this.out.gain.setTargetAtTime(this._targetGain(), this.ctx.currentTime, 0.5);
+    }
+    this.onState(this.state());
+  }
+
+  /** 开机但没选台：只放垫音（音量和其他音乐一样大） */
+  async standby() {
+    if (!this.started) this.init();
+    if (!this.ctx) return;
+    await this.ensureRunning();
+    this.index = -1;
+    if (this.audio) { try { this.audio.pause(); } catch (e) {} }
+    this.usingSynth = true;
+    this.startSynth();
+    const t = this.ctx.currentTime;
+    this.out.gain.cancelScheduledValues(t);
+    this.out.gain.setValueAtTime(Math.max(0.0001, this.out.gain.value), t);
+    this.out.gain.linearRampToValueAtTime(this._targetGain(), t + 1.2);
+    this._holdUntil = t + 1.25;
+    this.onState(this.state());
   }
 
   setMuted(m) {

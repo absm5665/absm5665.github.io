@@ -2216,12 +2216,27 @@ function paintBars() {
 
 function paintRadio(st) {
   try {
+  const off = st.enabled === false;
+  radioEl.classList.toggle('off', off);
+  rdPowerEl.classList.toggle('on', !off);
+
+  if (off) {
+    rdFreqEl.textContent = '--.-';
+    rdNeedleEl.style.left = 'calc(0% - 1px)';
+    rdTitleEl.textContent = '已关闭';
+    rdArtistEl.textContent = '按左上角的电源开';
+    rdHintEl.textContent = '收音机没开 · 只剩风声和虫鸣';
+    Array.from(rdListEl.children).forEach((row) => row.classList.remove('active'));
+    barLevel = 0; barJitter = 0; paintBars();
+    return;
+  }
+
   const t = st.track;
   rdFreqEl.textContent = t ? t.freq.toFixed(1) : '96.4';
   const pct = t ? ((t.freq - 88) / 20) * 100 : 41;
   rdNeedleEl.style.left = 'calc(' + pct.toFixed(2) + '% - 1px)';
-  rdTitleEl.textContent = t ? t.title : '—';
-  rdArtistEl.textContent = t ? t.artist : '未选台';
+  rdTitleEl.textContent = t ? t.title : '未选台';
+  rdArtistEl.textContent = t ? t.artist : 'FM 96.4 · 深夜';
 
   Array.from(rdListEl.children).forEach((row, i) => {
     row.classList.toggle('active', i === st.index);
@@ -2240,6 +2255,10 @@ function paintRadio(st) {
     rdHintEl.textContent = (src.indexOf('blob:') === 0 ? '本地文件 · ' : 'music/ · ') + name;
   } else if (st.index >= 0 && radio.usingSynth) {
     rdHintEl.textContent = '这首没有音频文件 · 正在播电台垫音（可用 ' + found + '/' + PLAYLIST.length + '）';
+  } else if (st.index < 0) {
+    rdHintEl.textContent = found > 0
+      ? '未选台 · 放垫音（点曲目切台）'
+      : '未选台 · 垫音（music/ 里还没有音频）';
   } else if (found > 0) {
     rdHintEl.textContent = '已找到 ' + found + '/' + PLAYLIST.length + ' 首音频';
   } else {
@@ -2254,6 +2273,7 @@ function paintRadio(st) {
 }
 
 const radio = new Radio({ onState: paintRadio });
+window.__radio = radio;   // 调试用
 
 /* 生成曲目列表 */
 (function buildRadioList() {
@@ -2277,6 +2297,13 @@ const radio = new Radio({ onState: paintRadio });
 /* 音频只从 music/ 目录读，界面上不提供选文件入口 */
 
 /* 折叠 */
+const rdPowerEl = document.getElementById('rd-power');
+rdPowerEl.addEventListener('click', (e) => {
+  e.stopPropagation();
+  radio.setEnabled(!radio.enabled);
+  showCaption(radio.enabled ? '收音机开着' : '收音机关了', 1500);
+});
+
 const rdToggleEl = document.getElementById('rd-toggle');
 rdToggleEl.addEventListener('click', (e) => {
   e.stopPropagation();
@@ -2789,7 +2816,7 @@ function startExperience(withSound = true) {
   if (wantAudio) {
     Sound.init();
     // 浏览器要求先有用户手势，这里才敢开台
-    setTimeout(() => { if (radio.index < 0) radio.play(0); }, QS.has('radio') ? 400 : 1500);
+    setTimeout(() => { if (radio.index < 0) radio.standby(); }, QS.has('radio') ? 400 : 1500);
   }
   state.started = true;
   state.walkPos.set(camera.position.x, 0, camera.position.z);
@@ -2847,6 +2874,9 @@ if (QS.has('audiochk')) {
       ' aPaused=' + (radio.audio ? radio.audio.paused : '?') +
       ' rms=' + radio.level().toFixed(4) +
       ' amb=' + Sound.level().toFixed(4) +
+      ' ambPad=' + (radio.ambientGain ? radio.ambientGain.gain.value.toFixed(3) : '0') +
+      ' padT=' + radio.padTimer.toFixed(1) +
+      ' on=' + radio.enabled +
       ' prox=' + radio.proximity.toFixed(2) +
       ' mode=' + state.mode
     );
