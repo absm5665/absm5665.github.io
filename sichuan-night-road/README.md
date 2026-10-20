@@ -6,6 +6,12 @@
 
 > 这是不含音乐的公开版本。`music/` 目录是空的，点曲目听到的是程序合成的电台垫音。
 
+## 线上
+
+<https://absm5665.github.io/sichuan-night-road/>
+
+这个版本不含任何音频文件。
+
 ## 直接打开
 
 线上：<https://sichuan-night-road.app.workbuddy.host/?sharecode=CACYLQ23YE>
