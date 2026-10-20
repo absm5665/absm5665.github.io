@@ -1914,9 +1914,9 @@ const Sound = {
       this.started = true;
       this.cricketLoop();
 
-      // 收音机接到同一个总线上：M 键一按，环境音和音乐一起静音
+      // 收音机独立接 dest：音乐和环境音的比例各自可调，M 键两边一起静音
       try {
-        radio.attach(ctx, master);
+        radio.attach(ctx, ctx.destination);
         radio.fadeIn();
       } catch (e) {
         console.warn('radio attach failed', e);
@@ -2022,6 +2022,7 @@ function paintBars() {
 }
 
 function paintRadio(st) {
+  try {
   const t = st.track;
   rdFreqEl.textContent = t ? t.freq.toFixed(1) : '96.4';
   const pct = t ? ((t.freq - 88) / 20) * 100 : 41;
@@ -2036,12 +2037,27 @@ function paintRadio(st) {
   });
 
   const found = (st.available || []).filter(Boolean).length;
-  rdHintEl.textContent = found > 0
-    ? '已找到 ' + found + '/' + PLAYLIST.length + ' 首 · music/ 里的原曲经收音机播出来'
-    : '把音频放进 music/ 文件夹即可播原曲，现在放的是电台垫音';
+  const src = st.index >= 0 ? st.available[st.index] : null;
+  const suspended = radio.ctx && radio.ctx.state !== 'running';
+
+  if (suspended) {
+    rdHintEl.textContent = '浏览器拦着声音 · 点一下画面任意处';
+  } else if (src) {
+    const name = decodeURIComponent(src.split('/').pop());
+    rdHintEl.textContent = (src.indexOf('blob:') === 0 ? '本地文件 · ' : 'music/ · ') + name;
+  } else if (st.index >= 0 && radio.usingSynth) {
+    rdHintEl.textContent = '这首没有音频文件 · 正在播电台垫音（可用 ' + found + '/' + PLAYLIST.length + '）';
+  } else if (found > 0) {
+    rdHintEl.textContent = '已找到 ' + found + '/' + PLAYLIST.length + ' 首音频';
+  } else {
+    rdHintEl.textContent = '没有音频文件 · 现在播的是电台垫音';
+  }
 
   barLevel = st.index < 0 ? 1 : (found > 0 ? 4 : 3);
   paintBars();
+  } catch (e) {
+    console.error('paintRadio failed:', e && e.message, e && e.stack ? e.stack.split('\n')[1] : '');
+  }
 }
 
 const radio = new Radio({ onState: paintRadio });
@@ -2056,13 +2072,50 @@ const radio = new Radio({ onState: paintRadio });
       '<span class="no">' + s.n + '</span>' +
       '<span class="tt">' + s.title + '</span>' +
       '<span class="fq">' + s.freq.toFixed(1) + '</span>';
-    row.addEventListener('click', () => {
-      radio.play(i);
-      showCaption('调到 ' + s.freq.toFixed(1) + ' · ' + s.title, 2400);
+    row.addEventListener('click', async () => {
+      const ok = await radio.play(i);
+      if (!ok) showCaption('浏览器拦住了声音，点一下画面再试', 2600);
+      else showCaption('调到 ' + s.freq.toFixed(1) + ' · ' + s.title, 2400);
     });
     rdListEl.appendChild(row);
   });
 })();
+
+/* 选本地文件：绕开服务器目录探测，代价是刷新后要重选 */
+const rdPickEl = document.getElementById('rd-pick');
+const rdFileEl = document.getElementById('rd-file');
+
+async function loadFiles(files) {
+  const n = radio.setLocalFiles(files);
+  if (!n) {
+    showCaption('没有识别到音频文件', 2200);
+    return;
+  }
+  const i = radio.index >= 0 ? radio.index : 0;
+  await radio.play(i, { skipProbe: true });
+  showCaption('已载入 ' + n + ' 个音频文件', 2600);
+}
+
+rdPickEl.addEventListener('click', (e) => {
+  e.stopPropagation();
+  rdFileEl.click();
+});
+rdFileEl.addEventListener('change', () => {
+  loadFiles(rdFileEl.files);
+  rdFileEl.value = '';
+});
+
+/* 拖进来也行 */
+radioEl.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  radioEl.classList.add('dragover');
+});
+radioEl.addEventListener('dragleave', () => radioEl.classList.remove('dragover'));
+radioEl.addEventListener('drop', (e) => {
+  e.preventDefault();
+  radioEl.classList.remove('dragover');
+  if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length) loadFiles(e.dataTransfer.files);
+});
 
 /* 折叠 */
 const rdToggleEl = document.getElementById('rd-toggle');
@@ -2073,8 +2126,8 @@ rdToggleEl.addEventListener('click', (e) => {
 });
 radioEl.classList.add('open');
 
-/* 先探测 music/ 里有哪些文件（不需要用户交互） */
-radio.detect();
+/* 先探测 music/ 里有哪些文件（不需要用户交互；延后几秒，别跟首帧抢带宽） */
+setTimeout(() => radio.detect(), 3200);
 
 /* ============================================================
    十二、交互状态机
@@ -2512,6 +2565,23 @@ enterBtn.disabled = false;
 enterBtn.addEventListener('click', () => startExperience(true));
 
 if (AUTO) startExperience(false);
+
+/* 音频自检：?audiochk 每 800ms 打一次链路状态与输出电平（headless 里读 console 用） */
+if (QS.has('audiochk')) {
+  setInterval(() => {
+    console.log(
+      'ACHK ctx=' + (Sound.ctx ? Sound.ctx.state : 'none') +
+      ' out=' + (radio.out ? radio.out.gain.value.toFixed(3) : '-') +
+      ' synth=' + radio.usingSynth +
+      ' idx=' + radio.index +
+      ' muted=' + radio.muted +
+      ' avail=' + ((radio.available || []).filter(Boolean).length) +
+      ' url=' + ((radio.available && radio.available[radio.index]) || 'none') +
+      ' aPaused=' + (radio.audio ? radio.audio.paused : '?') +
+      ' rms=' + radio.level().toFixed(4)
+    );
+  }, 800);
+}
 
 /* —— 调试开关：?hide=beam,lampglow,win,cars,pool,interior —— */
 (function applyDebugHides() {

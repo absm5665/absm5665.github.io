@@ -181,6 +181,18 @@
     margin-top:7px; padding-top:6px; border-top:1px solid rgba(208,166,104,.09);
     font-size:9.5px; letter-spacing:.01em; color:#5e5342; line-height:1.75;
   }
+  #radio .actions { margin-top:7px; display:flex; gap:7px; }
+  #radio .actions button {
+    flex:1; padding:5px 0; font-family:inherit; font-size:9.5px; letter-spacing:.08em;
+    color:#c3ad86; background:rgba(212,164,100,.07);
+    border:1px solid rgba(208,166,104,.22); border-radius:2px; cursor:pointer;
+    transition:all .25s ease;
+  }
+  #radio .actions button:hover {
+    background:rgba(212,164,100,.16); border-color:rgba(220,176,112,.45); color:#f0e0c2;
+  }
+  #radio .actions button:active { transform:translateY(1px); }
+  #radio.dragover .body { border-color:rgba(255,190,110,.75); box-shadow:0 0 26px rgba(220,150,60,.35); }
   #radio .toggle {
     position:absolute; right:11px; top:11px; cursor:pointer; color:#7d6a4c;
     font-size:10px; letter-spacing:.1em; user-select:none;
@@ -236,6 +248,10 @@
     </div>
     <div class="list" id="rd-list"></div>
     <div class="hintline" id="rd-hint">把音频文件放进 music/ 文件夹即可播原曲</div>
+    <div class="actions">
+      <button id="rd-pick" type="button">选本地音频…</button>
+      <input id="rd-file" type="file" accept="audio/*,.mp3,.m4a,.flac,.wav,.ogg" multiple hidden />
+    </div>
   </div>
   <div class="toggle" id="rd-toggle">收起</div>
 </div>

@@ -40,7 +40,7 @@ export class Radio {
     this.ctx = opts.ctx;
     this.dest = opts.destination;      // 通常是 Sound.master
     this.onState = opts.onState || (() => {});
-    this.volume = 0.62;
+    this.volume = 0.86;
     this.muted = false;
     this.available = [];               // 每首歌是否找到文件
     this.index = -1;
@@ -65,6 +65,13 @@ export class Radio {
     this.audio = new Audio();
     this.audio.loop = true;
     this.audio.preload = 'auto';
+    // 中途加载失败（404 / 解码错误）也要能兜住
+    this.audio.addEventListener('error', () => {
+      if (this.usingSynth) return;
+      this.usingSynth = true;
+      this.startSynth();
+      this.onState(this.state());
+    });
 
     this.input = c.createGain();
     this.input.gain.value = 1.0;
@@ -79,7 +86,7 @@ export class Radio {
     this.pk = c.createBiquadFilter();
     this.pk.type = 'peaking'; this.pk.frequency.value = 1380; this.pk.Q.value = 0.85; this.pk.gain.value = 7.5;
 
-    this.pre = c.createGain(); this.pre.gain.value = 0.5;
+    this.pre = c.createGain(); this.pre.gain.value = 0.92;
 
     this.shaper = c.createWaveShaper();
     this.shaper.curve = softClipCurve(1.7);
@@ -117,7 +124,30 @@ export class Radio {
     this.srcNode = c.createMediaElementSource(this.audio);
     this.srcNode.connect(this.input);
 
+    // 电平探针（接在输出上，只做分析，不影响声音）
+    this.analyser = c.createAnalyser();
+    this.analyser.fftSize = 2048;
+    this.out.connect(this.analyser);
+    this._buf = new Float32Array(this.analyser.fftSize);
+
     this.started = true;
+  }
+
+  /** 当前输出电平（RMS）。0 表示完全没声。 */
+  level() {
+    if (!this.analyser) return 0;
+    this.analyser.getFloatTimeDomainData(this._buf);
+    let s = 0;
+    for (let i = 0; i < this._buf.length; i++) s += this._buf[i] * this._buf[i];
+    return Math.sqrt(s / this._buf.length);
+  }
+
+  async ensureRunning() {
+    if (!this.ctx) return false;
+    if (this.ctx.state === 'suspended') {
+      try { await this.ctx.resume(); } catch (e) { /* 需要用户手势 */ }
+    }
+    return this.ctx.state === 'running';
   }
 
   _makeNoise() {
@@ -136,26 +166,119 @@ export class Radio {
   }
 
   /* ---------- 找 music/ 里的文件 ---------- */
-  async detect() {
-    this.available = [];
-    for (let i = 0; i < PLAYLIST.length; i++) {
-      const s = PLAYLIST[i];
-      let found = null;
-      const cands = [];
-      for (const e of EXTS) cands.push(`music/${s.slug}.${e}`);
-      for (const e of EXTS) cands.push(`music/${encodeURIComponent(s.raw)}.${e}`);
-      for (const e of EXTS) cands.push(`music/${s.n}.${e}`);
+  _audioType(ct) {
+    const s = (ct || '').toLowerCase();
+    return s.startsWith('audio/') || s.startsWith('video/') || s === 'application/octet-stream';
+  }
 
-      for (const url of cands) {
-        try {
-          const r = await fetch(url, { method: 'HEAD', cache: 'no-store' });
-          if (r.ok) { found = url; break; }
-        } catch (e) { /* 忽略：跨域或 file:// 都可能失败 */ }
-      }
-      this.available[i] = found;
+  /** HEAD 优先，服务器不支持 HEAD 时退到 Range GET。
+   *  每个请求都带超时：探测请求挂住会让整条播放流程卡死。 */
+  async _probe(url, timeoutMs = 4000) {
+    const timeout = (p) => new Promise((resolve) => {
+      let done = false;
+      const timer = setTimeout(() => { if (!done) { done = true; resolve(null); } }, timeoutMs);
+      p.then(v => { if (!done) { done = true; clearTimeout(timer); resolve(v); } })
+        .catch(() => { if (!done) { done = true; clearTimeout(timer); resolve(null); } });
+    });
+
+    const head = await timeout(fetch(url, { method: 'HEAD', cache: 'no-store' }));
+    if (head && head.ok) {
+      const ct = head.headers.get('content-type');
+      if (!ct || this._audioType(ct)) return true;
     }
+    // 明确说不存在就别再试 GET；只有服务器不认 HEAD 才退到 GET
+    if (head && head.status !== 405 && head.status !== 501) return false;
+
+    const get = await timeout(fetch(url, { method: 'GET', headers: { Range: 'bytes=0-1' }, cache: 'no-store' }));
+    if (get && (get.ok || get.status === 206) && this._audioType(get.headers.get('content-type'))) return true;
+    return false;
+  }
+
+  /** 并发受限地探测一串候选：最多同时 3 个，命中即停 */
+  async _probeFirst(cands, limit = 3) {
+    let cursor = 0;
+    let hit = null;
+    const worker = async () => {
+      while (cursor < cands.length) {
+        if (hit) return;
+        const url = cands[cursor++];
+        const ok = await this._probe(url).catch(() => false);
+        if (ok && !hit) { hit = url; return; }
+      }
+    };
+    await Promise.all(Array.from({ length: Math.min(limit, cands.length) }, () => worker()));
+    return hit;
+  }
+
+  /**
+   * 轻量探测：每首只试最可能的几个路径，而且并行发出去 ——
+   * 串行探测在网络差的时候会慢到不可用。
+   */
+  async detect() {
+    const out = new Array(PLAYLIST.length).fill(null);
+    let cursor = 0;
+    const worker = async () => {
+      while (cursor < PLAYLIST.length) {
+        const i = cursor++;
+        const url = `music/${PLAYLIST[i].slug}.mp3`;
+        out[i] = (await this._probe(url).catch(() => false)) ? url : null;
+      }
+    };
+    // 3 路并发：够快，又不会把服务器和 GPU 一起顶崩
+    await Promise.all([worker(), worker(), worker()]);
+    this.available = out;
     this.onState(this.state());
     return this.available;
+  }
+
+  /** 点歌时补齐探测：并行试所有候选，谁先命中用谁 */
+  async resolve(i) {
+    const s = PLAYLIST[i];
+    if (!s) return null;
+    if (this.available[i]) return this.available[i];
+
+    const cands = [];
+    for (const e of ['mp3', 'm4a', 'wav', 'ogg']) {
+      cands.push(`music/${s.slug}.${e}`);
+      cands.push(`music/${encodeURIComponent(s.raw)}.${e}`);
+    }
+    cands.push(`music/${s.n}.mp3`);
+    cands.push(`music/${s.n}.m4a`);
+
+    const hit = await this._probeFirst(cands, 3);
+    if (hit) {
+      this.available[i] = hit;
+      this.onState(this.state());
+    }
+    return hit;
+  }
+
+  /** 用户在界面里直接选本地文件（不经过服务器，绕开目录探测） */
+  setLocalFiles(fileList) {
+    const files = Array.from(fileList || []).filter(f =>
+      /^audio\//.test(f.type) || /\.(mp3|m4a|ogg|wav|flac|opus|aac|mp4)$/i.test(f.name)
+    );
+    if (!files.length) return 0;
+
+    const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '');
+    let matched = 0;
+
+    files.forEach((f, k) => {
+      const base = norm(f.name.replace(/\.[^.]+$/, ''));
+      let idx = PLAYLIST.findIndex(s => norm(s.slug) === base || norm(s.raw) === base);
+      if (idx < 0) idx = PLAYLIST.findIndex(s => base.includes(norm(s.raw)) || norm(s.raw).includes(base));
+      if (idx < 0) idx = files.length === 1 ? (this.index >= 0 ? this.index : 0) : k;
+      if (idx < 0 || idx >= PLAYLIST.length) return;
+
+      if (this.available[idx] && this.available[idx].startsWith('blob:')) {
+        try { URL.revokeObjectURL(this.available[idx]); } catch (e) {}
+      }
+      this.available[idx] = URL.createObjectURL(f);
+      matched++;
+    });
+
+    this.onState(this.state());
+    return matched;
   }
 
   state() {
@@ -171,45 +294,81 @@ export class Radio {
     };
   }
 
-  /* ---------- 播放 / 切台 ---------- */
-  async play(i) {
-    if (!this.started) this.init();
-    if (!this.ctx) return;
-    const idx = ((i % PLAYLIST.length) + PLAYLIST.length) % PLAYLIST.length;
-
-    if (this.ctx.state === 'suspended') { try { await this.ctx.resume(); } catch (e) {} }
-
-    this.tuneSweep();
-    this.index = idx;
-
-    const url = this.available && this.available[idx];
-    if (url) {
-      // 有文件：切到真实音频
-      this.stopSynth();
-      this.usingSynth = false;
-      try {
-        this.audio.src = url;
-        this.audio.currentTime = 0;
-        await this.audio.play();
-      } catch (e) {
-        // 自动播放被拦或解码失败 → 退到合成垫音
-        this.usingSynth = true;
-        this.startSynth();
-      }
-    } else {
-      // 没文件：合成垫音
-      try { this.audio.pause(); } catch (e) {}
+  /** 播放一个具体的音频 URL；任何失败都退回垫音 */
+  async _playFile(url) {
+    this.stopSynth();
+    this.usingSynth = false;
+    try {
+      if (this.audio.src !== url) this.audio.src = url;
+      this.audio.currentTime = 0;
+      this.audio.volume = 1;
+      await this.audio.play();
+      return true;
+    } catch (e) {
+      console.warn('radio: 原曲放不出来，改用垫音', e && e.message);
       this.usingSynth = true;
-      this.startSynth();
+      try { this.startSynth(); } catch (e2) {}
+      this.onState(this.state());
+      return false;
+    }
+  }
+
+  /* ---------- 播放 / 切台 ---------- */
+  async play(i, opts = {}) {
+    if (!this.started) this.init();
+    if (!this.ctx) return false;
+
+    const idx = ((i % PLAYLIST.length) + PLAYLIST.length) % PLAYLIST.length;
+    let running = true;
+    try {
+      running = await this.ensureRunning();
+    } catch (e) { /* 忽略 */ }
+
+    try {
+      this.tuneSweep();
+    } catch (e) {
+      console.warn('radio: tuneSweep 失败', e);
     }
 
-    // 主输出在扫台后回到正常
+    this.index = idx;
+    this.onState(this.state());          // 指针先动，不等音频
+
+    const known = (this.available && this.available[idx]) || null;
+
+    if (known) {
+      await this._playFile(known);
+    } else {
+      // 没有已知文件：先把垫音放起来（点一下立刻有声），
+      // 后台再去找文件，找到就切过去 —— 绝不把播放卡在探测上。
+      if (this.audio) { try { this.audio.pause(); } catch (e) {} }
+      this.usingSynth = true;
+      this.startSynth();
+
+      if (!opts.skipProbe) {
+        this.resolve(idx).then((url) => {
+          if (!url || this.index !== idx) return;
+          this._playFile(url);
+        }).catch(() => { /* 探测失败就继续垫音 */ });
+      }
+    }
+
+    // 扫台之后把输出拉回正常。
+    // 这里必须显式打一个 setValueAtTime 锚点：只靠 cancelAndHoldAtTime 的话，
+    // 后面的 linearRamp 在 Chromium 上可能没有起点，增益会一直卡在压台值上。
     const t = this.ctx.currentTime;
-    this.out.gain.cancelScheduledValues(t);
-    this.out.gain.setValueAtTime(Math.max(0.0001, this.out.gain.value), t);
-    this.out.gain.linearRampToValueAtTime(this.muted ? 0 : this.volume, t + 0.75);
+    const target = this.muted ? 0 : this.volume;
+    const g = this.out.gain;
+    if (typeof g.cancelAndHoldAtTime === 'function') {
+      g.cancelAndHoldAtTime(t);
+    } else {
+      g.cancelScheduledValues(t);
+    }
+    g.setValueAtTime(Math.max(0.0001, g.value), t);
+    g.linearRampToValueAtTime(target, t + 0.8);
+    this._holdUntil = t + 0.85;
 
     this.onState(this.state());
+    return running;
   }
 
   next() { this.play(this.index + 1); }
@@ -236,6 +395,7 @@ export class Radio {
     this.out.gain.cancelScheduledValues(t);
     this.out.gain.setValueAtTime(Math.max(0.0001, this.out.gain.value), t);
     this.out.gain.linearRampToValueAtTime(0.10, t + 0.06);
+    this._holdUntil = t + 0.1;
 
     setTimeout(() => { try { src.disconnect(); bp.disconnect(); g.disconnect(); } catch (e) {} }, 900);
   }
@@ -246,12 +406,13 @@ export class Radio {
     const c = this.ctx;
     if (!c) return;
 
-    // Am – F – C – G，缓慢循环；每层三个音，轻微失谐
+    // Am – F – C – G，缓慢循环；整组放在 220–660 Hz，正好落在小喇叭的通带里
+    // （再低就会被 178 Hz 高通吃掉，垫音就几乎听不见了）
     const chords = [
-      [110.00, 164.81, 261.63],
-      [87.31, 130.81, 220.00],
-      [130.81, 196.00, 329.63],
-      [98.00, 146.83, 246.94],
+      [220.00, 329.63, 523.25],
+      [174.61, 261.63, 440.00],
+      [261.63, 392.00, 659.26],
+      [196.00, 293.66, 493.88],
     ];
     let step = 0;
 
@@ -273,10 +434,10 @@ export class Radio {
       const ch = chords[step % chords.length];
       const layer = [];
       ch.forEach((f, k) => {
-        layer.push(Object.assign(voice(f, k === 2 ? 'triangle' : 'sine', (Math.random() - 0.5) * 9, 0.09 / (k + 1)), {}));
+        layer.push(voice(f, k === 2 ? 'triangle' : 'sine', (Math.random() - 0.5) * 9, 0.34 / (1 + k * 0.5)));
       });
-      // 低音
-      layer.push(voice(ch[0] / 2, 'sine', 0, 0.13));
+      // 低音层：用根音本身（再低就被 178 Hz 高通吃掉了，小喇叭本来也没有低音）
+      layer.push(voice(ch[0], 'triangle', -6, 0.24));
 
       const dur = 7.4;
       layer.forEach((v) => {
@@ -305,6 +466,19 @@ export class Radio {
     if (!this.started || !this.ctx) return;
     const t = this.ctx.currentTime;
 
+    // 保险：输出增益如果莫名停在低位（自动化事件没接上），把它拉回来。
+    // 扫台和跌落有自己的时间窗，窗口内不动。
+    if (t > (this._holdUntil || 0)) {
+      const want = this.muted ? 0 : this.volume;
+      const cur = this.out.gain.value;
+      if (want > 0.05 && cur < want * 0.6) {
+        this.out.gain.cancelScheduledValues(t);
+        this.out.gain.setValueAtTime(cur, t);
+        this.out.gain.linearRampToValueAtTime(want, t + 0.5);
+        this._holdUntil = t + 0.55;
+      }
+    }
+
     if (t > this.nextDriftAt) {
       this.nextDriftAt = t + 0.25 + Math.random() * 0.5;
       this.drift += (Math.random() - 0.5) * 0.28;
@@ -329,6 +503,7 @@ export class Radio {
     const back = 0.16 + Math.random() * 0.42;
     this.out.gain.linearRampToValueAtTime(target * 0.55, t + back);
     this.out.gain.linearRampToValueAtTime(target, t + back + 0.30);
+    this._holdUntil = t + back + 0.35;
   }
 
   setMuted(m) {
@@ -353,5 +528,6 @@ export class Radio {
     this.out.gain.cancelScheduledValues(t);
     this.out.gain.setValueAtTime(0.0001, t);
     this.out.gain.linearRampToValueAtTime(this.muted ? 0 : this.volume, t + 2.6);
+    this._holdUntil = t + 2.7;   // 别让 update 的兜底抢在渐入之前
   }
 }
