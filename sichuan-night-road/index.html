@@ -181,35 +181,6 @@
     margin-top:7px; padding-top:6px; border-top:1px solid rgba(208,166,104,.09);
     font-size:9.5px; letter-spacing:.01em; color:#5e5342; line-height:1.75;
   }
-  #radio .actions { margin-top:7px; display:flex; gap:7px; }
-
-  /* 叫车提示 */
-  #callHint {
-    position:fixed; left:50%; bottom:11%; z-index:9; pointer-events:none;
-    transform:translateX(-50%) translateY(7px);
-    font-size:11.5px; letter-spacing:.14em; color:#cbbfa8;
-    padding:7px 15px; border:1px solid rgba(210,170,110,.20); border-radius:2px;
-    background:rgba(18,14,9,.52); backdrop-filter:blur(2px);
-    opacity:0; transition:opacity .55s ease, transform .55s ease;
-    text-shadow:0 1px 8px rgba(0,0,0,.9); white-space:nowrap;
-  }
-  #callHint.show { opacity:1; transform:translateX(-50%) translateY(0); }
-  #callHint b {
-    display:inline-block; min-width:15px; padding:1px 5px; margin-right:9px;
-    border:1px solid rgba(200,190,170,.30); border-radius:3px;
-    font-weight:500; font-size:10px; color:#f0e6d2; letter-spacing:.06em;
-  }
-  #radio .actions button {
-    flex:1; padding:5px 0; font-family:inherit; font-size:9.5px; letter-spacing:.08em;
-    color:#c3ad86; background:rgba(212,164,100,.07);
-    border:1px solid rgba(208,166,104,.22); border-radius:2px; cursor:pointer;
-    transition:all .25s ease;
-  }
-  #radio .actions button:hover {
-    background:rgba(212,164,100,.16); border-color:rgba(220,176,112,.45); color:#f0e0c2;
-  }
-  #radio .actions button:active { transform:translateY(1px); }
-  #radio.dragover .body { border-color:rgba(255,190,110,.75); box-shadow:0 0 26px rgba(220,150,60,.35); }
   #radio .toggle {
     position:absolute; right:11px; top:11px; cursor:pointer; color:#7d6a4c;
     font-size:10px; letter-spacing:.1em; user-select:none;
