@@ -40,7 +40,8 @@ export class Radio {
     this.ctx = opts.ctx;
     this.dest = opts.destination;      // 通常是 Sound.master
     this.onState = opts.onState || (() => {});
-    this.volume = 0.86;
+    this.volume = 0.42;
+    this.proximity = 1;          // 1 = 就在车里，0 = 离得听不见
     this.muted = false;
     this.available = [];               // 每首歌是否找到文件
     this.index = -1;
@@ -76,21 +77,15 @@ export class Radio {
     this.input = c.createGain();
     this.input.gain.value = 1.0;
 
+    // 只留一点点暖色。之前那套「小喇叭」窄带 + 削波虽然像收音机，
+    // 但把歌压得又薄又刺，听起来比不放还差 —— 现在只做温和的去直流和柔化。
     this.hp = c.createBiquadFilter();
-    this.hp.type = 'highpass'; this.hp.frequency.value = 178; this.hp.Q.value = 0.70;
+    this.hp.type = 'highpass'; this.hp.frequency.value = 52; this.hp.Q.value = 0.7;
 
     this.lp = c.createBiquadFilter();
-    this.lp.type = 'lowpass'; this.lp.frequency.value = 3480; this.lp.Q.value = 1.05;
+    this.lp.type = 'lowpass'; this.lp.frequency.value = 15000; this.lp.Q.value = 0.62;
 
-    // 中频凸起：老喇叭最典型的一笔
-    this.pk = c.createBiquadFilter();
-    this.pk.type = 'peaking'; this.pk.frequency.value = 1380; this.pk.Q.value = 0.85; this.pk.gain.value = 7.5;
-
-    this.pre = c.createGain(); this.pre.gain.value = 0.92;
-
-    this.shaper = c.createWaveShaper();
-    this.shaper.curve = softClipCurve(1.7);
-    this.shaper.oversample = '2x';
+    this.pre = c.createGain(); this.pre.gain.value = 1.0;
 
     this.out = c.createGain();
     this.out.gain.value = 0;                 // 由 fadeIn 拉起
@@ -98,15 +93,13 @@ export class Radio {
 
     this.input.connect(this.hp);
     this.hp.connect(this.lp);
-    this.lp.connect(this.pk);
-    this.pk.connect(this.pre);
-    this.pre.connect(this.shaper);
-    this.shaper.connect(this.out);
+    this.lp.connect(this.pre);
+    this.pre.connect(this.out);
 
     // 电源哼声（滤过之后才加，才不会被高通削掉）
     const hum = c.createOscillator();
     hum.type = 'sine'; hum.frequency.value = 100;
-    const humG = c.createGain(); humG.gain.value = 0.0045;
+    const humG = c.createGain(); humG.gain.value = 0.0016;
     hum.connect(humG); humG.connect(this.out); hum.start();
     this.hum = hum; this.humG = humG;
 
@@ -116,7 +109,7 @@ export class Radio {
     noise.loop = true;
     const nb = c.createBiquadFilter();
     nb.type = 'bandpass'; nb.frequency.value = 2350; nb.Q.value = 0.62;
-    const ng = c.createGain(); ng.gain.value = 0.016;
+    const ng = c.createGain(); ng.gain.value = 0.0045;
     noise.connect(nb); nb.connect(ng); ng.connect(this.input);
     noise.start();
     this.noiseBp = nb; this.noiseGain = ng;
@@ -281,6 +274,15 @@ export class Radio {
     return matched;
   }
 
+  /** 离车距离：1 = 就在车里，0 = 完全听不见 */
+  setProximity(p) {
+    this.proximity = Math.max(0, Math.min(1, p));
+  }
+
+  _targetGain() {
+    return this.muted ? 0 : this.volume * this.proximity;
+  }
+
   state() {
     const s = PLAYLIST[this.index] || null;
     return {
@@ -356,7 +358,7 @@ export class Radio {
     // 这里必须显式打一个 setValueAtTime 锚点：只靠 cancelAndHoldAtTime 的话，
     // 后面的 linearRamp 在 Chromium 上可能没有起点，增益会一直卡在压台值上。
     const t = this.ctx.currentTime;
-    const target = this.muted ? 0 : this.volume;
+    const target = this._targetGain();
     const g = this.out.gain;
     if (typeof g.cancelAndHoldAtTime === 'function') {
       g.cancelAndHoldAtTime(t);
@@ -468,14 +470,11 @@ export class Radio {
 
     // 保险：输出增益如果莫名停在低位（自动化事件没接上），把它拉回来。
     // 扫台和跌落有自己的时间窗，窗口内不动。
+    // 每帧按「离车距离」平滑收放；同时也兜住增益被自动化锁死的异常
     if (t > (this._holdUntil || 0)) {
-      const want = this.muted ? 0 : this.volume;
-      const cur = this.out.gain.value;
-      if (want > 0.05 && cur < want * 0.6) {
-        this.out.gain.cancelScheduledValues(t);
-        this.out.gain.setValueAtTime(cur, t);
-        this.out.gain.linearRampToValueAtTime(want, t + 0.5);
-        this._holdUntil = t + 0.55;
+      const want = this._targetGain();
+      if (Math.abs(want - this.out.gain.value) > 0.012) {
+        this.out.gain.setTargetAtTime(want, t, 0.2);
       }
     }
 
@@ -484,19 +483,18 @@ export class Radio {
       this.drift += (Math.random() - 0.5) * 0.28;
       this.drift = clamp(this.drift * 0.94, -1, 1);
 
-      this.lp.frequency.setTargetAtTime(3480 + this.drift * 620, t, 0.6);
-      this.hp.frequency.setTargetAtTime(178 + this.drift * 34, t, 0.6);
-      this.pk.gain.setTargetAtTime(7.5 + this.drift * 1.6, t, 0.7);
-      this.humG.gain.setTargetAtTime(0.0045 + Math.abs(this.drift) * 0.0022, t, 0.8);
+      this.lp.frequency.setTargetAtTime(15000 + this.drift * 1400, t, 0.8);
+      this.hp.frequency.setTargetAtTime(52 + this.drift * 7, t, 0.8);
+      this.humG.gain.setTargetAtTime(0.0016 + Math.abs(this.drift) * 0.0009, t, 0.9);
 
       // 偶发的信号跌落
-      if (Math.random() < 0.018) this.dropout();
+      if (Math.random() < 0.004) this.dropout();
     }
   }
 
   dropout() {
     const c = this.ctx, t = c.currentTime;
-    const target = this.muted ? 0 : this.volume;
+    const target = this._targetGain();
     this.out.gain.cancelScheduledValues(t);
     this.out.gain.setValueAtTime(Math.max(0.0001, this.out.gain.value), t);
     this.out.gain.linearRampToValueAtTime(target * 0.16, t + 0.09);
@@ -509,7 +507,7 @@ export class Radio {
   setMuted(m) {
     this.muted = m;
     if (this.out && this.ctx) {
-      this.out.gain.setTargetAtTime(m ? 0 : this.volume, this.ctx.currentTime, 0.18);
+      this.out.gain.setTargetAtTime(this._targetGain(), this.ctx.currentTime, 0.18);
     }
     this.onState(this.state());
   }
@@ -517,7 +515,7 @@ export class Radio {
   setVolume(v) {
     this.volume = clamp(v, 0, 1);
     if (this.out && this.ctx && !this.muted) {
-      this.out.gain.setTargetAtTime(this.volume, this.ctx.currentTime, 0.15);
+      this.out.gain.setTargetAtTime(this._targetGain(), this.ctx.currentTime, 0.15);
     }
     this.onState(this.state());
   }
@@ -527,7 +525,7 @@ export class Radio {
     const t = this.ctx.currentTime;
     this.out.gain.cancelScheduledValues(t);
     this.out.gain.setValueAtTime(0.0001, t);
-    this.out.gain.linearRampToValueAtTime(this.muted ? 0 : this.volume, t + 2.6);
+    this.out.gain.linearRampToValueAtTime(this._targetGain(), t + 2.6);
     this._holdUntil = t + 2.7;   // 别让 update 的兜底抢在渐入之前
   }
 }

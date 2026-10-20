@@ -1755,7 +1755,7 @@ function updateTraffic(dt) {
   nextTrafficAt -= dt;
   if (nextTrafficAt <= 0 && traffic.length < 3) {
     spawnTraffic();
-    nextTrafficAt = 16 + Math.random() * 26;
+    nextTrafficAt = /(?:\?|&)jam(?:[=&]|$)/.test(location.search) ? 2 : 16 + Math.random() * 26;
   }
 
   let nearest = null, nearestDist = 1e9;
@@ -1869,7 +1869,8 @@ const mists = [];
    ============================================================ */
 const Sound = {
   ctx: null, master: null, started: false, muted: false,
-  windGain: null, engGain: null, engOsc: null, noiseBuf: null,
+  windGain: null, engGain: null, engOsc: null, engOsc2: null, tyreGain: null,
+  noiseBuf: null, trafficVoices: [], _fwd: null,
 
   init() {
     if (this.started) return;
@@ -1883,36 +1884,55 @@ const Sound = {
       master.connect(ctx.destination);
       this.master = master;
 
-      // 噪声缓冲
-      const len = ctx.sampleRate * 2;
+      // 噪声缓冲（风、胎噪、脚步、会车都用它）
+      const len = Math.floor(ctx.sampleRate * 2.5);
       const buf = ctx.createBuffer(1, len, ctx.sampleRate);
       const d = buf.getChannelData(0);
       for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
       this.noiseBuf = buf;
 
-      // 风
+      // ---- 风 ----
       const wind = ctx.createBufferSource();
       wind.buffer = buf; wind.loop = true;
       const wf = ctx.createBiquadFilter();
-      wf.type = 'lowpass'; wf.frequency.value = 380; wf.Q.value = 0.6;
-      const wg = ctx.createGain(); wg.gain.value = 0.14;
+      wf.type = 'lowpass'; wf.frequency.value = 620; wf.Q.value = 0.6;
+      const wg = ctx.createGain(); wg.gain.value = 0.20;
       wind.connect(wf); wf.connect(wg); wg.connect(master);
       wind.start();
       const lfo = ctx.createOscillator(); lfo.frequency.value = 0.07;
-      const lg = ctx.createGain(); lg.gain.value = 0.055;
+      const lg = ctx.createGain(); lg.gain.value = 0.075;
       lfo.connect(lg); lg.connect(wg.gain); lfo.start();
       this.windGain = wg;
 
-      // 自己的引擎
+      // ---- 自己的引擎：锯齿 + 方波两层，过同一低通 ----
       const eng = ctx.createOscillator(); eng.type = 'sawtooth'; eng.frequency.value = 44;
-      const ef = ctx.createBiquadFilter(); ef.type = 'lowpass'; ef.frequency.value = 170; ef.Q.value = 3;
+      const eng2 = ctx.createOscillator(); eng2.type = 'square'; eng2.frequency.value = 22;
+      const ef = ctx.createBiquadFilter(); ef.type = 'lowpass'; ef.frequency.value = 195; ef.Q.value = 2.6;
       const eg = ctx.createGain(); eg.gain.value = 0;
-      eng.connect(ef); ef.connect(eg); eg.connect(master); eng.start();
-      this.engOsc = eng; this.engGain = eg;
+      eng.connect(ef); eng2.connect(ef); ef.connect(eg); eg.connect(master);
+      eng.start(); eng2.start();
+      this.engOsc = eng; this.engOsc2 = eng2; this.engGain = eg;
 
-      master.gain.linearRampToValueAtTime(this.muted ? 0 : 0.5, ctx.currentTime + 2.5);
+      // 车内胎噪
+      const tn = ctx.createBufferSource(); tn.buffer = buf; tn.loop = true;
+      const tnf = ctx.createBiquadFilter(); tnf.type = 'bandpass'; tnf.frequency.value = 540; tnf.Q.value = 0.7;
+      const tng = ctx.createGain(); tng.gain.value = 0;
+      tn.connect(tnf); tnf.connect(tng); tng.connect(master);
+      tn.start();
+      this.tyreGain = tng;
+
+      // 电平探针（环境音总线）
+      this.ambAnalyser = ctx.createAnalyser();
+      this.ambAnalyser.fftSize = 2048;
+      master.connect(this.ambAnalyser);
+      this._ambBuf = new Float32Array(this.ambAnalyser.fftSize);
+
+      master.gain.linearRampToValueAtTime(this.muted ? 0 : 0.9, ctx.currentTime + 2.5);
       this.started = true;
       this.cricketLoop();
+
+      // 会车音源池（最多同时 3 辆，留一个余量）
+      for (let i = 0; i < 4; i++) this.trafficVoices.push(this._makeTrafficVoice());
 
       // 收音机独立接 dest：音乐和环境音的比例各自可调，M 键两边一起静音
       try {
@@ -1924,6 +1944,145 @@ const Sound = {
     } catch (e) {
       console.warn('audio unavailable', e);
     }
+  },
+
+  /* ---------- 会车音源 ---------- */
+  _makeTrafficVoice() {
+    const ctx = this.ctx;
+    const panner = ctx.createPanner();
+    panner.panningModel = 'equalpower';   // HRTF 太贵，3 辆车不值得
+    panner.distanceModel = 'inverse';
+    panner.refDistance = 7;
+    panner.maxDistance = 340;
+    panner.rolloffFactor = 1.0;
+    if (panner.positionX) panner.positionZ.value = -60;
+    else if (panner.setPosition) panner.setPosition(0, 0, -60);
+
+    const o1 = ctx.createOscillator(); o1.type = 'sawtooth'; o1.frequency.value = 60;
+    const o2 = ctx.createOscillator(); o2.type = 'square'; o2.frequency.value = 30;
+    const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 320; lp.Q.value = 1.5;
+    const eg = ctx.createGain(); eg.gain.value = 0;
+    o1.connect(lp); o2.connect(lp); lp.connect(eg); eg.connect(panner);
+    o1.start(); o2.start();
+
+    const nsrc = ctx.createBufferSource(); nsrc.buffer = this.noiseBuf; nsrc.loop = true;
+    const nbp = ctx.createBiquadFilter(); nbp.type = 'bandpass'; nbp.frequency.value = 1000; nbp.Q.value = 0.55;
+    const ng = ctx.createGain(); ng.gain.value = 0;
+    nsrc.connect(nbp); nbp.connect(ng); ng.connect(panner);
+    nsrc.start();
+
+    panner.connect(this.master);
+    return { panner, o1, o2, lp, eg, ng, nbp, active: false };
+  },
+
+  /* 每帧：听者跟随相机，会车声按位置/速度/距离更新 */
+  updateTrafficAudio() {
+    if (!this.started) return;
+    const ctx = this.ctx, t = ctx.currentTime;
+
+    const l = ctx.listener;
+    const p = camera.position;
+    if (!this._fwd) this._fwd = new THREE.Vector3();
+    camera.getWorldDirection(this._fwd);
+    const f = this._fwd;
+
+    if (l.positionX) {
+      l.positionX.setTargetAtTime(p.x, t, 0.04);
+      l.positionY.setTargetAtTime(p.y, t, 0.04);
+      l.positionZ.setTargetAtTime(p.z, t, 0.04);
+      l.forwardX.setTargetAtTime(f.x, t, 0.08);
+      l.forwardY.setTargetAtTime(f.y, t, 0.08);
+      l.forwardZ.setTargetAtTime(f.z, t, 0.08);
+      l.upX.setValueAtTime(0, t); l.upY.setValueAtTime(1, t); l.upZ.setValueAtTime(0, t);
+    } else if (l.setPosition) {
+      l.setPosition(p.x, p.y, p.z);
+      l.setOrientation(f.x, f.y, f.z, 0, 1, 0);
+    }
+
+    for (let i = 0; i < this.trafficVoices.length; i++) {
+      const v = this.trafficVoices[i];
+      const car = traffic[i];
+
+      if (!car) {
+        if (v.active) {
+          v.eg.gain.setTargetAtTime(0, t, 0.3);
+          v.ng.gain.setTargetAtTime(0, t, 0.3);
+          v.active = false;
+        }
+        continue;
+      }
+      if (!v.active) {
+        v.active = true;
+        // 刚分配时直接落到当前音量，避免从上一个位置滑过来
+        v.eg.gain.setValueAtTime(0.0001, t);
+        v.ng.gain.setValueAtTime(0.0001, t);
+      }
+
+      const q = car.position;
+      const dx = q.x - p.x, dz = q.z - p.z;
+      const dist = Math.hypot(dx, dz);
+
+      if (v.panner.positionX) {
+        v.panner.positionX.setTargetAtTime(q.x, t, 0.05);
+        v.panner.positionY.setTargetAtTime(q.y + 0.55, t, 0.05);
+        v.panner.positionZ.setTargetAtTime(q.z, t, 0.05);
+      } else if (v.panner.setPosition) {
+        v.panner.setPosition(q.x, q.y + 0.55, q.z);
+      }
+
+      // 多普勒：迎面车（z 比我们小）在接近，掠过之后频率降下来
+      const closing = dz < 0 ? car.userData.speed : -car.userData.speed;
+      const dop = clamp(1 + (closing / 343) * 1.30, 0.72, 1.34);
+
+      const isTruck = car.userData.kind === 'truck';
+      const base = (isTruck ? 52 : 68) + car.userData.speed * 1.1;
+      v.o1.frequency.setTargetAtTime(base * dop, t, 0.10);
+      v.o2.frequency.setTargetAtTime(base * 0.5 * dop, t, 0.10);
+
+      const near = clamp(1 - dist / 110, 0, 1);
+      v.lp.frequency.setTargetAtTime(240 + 330 * near, t, 0.15);
+      v.eg.gain.setTargetAtTime((isTruck ? 0.40 : 0.24) * near * near, t, 0.12);
+      v.ng.gain.setTargetAtTime(0.15 * near * near * near, t, 0.12);
+      v.nbp.frequency.setTargetAtTime(820 + 640 * near, t, 0.15);
+    }
+  },
+
+  /* 喇叭：叫车时车回应两声（不是人声） */
+  horn(delay = 0) {
+    if (!this.ctx || this.muted) return;
+    const ctx = this.ctx, t0 = ctx.currentTime + delay;
+
+    const panner = ctx.createPanner();
+    panner.panningModel = 'equalpower';
+    panner.distanceModel = 'inverse';
+    panner.refDistance = 9; panner.rolloffFactor = 0.75; panner.maxDistance = 420;
+    const tp = truck.position;
+    if (panner.positionX) {
+      panner.positionX.value = tp.x; panner.positionY.value = tp.y + 1.0; panner.positionZ.value = tp.z;
+    } else if (panner.setPosition) {
+      panner.setPosition(tp.x, tp.y + 1.0, tp.z);
+    }
+
+    const g = ctx.createGain(); g.gain.value = 0;
+    const bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 950; bp.Q.value = 0.85;
+    const o1 = ctx.createOscillator(); o1.type = 'square'; o1.frequency.value = 415;
+    const o2 = ctx.createOscillator(); o2.type = 'sawtooth'; o2.frequency.value = 523;
+    o1.connect(bp); o2.connect(bp); bp.connect(g); g.connect(panner); panner.connect(this.master);
+
+    const dur = 0.24;
+    [[0, 0.55], [0.44, 0.62]].forEach(([dly, amp]) => {
+      const tt = t0 + dly;
+      g.gain.setValueAtTime(0.0001, tt);
+      g.gain.linearRampToValueAtTime(amp, tt + 0.014);
+      g.gain.setValueAtTime(amp, tt + dur - 0.05);
+      g.gain.exponentialRampToValueAtTime(0.0001, tt + dur);
+    });
+
+    o1.start(t0); o2.start(t0);
+    o1.stop(t0 + 1.4); o2.stop(t0 + 1.4);
+    setTimeout(() => {
+      try { o1.disconnect(); o2.disconnect(); bp.disconnect(); g.disconnect(); panner.disconnect(); } catch (e) {}
+    }, 2200);
   },
 
   cricketLoop() {
@@ -1946,7 +2105,7 @@ const Sound = {
     o.connect(g);
 
     const n = 2 + Math.floor(Math.random() * 3);
-    const amp = 0.018 + Math.random() * 0.022;
+    const amp = 0.055 + Math.random() * 0.05;
     for (let i = 0; i < n; i++) {
       const t = t0 + i * 0.055;
       g.gain.setValueAtTime(0.0001, t);
@@ -1970,30 +2129,64 @@ const Sound = {
     bp.type = 'bandpass'; bp.frequency.value = 260 + Math.random() * 220; bp.Q.value = 1.1;
     const g = ctx.createGain();
     g.gain.setValueAtTime(0.0001, t0);
-    g.gain.linearRampToValueAtTime(0.12 + Math.random() * 0.06, t0 + 0.012);
+    g.gain.linearRampToValueAtTime(0.145 + Math.random() * 0.06, t0 + 0.012);
     g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.14);
     src.connect(bp); bp.connect(g); g.connect(this.master);
     src.start(t0); src.stop(t0 + 0.2);
-    setTimeout(() => { try { src.disconnect(); bp.disconnect(); g.disconnect(); } catch (e) {} }, 400);
+
+    // 踩到碎石的细碎高频
+    const hs = ctx.createBufferSource();
+    hs.buffer = this.noiseBuf;
+    hs.playbackRate.value = 1.4 + Math.random() * 0.8;
+    const hp = ctx.createBiquadFilter();
+    hp.type = 'highpass'; hp.frequency.value = 2600;
+    const hg = ctx.createGain();
+    hg.gain.setValueAtTime(0.0001, t0);
+    hg.gain.linearRampToValueAtTime(0.05 + Math.random() * 0.03, t0 + 0.008);
+    hg.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.075);
+    hs.connect(hp); hp.connect(hg); hg.connect(this.master);
+    hs.start(t0); hs.stop(t0 + 0.1);
+
+    setTimeout(() => {
+      try { src.disconnect(); bp.disconnect(); g.disconnect(); hs.disconnect(); hp.disconnect(); hg.disconnect(); } catch (e) {}
+    }, 400);
   },
 
-  update(dt, mode, speed, nearestTrafficDist) {
+  update(dt, mode, speed) {
     if (!this.started) return;
     const t = this.ctx.currentTime;
-    // 引擎
-    const running = (mode === 'drive' || mode === 'stopping') ? clamp(speed / DRIVE_SPEED, 0, 1) : 0;
-    this.engGain.gain.setTargetAtTime(0.035 * running, t, 0.3);
-    this.engOsc.frequency.setTargetAtTime(38 + running * 16, t, 0.4);
-    // 风：走动时更明显
-    const w = mode === 'walk' ? 0.19 : 0.12;
+
+    const driving = mode === 'drive' || mode === 'stopping' || mode === 'calling';
+    const running = driving ? clamp(speed / DRIVE_SPEED, 0, 1) : 0;
+    // 在车里满响；叫车时人是站在路边听的，按距离收一点
+    const engD = Math.hypot(camera.position.x - truck.position.x, camera.position.z - truck.position.z);
+    const engNear = mode === 'drive' || mode === 'stopping' ? 1 : clamp(1 - (engD - 2.5) / 55, 0, 1);
+    this.engGain.gain.setTargetAtTime(0.105 * running * engNear, t, 0.28);
+    this.engOsc.frequency.setTargetAtTime(38 + running * 20, t, 0.35);
+    if (this.engOsc2) this.engOsc2.frequency.setTargetAtTime(19 + running * 10, t, 0.35);
+    if (this.tyreGain) this.tyreGain.gain.setTargetAtTime(0.05 * running, t, 0.4);
+
+    // 风：在车里被挡掉一部分，下车更明显
+    const w = mode === 'walk' ? 0.34 : 0.15;
     this.windGain.gain.setTargetAtTime(w, t, 1.2);
-    // 会车：远处引擎声
-    this.master.gain.setTargetAtTime(this.muted ? 0 : 0.5, t, 0.15);
+
+    this.master.gain.setTargetAtTime(this.muted ? 0 : 0.9, t, 0.15);
+
+    this.updateTrafficAudio();
+  },
+
+  /** 环境音总线的当前电平（RMS） */
+  level() {
+    if (!this.ambAnalyser) return 0;
+    this.ambAnalyser.getFloatTimeDomainData(this._ambBuf);
+    let sum = 0;
+    for (let i = 0; i < this._ambBuf.length; i++) sum += this._ambBuf[i] * this._ambBuf[i];
+    return Math.sqrt(sum / this._ambBuf.length);
   },
 
   toggleMute() {
     this.muted = !this.muted;
-    if (this.master) this.master.gain.setTargetAtTime(this.muted ? 0 : 0.5, this.ctx.currentTime, 0.2);
+    if (this.master) this.master.gain.setTargetAtTime(this.muted ? 0 : 0.9, this.ctx.currentTime, 0.2);
     return this.muted;
   }
 };
@@ -2081,41 +2274,7 @@ const radio = new Radio({ onState: paintRadio });
   });
 })();
 
-/* 选本地文件：绕开服务器目录探测，代价是刷新后要重选 */
-const rdPickEl = document.getElementById('rd-pick');
-const rdFileEl = document.getElementById('rd-file');
-
-async function loadFiles(files) {
-  const n = radio.setLocalFiles(files);
-  if (!n) {
-    showCaption('没有识别到音频文件', 2200);
-    return;
-  }
-  const i = radio.index >= 0 ? radio.index : 0;
-  await radio.play(i, { skipProbe: true });
-  showCaption('已载入 ' + n + ' 个音频文件', 2600);
-}
-
-rdPickEl.addEventListener('click', (e) => {
-  e.stopPropagation();
-  rdFileEl.click();
-});
-rdFileEl.addEventListener('change', () => {
-  loadFiles(rdFileEl.files);
-  rdFileEl.value = '';
-});
-
-/* 拖进来也行 */
-radioEl.addEventListener('dragover', (e) => {
-  e.preventDefault();
-  radioEl.classList.add('dragover');
-});
-radioEl.addEventListener('dragleave', () => radioEl.classList.remove('dragover'));
-radioEl.addEventListener('drop', (e) => {
-  e.preventDefault();
-  radioEl.classList.remove('dragover');
-  if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length) loadFiles(e.dataTransfer.files);
-});
+/* 音频只从 music/ 目录读，界面上不提供选文件入口 */
 
 /* 折叠 */
 const rdToggleEl = document.getElementById('rd-toggle');
@@ -2144,13 +2303,18 @@ const state = {
   walkPos: new THREE.Vector3(),
   walkDist: 0,
   stepPhase: 0,
+  callT: 0,
+  callTargetZ: 0,
+  truckBounce: 0,
   started: false,
 };
+window.__state = state;   // 调试用
 
 const keys = {};
 document.addEventListener('keydown', e => {
   keys[e.code] = true;
   if (e.code === 'KeyE') toggleVehicle();
+  if (e.code === 'KeyC') callCar();
   if (e.code === 'KeyM') {
     const muted = Sound.toggleMute();
     radio.setMuted(muted);
@@ -2225,7 +2389,10 @@ function startExitTruck() {
     pitchFrom: -0.035, pitchTo: -0.02,
   };
   setModeText('下车 · 漫步');
-  document.getElementById('hud-right').innerHTML = '<div><b>W A S D</b>走动</div><div><b>E</b>上车</div><div><b>M</b>静音　<b>H</b>隐藏</div>';
+  document.getElementById('hud-right').innerHTML =
+    '<div><b>W A S D</b>走动　<b>E</b>上下车</div>' +
+    '<div><b>C</b>叫车　<b>R</b>收音机</div>' +
+    '<div><b>M</b>静音　<b>H</b>隐藏</div>';
   showCaption('下车。空气里有泥土、树叶，还有说不清的花香。', 5200);
 }
 
@@ -2244,6 +2411,93 @@ function startEnterTruck() {
 
 function setModeText(t) {
   document.getElementById('mode-text').textContent = t;
+}
+
+/* ---------- 走远了可以把车喊过来 ---------- */
+const callHintEl = document.getElementById('callHint');
+const CALL_MIN_DIST = 24;          // 超过这个距离才能叫
+
+function carDistance() {
+  return Math.hypot(state.walkPos.x - state.truckX, state.walkPos.z - (-state.dist));
+}
+
+function updateCallPrompt() {
+  if (!state.started || state.mode !== 'walk') {
+    callHintEl.classList.remove('show');
+    return;
+  }
+  const d = carDistance();
+  if (d > CALL_MIN_DIST) {
+    callHintEl.innerHTML = '<b>C</b>车在 ' + Math.round(d) + ' 米外 · 喊一声让它开过来';
+    callHintEl.classList.add('show');
+  } else {
+    callHintEl.classList.remove('show');
+  }
+}
+
+function callCar() {
+  if (!state.started || state.mode !== 'walk') return;
+  const d = carDistance();
+  if (d <= CALL_MIN_DIST) {
+    showCaption('车就在旁边', 1600);
+    return;
+  }
+
+  state.mode = 'calling';
+  state.callT = 0;
+  state.callTargetZ = state.walkPos.z;
+  callHintEl.classList.remove('show');
+  setModeText('等车 · 乡道边');
+  showCaption('爸，我在这！', 2400);
+
+  // 车里没人应声，只有喇叭：短促两声，然后车才起步
+  setTimeout(() => Sound.horn(0), 950);
+  setTimeout(() => Sound.horn(0.52), 1720);
+}
+
+function updateCalling(dt) {
+  state.callT += dt;
+
+  // 人站着等，但可以转头看车灯过来
+  const onRoad = Math.abs(state.walkPos.x) < ROAD_HW;
+  const gy = roadY(state.walkPos.z) + (onRoad ? 0 : -0.10);
+  const breathe = Math.sin(state.callT * 1.55) * 0.006;
+  camera.position.set(state.walkPos.x, gy + EYE + breathe, state.walkPos.z);
+  camera.rotation.set(state.pitch, state.yaw, Math.cos(state.callT * 0.8) * 0.008);
+
+  // 喇叭响过之后才起步
+  if (state.callT < 1.15) {
+    state.speed = 0;
+    document.getElementById('spd').textContent = '0';
+    return;
+  }
+
+  const carZ = -state.dist;
+  const diff = state.callTargetZ - carZ;     // 负 = 车要往 -z 方向开
+  const left = Math.abs(diff);
+
+  if (left < 1.7) {
+    state.speed = 0;
+    state.mode = 'walk';
+    setModeText('漫步 · 乡道边');
+    showCaption('车来了 · 按 E 上车', 3400);
+    document.getElementById('spd').textContent = '—';
+    return;
+  }
+
+  const speed = clamp(left * 0.8 + 2.2, 2.2, 12.5);
+  state.speed = speed;
+  state.dist += (diff < 0 ? 1 : -1) * speed * dt;
+
+  // 靠边一点，别停在路中间
+  state.truckX = lerp(state.truckX, LANE + 1.15, clamp(dt * 0.9, 0, 1));
+
+  state.truckBounce += dt * 10;
+  truck.position.set(state.truckX, roadY(-state.dist), -state.dist);
+  truck.rotation.x = Math.sin(state.truckBounce) * 0.005;
+  truck.rotation.z = Math.sin(state.truckBounce * 0.7) * 0.004;
+
+  document.getElementById('spd').textContent = Math.round(speed * 3.6);
 }
 
 /* ============================================================
@@ -2266,6 +2520,7 @@ function animate() {
   if (state.started) {
     if (state.mode === 'drive' || state.mode === 'stopping') updateDrive(dt);
     else if (state.mode === 'walk') updateWalk(dt);
+    else if (state.mode === 'calling') updateCalling(dt);
     else if (state.mode === 'exiting' || state.mode === 'entering') updateTransition(dt);
 
     updateTraffic(dt);
@@ -2274,8 +2529,14 @@ function animate() {
 
     let nd = 1e9;
     for (const v of traffic) nd = Math.min(nd, Math.abs(v.position.z - camera.position.z));
-    Sound.update(dt, state.mode, state.speed, nd);
+    Sound.update(dt, state.mode, state.speed);
+
+    // 收音机在车里：人走远了，声音跟着小下去（20 米外基本听不见）
+    const carD = Math.hypot(camera.position.x - truck.position.x, camera.position.z - truck.position.z);
+    radio.setProximity(Math.pow(clamp(1 - (carD - 1.6) / 30, 0, 1), 1.35));
     radio.update(dt);
+
+    updateCallPrompt();
   }
 
   // 信号格轻微跳动
@@ -2546,10 +2807,16 @@ function startExperience(withSound = true) {
     const z = -state.dist;
     state.mode = 'walk';
     state.walkPos.set(state.truckX + 1.55, 0, z - 1.1);
+    // 调试：?far=30 让人一开始就站在车前方 30 米
+    const FAR = parseFloat(QS.get('far') || '0') || 0;
+    if (FAR > 0) state.walkPos.z -= FAR;
     state.yaw = -0.30;
     state.pitch = -0.02;
     setModeText('漫步 · 乡道边');
-    document.getElementById('hud-right').innerHTML = '<div><b>W A S D</b>走动</div><div><b>E</b>上车</div><div><b>R</b>收音机　<b>M</b>静音</div><div><b>H</b>隐藏</div>';
+    document.getElementById('hud-right').innerHTML =
+    '<div><b>W A S D</b>走动　<b>E</b>上下车</div>' +
+    '<div><b>C</b>叫车　<b>R</b>收音机</div>' +
+    '<div><b>M</b>静音　<b>H</b>隐藏</div>';
   } else {
     setTimeout(() => showCaption('路是水泥的，有点破。远处的车开着远光。', 5000), 2600);
   }
@@ -2578,7 +2845,10 @@ if (QS.has('audiochk')) {
       ' avail=' + ((radio.available || []).filter(Boolean).length) +
       ' url=' + ((radio.available && radio.available[radio.index]) || 'none') +
       ' aPaused=' + (radio.audio ? radio.audio.paused : '?') +
-      ' rms=' + radio.level().toFixed(4)
+      ' rms=' + radio.level().toFixed(4) +
+      ' amb=' + Sound.level().toFixed(4) +
+      ' prox=' + radio.proximity.toFixed(2) +
+      ' mode=' + state.mode
     );
   }, 800);
 }
