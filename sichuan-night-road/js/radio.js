@@ -56,7 +56,7 @@ export class Radio {
     this.ambientGain = null;     // 氛围垫音（第二层，很小）
     this.ambientVoices = null;
     this.ambientLfo = null;
-    this.ambientLevel = 0.05;
+    this.ambientLevel = 0.115;
     this.synthVoices = null;
   }
 
@@ -446,10 +446,10 @@ export class Radio {
       const ch = chords[step % chords.length];
       const layer = [];
       ch.forEach((f, k) => {
-        layer.push(voice(f, k === 2 ? 'triangle' : 'sine', (Math.random() - 0.5) * 9, 0.34 / (1 + k * 0.5)));
+        layer.push(voice(f, k === 2 ? 'triangle' : 'sine', (Math.random() - 0.5) * 9, 0.19 / (1 + k * 0.5)));
       });
-      // 低音层：用根音本身（再低就被 178 Hz 高通吃掉了，小喇叭本来也没有低音）
-      layer.push(voice(ch[0], 'triangle', -6, 0.24));
+      // 低音层：用根音本身（再低会被 52 Hz 高通吃掉）
+      layer.push(voice(ch[0], 'triangle', -6, 0.13));
 
       const dur = 7.4;
       layer.forEach((v) => {
@@ -565,7 +565,7 @@ export class Radio {
 
     // 氛围垫音：收音机开着、但已经完全听不见了，持续 5 秒后才补一层底。
     // 一走近（proximity 回升）立刻撤掉。
-    if (this.enabled && this.proximity < 0.02) {
+    if (this.enabled && this.proximity < 0.10) {
       this.padTimer += dt || 0;
       if (this.padTimer > 5 && !this.ambientGain) this.startAmbient();
     } else {
