@@ -122,6 +122,27 @@ body.panel-open .brand .sub{opacity:0;}
   background:rgba(60,40,22,.55);transform:translateX(-50%);
 }
 
+/* ---------------- cities ---------------- */
+#cityLayer{position:fixed;inset:0;pointer-events:none;z-index:9;overflow:hidden;}
+.city{
+  position:absolute;left:0;top:0;display:flex;align-items:center;gap:5px;
+  font-size:10.5px;letter-spacing:.06em;white-space:nowrap;color:rgba(46,28,11,.95);
+  text-shadow:0 0 3px rgba(244,233,206,1),0 0 7px rgba(244,233,206,.85),0 1px 0 rgba(255,250,236,.7);
+  cursor:pointer;pointer-events:none;will-change:transform,opacity;
+}
+.city i{
+  width:4px;height:4px;border-radius:50%;flex:none;
+  background:rgba(48,31,14,.72);
+  box-shadow:0 0 0 1px rgba(243,231,203,.35);
+  transition:width .2s,height .2s,background .2s;
+}
+.city span{opacity:0;transition:opacity .22s;}
+.city.named span,.city:hover span{opacity:1;}
+.city:hover{color:#6d2415;}
+.city:hover i{background:#5d1c0e;box-shadow:0 0 0 1.5px rgba(243,231,203,.7);}
+.city.sel{color:#6d2415;font-weight:600;}
+.city.sel i{width:6px;height:6px;background:#7d2a19;box-shadow:0 0 0 2.5px rgba(243,231,203,.9);}
+
 /* ---------------- side panel ---------------- */
 #panel{
   position:fixed;left:32px;top:118px;bottom:128px;width:394px;z-index:24;
