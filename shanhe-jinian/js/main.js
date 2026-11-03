@@ -523,6 +523,7 @@ function updateCities() {
   const showNames = dist < 380;
   const someNames = dist < 640;
   const selZh = (S.selected && S.selected.place) ? S.selected.place.zh : '';
+  const fs = Math.max(10.5, Math.min(13, 10.5 + (520 - dist) * 0.013)).toFixed(1) + 'px';
   const placed = (S.labelRects || []).slice();
   for (const c of cityNodes) {
     const pr = globe.project(c.p.lon, c.p.lat);
@@ -531,9 +532,10 @@ function updateCities() {
     if (!on) continue;
     c.x = pr.x; c.y = pr.y;
     c.el.style.transform = `translate(${pr.x.toFixed(1)}px,${pr.y.toFixed(1)}px) translate(-2.5px,-50%)`;
+    if (c.el.style.fontSize !== fs) c.el.style.fontSize = fs;
     let named = pr.facing > 0.46 && (showNames || (someNames && MAJOR_CITIES.has(c.p.zh)));
     if (named) {
-      const w = 12 + c.p.zh.length * 11;
+      const w = 14 + c.p.zh.length * (+fs.replace('px', '')) * 1.02;
       for (let i = 0; i < placed.length; i++) {
         const q = placed[i];
         if (Math.abs(pr.x - q.x) < (w + q.w) / 2 && Math.abs(pr.y - q.y) < 14) { named = false; break; }
