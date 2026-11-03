@@ -74,7 +74,10 @@ async function boot() {
   await globe.setEra(first, { instant: true });
   setBar(0.78, '正在钤印…');
 
-  timeline = new Timeline(S.eras, { onChange: (i) => applyEra(i) });
+  timeline = new Timeline(S.eras, {
+    onChange: (i, era, opts) => requestEra(i, { scrub: !!(opts && opts.scrub) }),
+    onSettle: (i) => settleEra(i),
+  });
   timeline.setIndex(start, { silent: true });
 
   panel = new Panel({
@@ -88,6 +91,7 @@ async function boot() {
   });
 
   layoutLabels();
+  buildCities();
   const st = $('#subStats');
   if (st) st.textContent = ` · ${S.eras.length} 时代 / ${Object.keys(S.spans).length} 政权 / ${S.events.length} 往来`;
   applyTicker();
@@ -146,17 +150,52 @@ async function prefetchAll() {
 
 /* ------------------------------------------------------------ era */
 let eraToken = 0;
-async function applyEra(i) {
+let pendingIdx = -1;
+let pendingScrub = false;
+let eraScheduled = false;
+
+/** 合并同一帧内的多次换时代请求：拖动时间轴时每帧最多画一次 */
+function requestEra(i, { scrub = false } = {}) {
+  S.idx = i;
+  pendingIdx = i;
+  pendingScrub = scrub;
+  if (eraScheduled) return;
+  eraScheduled = true;
+  requestAnimationFrame(() => {
+    eraScheduled = false;
+    const idx = pendingIdx;
+    if (idx < 0) return;
+    const sc = pendingScrub;
+    pendingIdx = -1;
+    applyEra(idx, { scrub: sc });
+  });
+}
+
+async function applyEra(i, { scrub = false } = {}) {
   S.idx = i;
   const token = ++eraToken;
   const era = S.eras[i];
   const data = await getEra(era.key);
   if (token !== eraToken) return;
   S.labels = null;
+  if (scrub) {
+    // 拖动中：只换底图，关系弧、事件条、卷轴等松手后再补
+    await globe.setEra(data, { instant: true });
+    return;
+  }
   applyTicker();
   applyRelations(i);
   refreshPanel();
   await globe.setEra(data);
+}
+
+/** 拖动结束：补齐拖动时省下的那几样 */
+function settleEra(i) {
+  S.idx = i;
+  S.labels = null;
+  applyTicker();
+  applyRelations(i);
+  refreshPanel();
 }
 
 function windowEvents(i) {
@@ -179,6 +218,7 @@ function applyRelations(i) {
 function layoutLabels() {
   globe.onFrame = (dt) => {
     updateLabels();
+    updateCities();
     if (relations) {
       const cp = globe.camera.position;
       relations.update(dt, timeline && timeline.playing, { x: cp.x / cp.length(), y: cp.y / cp.length(), z: cp.z / cp.length() });
@@ -242,6 +282,7 @@ function updateLabels() {
     visible.push({ f, x: p.x, y: p.y, size, zh, isLatin, op: Math.min(1, (p.facing - 0.30) / 0.22) });
   }
 
+  S.labelRects = placed;
   const keep = new Set();
   for (const v of visible) {
     keep.add(v.f.id);
@@ -451,6 +492,74 @@ function refreshPanel() {
   else panel.update(buildEraCtx());
 }
 
+/* ------------------------------------------------------------ cities */
+const MAJOR_CITIES = new Set([
+  '长安', '洛阳', '开封', '北京', '南京', '杭州', '成都', '广州',
+  '京都', '罗马', '雅典', '威尼斯', '君士坦丁堡', '巴格达', '大马士革',
+  '亚历山大', '开罗', '耶路撒冷', '撒马尔罕', '德里', '伦敦', '巴黎',
+  '莫斯科', '维也纳', '墨西哥城', '库斯科', '廷巴克图', '吴哥', '伊斯坦布尔',
+]);
+let cityNodes = null;
+
+function buildCities() {
+  const layer = $('#cityLayer');
+  if (!layer) return;
+  layer.innerHTML = '';
+  cityNodes = [];
+  for (const p of (S.places || [])) {
+    const el = document.createElement('div');
+    el.className = 'city';
+    el.innerHTML = '<i></i><span></span>';
+    el.lastChild.textContent = p.zh;
+    layer.appendChild(el);
+    cityNodes.push({ p, el, x: -999, y: -999, vis: null, named: null, op: -1 });
+  }
+  updateCities();
+}
+
+function updateCities() {
+  if (!cityNodes) return;
+  const dist = globe.camera.position.length();
+  const showNames = dist < 380;
+  const someNames = dist < 640;
+  const selZh = (S.selected && S.selected.place) ? S.selected.place.zh : '';
+  const placed = (S.labelRects || []).slice();
+  for (const c of cityNodes) {
+    const pr = globe.project(c.p.lon, c.p.lat);
+    const on = !pr.behind && pr.facing > 0.30;
+    if (on !== c.vis) { c.el.style.display = on ? '' : 'none'; c.vis = on; }
+    if (!on) continue;
+    c.x = pr.x; c.y = pr.y;
+    c.el.style.transform = `translate(${pr.x.toFixed(1)}px,${pr.y.toFixed(1)}px) translate(-2.5px,-50%)`;
+    let named = pr.facing > 0.46 && (showNames || (someNames && MAJOR_CITIES.has(c.p.zh)));
+    if (named) {
+      const w = 12 + c.p.zh.length * 11;
+      for (let i = 0; i < placed.length; i++) {
+        const q = placed[i];
+        if (Math.abs(pr.x - q.x) < (w + q.w) / 2 && Math.abs(pr.y - q.y) < 14) { named = false; break; }
+      }
+      if (named) placed.push({ x: pr.x, y: pr.y, w });
+    }
+    if (named !== c.named) { c.el.classList.toggle('named', named); c.named = named; }
+    const op = Math.round(Math.min(1, (pr.facing - 0.30) / 0.16) * 100) / 100;
+    if (op !== c.op) { c.el.style.opacity = op; c.op = op; }
+    const sel = c.p.zh === selZh;
+    if (sel !== c.sel) { c.el.classList.toggle('sel', sel); c.sel = sel; }
+  }
+}
+
+/** 画布上一处落点最近的城址（9px 以内算命中） */
+function cityAtClient(x, y) {
+  if (!cityNodes) return null;
+  let best = null, bd = 81;
+  for (const c of cityNodes) {
+    if (!c.vis) continue;
+    const d = (c.x - x) * (c.x - x) + (c.y - y) * (c.y - y);
+    if (d < bd) { bd = d; best = c; }
+  }
+  return best;
+}
+
 /* ------------------------------------------------------------ interactions */
 function bindUI() {
   const canvas = $('#globe');
@@ -465,6 +574,11 @@ function bindUI() {
     const dt = performance.now() - down.t;
     down = null;
     if (Math.hypot(dx, dy) > 6 || dt > 700) return;
+    const city = cityAtClient(e.clientX, e.clientY);
+    if (city) {
+      selectPoint(city.p.lon, city.p.lat, { fly: true, place: city.p });
+      return;
+    }
     const hit = globe.pickAt(e.clientX, e.clientY);
     if (!hit || !hit.feature) {
       S.selected = null;
@@ -484,6 +598,15 @@ function bindUI() {
     const now = performance.now();
     if (now - hovT < 55) return;
     hovT = now;
+    const city = cityAtClient(e.clientX, e.clientY);
+    if (city) {
+      const tip0 = $('#tooltip');
+      tip0.textContent = city.p.zh + ' · 城址';
+      tip0.style.transform = `translate(${e.clientX + 14}px,${e.clientY - 8}px)`;
+      tip0.classList.add('is-on');
+      canvas.style.cursor = 'pointer';
+      return;
+    }
     const hit = globe.pickAt(e.clientX, e.clientY);
     const tip = $('#tooltip');
     if (hit && hit.feature) {
