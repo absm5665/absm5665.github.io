@@ -77,16 +77,18 @@ export class Timeline {
       dragging = true;
       try { track.setPointerCapture?.(ev.pointerId); } catch (e) { /* 合成事件无指针 */ }
       this.pause();
-      this.setIndex(indexFromX(ev.clientX));
+      this.setIndex(indexFromX(ev.clientX), { scrub: true });
       track.classList.add('is-drag');
     };
     const onMove = (ev) => {
       if (!dragging) return;
-      this.setIndex(indexFromX(ev.clientX));
+      this.setIndex(indexFromX(ev.clientX), { scrub: true });
     };
     const onUp = () => {
+      if (!dragging) return;
       dragging = false;
       track.classList.remove('is-drag');
+      if (this.onSettle) this.onSettle(this.index, this.eras[this.index]);
     };
     track.addEventListener('pointerdown', onDown);
     track.addEventListener('pointermove', onMove);
@@ -112,7 +114,7 @@ export class Timeline {
     });
   }
 
-  setIndex(i, { silent = false } = {}) {
+  setIndex(i, { silent = false, scrub = false } = {}) {
     i = Math.max(0, Math.min(this.eras.length - 1, i));
     const changed = i !== this.index;
     this.index = i;
@@ -122,8 +124,8 @@ export class Timeline {
     const era = this.eras[i];
     this._el.yearBig.textContent = shortYear(era.year);
     this._el.yearLabel.textContent = era.label;
-    if (changed && !silent) this.onChange(i, era);
-    else if (!changed && !silent) this.onChange(i, era, true);
+    if (changed && !silent) this.onChange(i, era, { scrub });
+    else if (!changed && !silent) this.onChange(i, era, { scrub, same: true });
   }
 
   step(d) {
