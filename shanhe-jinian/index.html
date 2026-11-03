@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>山河纪年 · 时光地球</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="referrer" content="no-referrer">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app">
+
+  <canvas id="globe"></canvas>
+  <div id="vignette"></div>
+  <div id="labelLayer"></div>
+
+  <header id="masthead">
+    <div class="brand">
+      <h1>山河纪年</h1>
+      <span class="seal">纪元</span>
+      <p class="sub">世界史 · 时光地球 — 公元前二千年至今日<span id="subStats"></span></p>
+    </div>
+  </header>
+
+  <div id="topbar">
+    <div class="search">
+      <input id="searchInput" type="text" placeholder="寻一地：长安 / Rome / 埃及" autocomplete="off" spellcheck="false">
+      <div id="searchResults" class="results"></div>
+    </div>
+    <button id="btnRotate" class="ctl" title="自动旋转">自转</button>
+    <button id="btnLayers" class="ctl is-on" title="国间关系图层">关系</button>
+    <button id="btnHelp" class="ctl" title="读法">读法</button>
+  </div>
+
+  <aside id="panel" class="is-hidden" aria-live="polite">
+    <button id="panelClose" class="close" title="收起">&times;</button>
+    <div class="panel-inner">
+      <div class="panel-head">
+        <div class="panel-era" id="pEra">公元 1500 年</div>
+        <h2 id="pName">—</h2>
+        <div class="panel-sub" id="pSub"></div>
+      </div>
+      <nav class="tabs" id="pTabs">
+        <button class="tab is-on" data-tab="now">此刻</button>
+        <button class="tab" data-tab="lineage">沿革</button>
+        <button class="tab" data-tab="affairs">关系</button>
+      </nav>
+      <div class="panel-body" id="pBody"></div>
+    </div>
+  </aside>
+
+  <div id="ticker"></div>
+
+  <div id="legend">
+    <span><i class="sw war"></i>战争</span>
+    <span><i class="sw trade"></i>贸易</span>
+    <span><i class="sw alliance"></i>结盟</span>
+    <span><i class="sw culture"></i>文教</span>
+    <span><i class="sw migrate"></i>迁徙</span>
+  </div>
+
+  <footer id="timeline">
+    <div class="tl-left">
+      <button id="btnPlay" class="play" title="播放 / 暂停">
+        <svg viewBox="0 0 24 24"><path class="ic-play" d="M8 5l11 7-11 7z"/><g class="ic-pause"><rect x="7" y="5" width="3.6" height="14"/><rect x="13.4" y="5" width="3.6" height="14"/></g></svg>
+      </button>
+      <div class="yearbox">
+        <div class="yearline"><span id="yearBig">1500</span></div>
+        <div class="yearmeta"><span id="yearLabel">公元 1500 年</span><span id="eraCount">载入中</span></div>
+      </div>
+    </div>
+    <div class="tl-track" id="track">
+      <div class="rail"><div class="fill" id="railFill"></div></div>
+      <div class="era-marks" id="eraMarks"></div>
+      <div class="ticks" id="ticks"></div>
+      <div class="knob" id="knob"></div>
+    </div>
+    <div class="tl-right">
+      <button id="btnSpeed" class="ctl small" title="播放速度">1×</button>
+      <button id="btnStepBack" class="ctl small" title="上一时期">◂</button>
+      <button id="btnStepFwd" class="ctl small" title="下一时期">▸</button>
+    </div>
+  </footer>
+
+  <div id="tooltip"></div>
+
+  <div id="helpSheet" class="sheet is-hidden">
+    <div class="sheet-card">
+      <button id="helpClose" class="close">&times;</button>
+      <h3>读法</h3>
+      <p><b>转</b>　拖动地球旋转，滚轮远近。点任一地块，左侧展开此地在此时的记载。</p>
+      <p><b>时</b>　底部是一条时间轴：拖动游标，地球即换作那一年的天下；按三角开始播放。每一格是一个时期，年份标在左上。</p>
+      <p><b>势</b>　播放时，国与国之间的线会浮起：<i class="sw war"></i>铁锈红为战事，<i class="sw trade"></i>琥珀为商路，<i class="sw alliance"></i>橄榄为盟约，<i class="sw culture"></i>靛蓝为文教往来，<i class="sw migrate"></i>紫为迁徙。线愈粗，事愈重。</p>
+      <p><b>沿</b>　点开一地后切到「沿革」，可看到这片土地在各个时期的归属，点任一行即跃至那一年。右上「寻一地」可直取长安、罗马等数十处城址。</p>
+      <p class="fine">底图取自公元前后至今的四十八幅历史疆域，越古越为示意；文字为史事撮要，不作考据之凭。</p>
+    </div>
+  </div>
+
+  <div id="loader"><div class="loader-inner"><div class="loader-title">山河纪年</div><div class="loader-text" id="loaderText">正在铺开地图…</div><div class="loader-bar"><i id="loaderBar"></i></div></div></div>
+
+</div>
+<script type="importmap">
+{ "imports": { "three": "./lib/three.module.js", "three/addons/": "./lib/" } }
+</script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
