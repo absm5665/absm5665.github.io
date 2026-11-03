@@ -1,0 +1,2761 @@
+'Amuwu	1	1492	1492	0.2
+?	1	-200	-200	3.4
+A'i Cofán/Kofán	1	1492	1492	1.4
+A'uwe	1	1492	1492	7.3
+Aaniiih	2	1530	1600	11.5
+Abbasid Caliphate	2	800	900	1119.9
+Abdelouadides	1	1279	1279	8.2
+Abenaki / Abénaquis	1	1492	1492	14.1
+Abipones	1	1492	1492	3.7
+Abitibiwinni Aki	1	1492	1492	5.9
+Abnaki	2	1530	1600	13.1
+Aboriginal Tasmanians	2	1783	1800	9.5
+Abyssinia	1	1914	1914	91.8
+Acadian Peninsula (UK)	2	1783	1800	7.1
+Acaxea	2	1530	1600	4.1
+Accra	1	1900	1900	2.0
+Aceh	7	1279	1600	26.7
+Achaemenid Empire	2	-500	-400	978.4
+Achagua	1	1492	1492	2.8
+Achires	1	1492	1492	0.2
+Acho Dene Koe	1	1492	1492	4.1
+Achuar	1	1492	1492	4.3
+Achumawi	1	1492	1492	0.8
+Aché	1	1492	1492	2.2
+Achí	1	1492	1492	0.2
+Acjachemen (Juaneño)	1	1492	1492	0.3
+Adal	4	1492	1600	61.6
+Adena	1	1492	1492	10.2
+Adena Culture	5	-500	-200	90.7
+Afanasevo	1	-2000	-2000	106.1
+Afghanistan	15	1783	2010	870.6
+Africa	2	1783	1800	2.4
+Aghlabid Emirate	2	800	900	99.0
+Agwarmin	6	1600	1800	18.2
+Ahantchuyuk	1	1492	1492	0.1
+Ahmadnagar	5	1492	1650	86.3
+Ahtna Nenn’	1	1492	1492	8.3
+Ahé (Kawahib)	1	1492	1492	0.3
+Aikanã	1	1492	1492	0.1
+Ainu	27	-2000	1700	333.9
+Ainus	5	1279	1500	50.6
+Air	3	1715	1800	70.0
+Ais	1	1492	1492	0.6
+Akaitcho	1	1492	1492	38.3
+Akan	6	1492	1700	32.4
+Akatziri	1	400	400	1.3
+Akawaio/Akawayo	1	1492	1492	4.5
+Akimel O'odham (Upper Pima)	1	1492	1492	1.8
+Akokisa	1	1492	1492	0.9
+Akwê	1	1492	1492	0.6
+Alabama	5	1530	1715	6.7
+Alamans	1	400	400	1.2
+Alans	5	100	1100	48.5
+Alawa	7	1600	1815	20.4
+Alazapas	1	1492	1492	2.7
+Albania	9	1914	2010	20.5
+Algeria	9	1900	2010	1516.5
+Algeria (FR)	2	1878	1880	67.5
+Algeria (France)	1	1938	1938	183.9
+Algiers	4	1715	1815	139.3
+Algonquin	1	1500	1500	26.5
+Almohad Caliphate	1	1200	1200	54.4
+Almoravid dynasty	1	1100	1100	188.7
+Alutiiq (Sugpiaq)	1	1492	1492	4.5
+Alwa	12	600	1500	219.6
+Alyawarre	7	1600	1815	30.1
+Amahuaca	1	1492	1492	1.5
+Amangu	7	1600	1815	15.9
+Amarak	7	1600	1815	1.2
+Amazon hunter-gatherers	32	-1500	1783	9860.8
+Ambur	2	1783	1800	4.8
+Amorúa	1	1492	1492	6.4
+Anambé	1	1492	1492	0.1
+Anasazi	2	800	900	261.1
+Anatolian tribes	1	-2000	-2000	24.8
+Andean hunter-gatherers	31	-1500	1715	1381.2
+Andean states and chiefdoms	3	1279	1400	104.6
+Andegerebenha	6	1600	1800	14.1
+Andoa	1	1492	1492	0.2
+Andronovo	1	-2000	-2000	387.0
+Andyamathanha	6	1600	1800	18.0
+Angaité	1	1492	1492	1.6
+Angevin Empire	1	1200	1200	21.0
+Anggamudi	6	1600	1800	3.5
+Anglo-Egyptian Sudan	1	1914	1914	212.4
+Anglo-Saxons	1	500	500	6.4
+Angola	9	1815	2010	714.9
+Angola (Portugal)	4	1878	1945	212.9
+Anguthimri	6	1600	1800	0.8
+Anhalt	3	1783	1815	0.6
+Anishinabewaki ᐊᓂᔑᓈᐯᐗᑭ	1	1492	1492	123.4
+Anmatyerre	7	1600	1815	13.8
+Annam	7	1000	1945	137.7
+Antakarinja	7	1600	1815	30.1
+Antarctica	2	1945	1960	2251.8
+Apache	3	1500	1600	100.5
+Apalachee	2	1530	1600	1.0
+Apalachees	1	1492	1492	0.4
+Aparai	1	1492	1492	5.6
+Apiaká	1	1492	1492	5.5
+Apinayé	1	1492	1492	1.1
+Appamattuck	1	1492	1492	0.1
+Apsaalooké (Crow)	1	1492	1492	27.2
+Apyãwa	1	1492	1492	2.4
+Arabana	6	1600	1800	27.6
+Arabela	1	1492	1492	0.1
+Arabia	3	1878	1900	548.5
+Arabia (Nejd)	2	1914	1914	141.8
+Arabian pastoral nomads	3	-1500	-700	638.9
+Arabs	3	-200	1500	502.4
+Aragón	8	1000	1500	76.5
+Arakan	12	-200	1815	39.8
+Arakan (Indian princely state)	2	1700	1715	9.9
+Arameans	3	-1500	-700	101.2
+Araona	1	1492	1492	0.8
+Arapaho	6	1492	1715	99.5
+Arawaks	7	800	1300	0.8
+Archaic Amerindian hunter-gatherers	1	-2000	-2000	2392.8
+Arctic marine mammal hunters	23	-2000	1200	19223.5
+Argentina	12	1878	2010	2508.4
+Arikara	5	1530	1715	5.7
+Arma	1	1715	1715	1.8
+Armenia	16	-323	2010	173.1
+Armorica	1	500	500	1.9
+Arosaguntacook	1	1492	1492	1.3
+Arran	2	1000	1100	1.5
+Arrernte	7	1600	1815	74.5
+Artsakh	1	1100	1100	0.9
+Asante	7	1715	1900	55.1
+Aseniwuche Winewak (Rocky Mountain)	1	1492	1492	3.7
+Ashaninka	1	1492	1492	9.6
+Asheninka	1	1492	1492	3.4
+Assam	2	1783	1815	21.5
+Assiniboin	5	1530	1715	138.2
+Assiniboine	1	1492	1492	14.1
+Assyria	3	-1500	-700	42.1
+Astrakhan Khanate	1	1530	1530	19.6
+Asturias	2	800	900	11.8
+Atakapa	7	1530	1715	24.6
+Atakapa-Ishak	1	1492	1492	3.0
+Atfalati	1	1492	1492	0.2
+Athabascan	3	1700	1783	298.5
+Athabaskan	12	800	1650	1305.6
+Ato trading confederacy	3	1878	1900	3.4
+Atropatene	2	-323	-300	30.7
+Atsugewi	1	1492	1492	0.3
+Attiwonderonk (Neutral)	1	1492	1492	2.4
+Aures	1	700	700	10.4
+Australia	9	1914	2010	5736.6
+Australian aboriginal hunter-gatherers	36	-2000	1815	18312.1
+Austria	7	1920	2010	47.9
+Austria Hungary	3	1878	1900	147.0
+Austrian Empire	7	1650	1815	228.4
+Austrian Netherlands	3	1715	1800	7.6
+Austro-Asiatic rice cultures	5	-2000	-400	1372.1
+Austro-Hungarian Empire	1	1914	1914	52.8
+Austronesians	6	-2000	-400	664.4
+Ava	3	1650	1715	94.8
+Avanti	1	-500	-500	4.6
+Avars	4	600	900	112.1
+Awabakal	6	1600	1800	0.9
+Awaeté	1	1492	1492	1.0
+Awaeté (Asurini of the Xingu)	1	1492	1492	1.4
+Awajún	1	1492	1492	3.2
+Awaswas	1	1492	1492	0.1
+Awngthim	6	1600	1800	0.6
+Awsa	5	1650	1800	58.7
+Awá	1	1492	1492	1.8
+Axum	10	-1	900	220.3
+Ayahuacas	1	1492	1492	0.1
+Aymara	1	1492	1492	15.5
+Aymara kingdoms	3	1279	1400	93.8
+Ayoreo	1	1492	1492	19.9
+Ayutthaya	8	1400	1715	390.6
+Ayuukjä'äy (Mixe)	1	1492	1492	0.7
+Azandes	1	900	900	136.7
+Azerbaijan	6	1914	2010	49.3
+Aztec Empire	1	1500	1500	28.0
+Añuu	1	1492	1492	0.2
+Aónikenk (Tehuelche)	1	1492	1492	47.1
+Babylonia	3	-1500	-700	31.3
+Bactria	1	-200	-200	142.9
+Baden	4	1715	1815	4.5
+Badimaya	7	1600	1815	17.8
+Badtjala	6	1600	1800	0.9
+Bagan	1	1200	1200	27.4
+Bagirmi	5	1530	1800	53.3
+Bahamas	8	1783	2010	5.7
+Bahawalpur	1	1800	1800	4.1
+Bakanh	6	1600	1800	5.0
+Balhae	1	900	900	27.5
+Ballardong	7	1600	1815	14.4
+Baltic tribes	3	800	1000	32.7
+Balts	1	700	700	15.9
+Banas	1	900	900	16.2
+Banawá	1	1492	1492	0.1
+Bandjigali	6	1600	1800	12.7
+Banggarla	6	1600	1800	27.3
+Bangladesh	4	1945	2010	43.0
+Banjima	7	1600	1815	14.3
+Bantu	1	-2000	-2000	1003.7
+Bantu peoples	10	800	1500	6918.0
+Baraba Baraba	6	1600	1800	5.7
+Baradha	6	1600	1800	3.1
+Barasano/Panenoá	1	1492	1492	3.7
+Barghawata	1	700	700	9.1
+Barindji	6	1600	1800	14.2
+Barkindji	6	1600	1800	14.4
+Barna	6	1600	1800	4.5
+Barotse	3	1878	1900	23.6
+Barranbinya	6	1600	1800	2.2
+Barundji	6	1600	1800	26.0
+Barunggam	6	1600	1800	21.5
+Baré	1	1492	1492	0.6
+Barí	1	1492	1492	4.0
+Bashkirs	1	800	800	32.9
+Basques	1	500	500	4.8
+Basutoland	3	1878	1900	7.2
+Batavian Republic	1	1800	1800	2.9
+Batsil Winik' Otik (Tzotzil)	1	1492	1492	0.9
+Baure	1	1492	1492	1.0
+Bavaria	4	1783	1815	18.9
+Bayali	6	1600	1800	1.3
+Beaker	1	-2000	-2000	21.6
+Beaver	2	1492	1492	33.0
+Beaver Lake Cree	1	1492	1492	4.6
+Bedouins	1	900	900	194.1
+Bega	1	700	700	11.3
+Beja people	1	900	900	33.9
+Belgian Congo	2	1914	1938	380.0
+Belgium	12	1878	2010	30.5
+Belize	15	1650	2010	27.2
+Bell-shaped burials culture	8	-500	100	101.0
+Bella	1	1500	1500	0.4
+Ben 'Zaa/Binnizá/Mén Diiste/Bene Xhon (Zapoteco)	1	1492	1492	3.9
+Bengal	5	1492	1783	125.9
+Benin	17	1279	2010	122.3
+Beothuk	9	800	1600	74.1
+Berar	1	1492	1492	15.4
+Berber Tribes	1	1200	1200	238.9
+Berbers	4	-1500	900	461.0
+Betoy	1	1492	1492	0.7
+Beylik of Aydin	1	1400	1400	5.8
+Bhutan	19	1200	2010	62.6
+Bia Mbyá	1	1492	1492	1.0
+Bibbulman	7	1600	1815	5.8
+Bidai	1	1492	1492	0.9
+Bidar	5	1492	1650	11.4
+Bidjara	6	1600	1800	55.7
+Bidwell	6	1600	1800	5.0
+Big Stone Cree	1	1492	1492	2.0
+Bigambul	6	1600	1800	17.1
+Bijapur	5	1492	1650	35.8
+Bilinara	7	1600	1815	4.8
+Biloxi	3	1492	1600	0.7
+Binbinga	6	1600	1800	7.6
+Bindjali	6	1600	1800	2.7
+Biri	6	1600	1800	11.1
+Biripi	6	1600	1800	6.8
+Birria	6	1600	1800	21.1
+Bithynia	1	-300	-300	0.5
+Blackfoot	5	1530	1715	48.8
+Blemmyes	14	-500	700	114.3
+Blue Horde	1	1400	1400	160.3
+Bodéwadmiakiwen (Potawatomi)	1	1492	1492	10.9
+Boe	1	1492	1492	27.6
+Boethuk	3	1000	1200	24.7
+Bohanes	1	1492	1492	1.1
+Boihaenum	3	-1	200	15.8
+Boii	2	-500	-400	5.9
+Bokhara Khanate	2	1878	1880	29.1
+Bolivia	12	1878	2010	1153.3
+Boonwurrung	6	1600	1800	4.4
+Bora	1	1492	1492	1.3
+Borgu States	3	1878	1900	30.9
+Boriken Taino	1	1492	1492	0.6
+Bosnia	1	1400	1400	6.8
+Bosnia and Herzegovina	3	1994	2010	12.5
+Bosnia-Herzegovina	3	1878	1900	11.8
+Bosporan Kingdom	4	-323	-100	26.6
+Bosporian Kingdom	3	-1	200	3.1
+Bostos	1	1492	1492	0.8
+Botswana	9	1914	2010	427.5
+Brandenburg	1	1715	1715	5.6
+Brazil	9	1914	2010	6191.5
+Bribri	1	1492	1492	0.5
+Britany	11	800	1530	19.7
+British American colonies	1	1715	1715	16.1
+British East Africa	1	1914	1914	53.5
+British East India Company	1	1815	1815	82.9
+British Guiana	5	1783	1900	63.6
+British Protectorate	1	1914	1914	54.8
+British Raj	7	1878	1938	2707.2
+British Somaliland	5	1914	1945	94.3
+Broërec	2	600	700	2.4
+Brunei	18	1650	2010	9.9
+Brunka	1	1492	1492	0.4
+Brunswick	3	1783	1815	0.2
+Brushed Pottery culture	8	-500	100	117.3
+Buandig	6	1600	1800	3.0
+Budjari	6	1600	1800	5.0
+Buganda	4	1815	1900	22.1
+Buglé and Ngäbé	1	1492	1492	1.0
+Bukara Khanate	1	1530	1530	45.0
+Bularnu	6	1600	1800	12.9
+Bulgar Khanate	6	1000	1400	98.8
+Bulgaria	12	1878	2010	123.3
+Bulgars	4	600	900	42.5
+Bundelkhand	1	1800	1800	41.4
+Bundjalung	6	1600	1800	12.6
+Bunyoro	4	1815	1900	27.6
+Burgandy	3	1000	1200	16.6
+Burgundians	2	400	500	10.8
+Burkina Faso	5	1945	2010	112.2
+Burma	8	1783	2010	416.7
+Burmese	3	-1500	-700	235.6
+Burmese kingdoms	4	1492	1600	146.4
+Burundi	12	1815	2010	38.4
+Buwayhid Emirates	2	1000	1200	344.8
+Buyid Emirate	1	1000	1000	30.6
+Buyid dynasty	1	1200	1200	16.5
+Byelarus	3	1994	2010	49.9
+Byzantine Empire	9	800	1400	410.4
+Bïde	1	1492	1492	0.8
+Cabiyari/Kawiyarí	1	1492	1492	0.1
+Caddo	6	1492	1715	66.5
+Cahita	1	1492	1492	0.8
+Cahitas	2	1530	1600	9.3
+Cahto	1	1492	1492	0.1
+Cahuilla	1	1492	1492	1.7
+Cahulia	2	1530	1600	2.0
+Calabar	3	1878	1900	2.9
+Calicuas	1	1492	1492	1.1
+Caliphate of Córdoba	1	1000	1000	59.0
+Caloosahatchee culture	13	500	1600	63.6
+Calusa	2	1492	1500	10.9
+Calvas	1	1492	1492	0.2
+Cambodia	16	1492	2010	227.4
+Cameroon	5	1945	2010	183.3
+Canaan	1	-2000	-2000	6.5
+Canada	13	1815	2010	10516.2
+Canela Apanyekrá	1	1492	1492	0.2
+Canela Ramkokamekrá	1	1492	1492	0.2
+Canichana	1	1492	1492	0.1
+Cantia	2	600	700	11.1
+Cape Colony	7	1715	1900	160.9
+Cape Fear	1	1492	1492	0.2
+Cappadocia	2	-323	-300	32.2
+Carcross/Tagish First Nation (BC)	1	1492	1492	0.6
+Carcross/Tagish First Nation (Yukon)	1	1492	1492	0.9
+Caribbean hunter-gatherers	31	-1500	1650	951.6
+Carnatic	2	1783	1800	15.5
+Carolingian Empire	4	800	900	126.7
+Carthage	1	-200	-200	7.0
+Carthaginian Empire	6	-500	-300	212.9
+Cascades	1	1492	1492	0.2
+Castile	3	1279	1400	76.6
+Castilla	3	1000	1200	9.8
+Castille	2	1492	1500	56.2
+Catacomb culture	1	-2000	-2000	79.3
+Catawba	7	1492	1700	23.9
+Caucasian Alans	1	400	400	21.8
+Caucasian Albania	1	700	700	5.8
+Caxas	1	1492	1492	0.3
+Caxcan	1	1492	1492	1.6
+Caxcane	2	1530	1600	1.8
+Cayenne	3	1650	1715	5.2
+Cayubaba	1	1492	1492	0.9
+Cayuse	5	1530	1715	6.3
+Cayuse, Umatilla and Walla Walla	1	1492	1492	5.0
+Celtiberians	3	-1500	-700	135.4
+Celtic kingdoms	5	800	1200	29.3
+Celts	5	-400	-100	121.4
+Central African Republic	5	1945	2010	255.6
+Central Pomo	1	1492	1492	0.2
+Ceylon	12	1650	1938	45.1
+Ceylon (Dutch)	5	1650	1800	14.3
+Ch'orti'	1	1492	1492	0.9
+Chachi	1	1492	1492	0.3
+Chad	5	1945	2010	519.2
+Chagatai Khanate	5	1279	1500	2061.5
+Chahta Yakni (Choctaw)	1	1492	1492	11.0
+ChalAt’i’lo t’sikAti (Chalat’)	1	1492	1492	0.1
+Chalon	1	1492	1492	0.1
+Chalukya Empire	1	1000	1000	45.2
+Chalukyas	2	600	700	92.3
+Chamicuro	1	1492	1492	1.0
+Champa	12	500	1500	90.0
+Champa City States	1	1200	1200	8.6
+Champagne & Aishihik	1	1492	1492	2.5
+Chandellas	1	1100	1100	13.3
+Chango	1	1492	1492	8.6
+Chankas	1	1492	1492	4.8
+Chaná	1	1492	1492	0.3
+Chané	1	1492	1492	4.6
+Chapra	1	1492	1492	0.6
+Charka	1	1492	1492	1.3
+Charrúa	1	1492	1492	33.6
+Chatot	2	1530	1600	3.8
+Chauhans	6	600	1100	52.6
+Chavin	8	-1000	-100	53.7
+Chehalis	1	1492	1492	0.8
+Chelamela	1	1492	1492	0.1
+Chelan	1	1492	1492	0.2
+Chelmia	1	900	900	0.9
+Chen-La	3	600	800	46.7
+Chepenefa	1	1492	1492	0.1
+Cheras	2	500	700	5.6
+Cheraw	1	1492	1492	0.7
+Chernoles culture	1	-700	-700	22.6
+Cheroenhaka (Nottoway)	1	1492	1492	0.5
+Cherokee	6	1500	1715	60.9
+Cherokee (Oklahoma)	1	1492	1492	1.5
+Chesapeake	1	1492	1492	0.1
+Cheyenne	7	1492	1715	97.5
+Cheyenne-Arapaho (Oklahoma)	1	1492	1492	1.4
+Chiapaneco	1	1492	1492	0.1
+Chichas	1	1492	1492	31.8
+Chickahominy	1	1492	1492	0.1
+Chickasaw	2	1530	1600	16.0
+Chickasaw (Oklahoma)	1	1492	1492	1.5
+Chicora	1	1492	1492	0.2
+Chikashsha Yaki (Chickasaw)	1	1492	1492	7.7
+Chile	12	1878	2010	644.1
+Chimariko (territory)	1	1492	1492	0.1
+Chimú	1	1492	1492	8.8
+Chimú Empire	6	1000	1400	25.1
+China	5	1945	2010	3453.9
+Chinantla (Tsa ju jmí’)	1	1492	1492	1.9
+Chinchoros	4	-1500	-500	14.8
+Chinchorro culture	1	-2000	-2000	12.3
+Chinese Warlords	2	1920	1930	907.2
+Chinese warlords	1	1938	1938	453.6
+Chinook	1	1492	1492	0.5
+Chiquitano	1	1492	1492	19.5
+Chiricahua	2	1530	1600	14.9
+Chiricahua Apache	1	1492	1492	15.3
+Chiso	1	1492	1492	4.1
+Chisos	2	1530	1600	4.5
+Chitimacha	1	1492	1492	1.6
+Chitonahua/Murunahua	1	1492	1492	0.8
+Chochenyo	1	1492	1492	0.2
+Choctaw	2	1530	1600	13.8
+Choctaw (Oklahoma)	1	1492	1492	2.3
+Chola	1	200	200	16.9
+Chola Empire	5	1000	1400	75.2
+Cholas	4	500	1100	33.4
+Cholulteca	1	1492	1492	0.2
+Chono	1	1492	1492	3.6
+Chopcca	1	1492	1492	0.1
+Chorotega	1	1492	1492	4.4
+Chorrera	9	-1500	-100	190.6
+Chowanoke	1	1492	1492	0.4
+Chtimacha	5	1530	1715	6.6
+Chuds	2	900	1000	4.5
+Chukchansi	1	1492	1492	0.1
+Chukchi	4	1530	1700	2414.8
+Chumash	3	1492	1600	5.7
+Ciboney	2	800	900	29.2
+Ciguayo	1	1492	1492	0.4
+Cimerians	6	-1500	-700	507.8
+Circars	1	1800	1800	10.9
+Clackamas	1	1492	1492	0.1
+Clatskanie	1	1492	1492	0.1
+Clatsop	1	1492	1492	0.1
+Coahuiltec	2	1530	1600	21.6
+Coahuiltecan	1	1492	1492	27.8
+Coast Salish	1	1492	1492	5.6
+Coca	1	1492	1492	0.4
+Cochimí	3	1492	1600	17.3
+Cochin	2	1783	1800	2.2
+Cochin China	7	1783	1945	33.2
+Coharie	1	1492	1492	0.3
+Colchis	2	-323	-300	6.8
+Colombia	12	1878	2010	1178.0
+Colville	1	1492	1492	0.2
+Comanche	6	1500	1715	114.9
+Comca’ac (Seri)	1	1492	1492	1.5
+Comté de Toulouse	1	1200	1200	7.4
+Confederated Tribes of Grand Ronde	1	1492	1492	7.5
+Confederated Tribes of Siletz Indians	1	1492	1492	10.0
+Confederated Tribes of Warm Springs	1	1492	1492	3.5
+Confederated Villages of Lisjan	1	1492	1492	0.6
+Congaree	1	1492	1492	0.5
+Congo	18	1492	2010	214.3
+Congo (France)	1	1938	1938	26.7
+Conoy	2	1530	1600	3.0
+Coos, Lower Umpqua, Siuslaw	1	1492	1492	0.5
+Copena	7	-100	500	26.3
+Copuces	1	1492	1492	0.2
+Coqs	1	1500	1500	19.6
+Coquille	1	1492	1492	0.2
+Coree	1	1492	1492	0.2
+Corsica	6	1000	1400	4.2
+Costa Rica	12	1878	2010	49.2
+Costanoan	2	1530	1600	2.4
+Cotonou	3	1878	1900	0.8
+Couture Complex	7	-100	500	29.3
+Cow Creek Umpqua	1	1492	1492	2.1
+Cowlitz	1	1492	1492	1.5
+Coyutecos (Nahua)	1	1492	1492	0.2
+Cree	5	1492	1700	433.4
+Crete	1	-300	-300	0.7
+Crimean Khanate	4	1492	1600	82.0
+Croatia	6	1000	2010	20.2
+Croatian kingdom	1	900	900	8.8
+Crow	6	1500	1715	84.1
+Cuba	9	1914	2010	72.9
+Cuba (Spain)	5	1530	1715	41.9
+Cuica	1	1492	1492	0.8
+Cuitlatec	1	1492	1492	1.3
+Cuman Khanates	1	1200	1200	217.7
+Cuman-Kipchak confederation	1	1100	1100	528.2
+Curonians	8	-500	100	13.9
+Cusabo	4	1530	1600	2.1
+Cushites	1	900	900	58.2
+Cycladic	1	-2000	-2000	0.1
+Cyprus	14	800	2010	9.6
+Cyraneica (UK Lybia)	1	1945	1945	68.5
+Cyrenaica	4	1715	1815	17.7
+Czech Republic	3	1994	2010	19.4
+Czechoslovakia	5	1920	1960	50.4
+Czechs	2	700	800	7.7
+Dacia	2	-1	100	19.0
+Dacians	1	-100	-100	20.4
+Dadi Dadi	6	1600	1800	0.6
+Dahomey	5	1783	1900	21.7
+Dainggatti	6	1600	1800	4.1
+Dakapeng culture	1	-2000	-2000	2.6
+Dakeł Keyoh (ᑕᗸᒡ ᗲᘏᑋ)	1	1492	1492	8.3
+Damot	1	-300	-300	7.1
+Danes	4	600	900	17.6
+Dangbon	7	1600	1815	3.8
+Danggali	6	1600	1800	17.4
+Danube Bulgars	1	700	700	12.9
+Danzig	1	1930	1930	0.1
+Dardania	1	-200	-200	2.9
+Darfur	7	1530	1800	202.8
+Darkinung	6	1600	1800	4.1
+Darumbal	6	1600	1800	8.4
+Dau Nom Wintu	1	1492	1492	0.1
+Dau Pom Wintu	1	1492	1492	0.2
+Da’naxda’xw Awaetlatla	1	1492	1492	0.6
+Deg Xit'an Ngan' (Deg Xit'an)	1	1492	1492	2.2
+Dehcho Dene	1	1492	1492	17.6
+Delagoa Bay	6	1650	1815	3.7
+Delaware	3	1500	1600	36.7
+Dena'ina Ełnena	1	1492	1492	9.7
+Dendi Kingdom	2	1878	1880	19.8
+Dene Tha'	1	1492	1492	10.3
+Denendeh (Dënësųłinë́ Nëné)	1	1492	1492	64.6
+Deni	1	1492	1492	1.3
+Denmark	17	1100	2010	1217.7
+Denmark-Norway	10	1000	1800	902.1
+Derbent	1	1100	1100	0.1
+Desert hunter-gatherers	26	-1500	1500	3706.6
+Dharawala	6	1600	1800	27.5
+Dharug	6	1600	1800	7.5
+Dhirari	6	1600	1800	16.8
+Diaguita	1	1492	1492	22.6
+Dieri	6	1600	1800	16.1
+Diné Bikéyah	1	1492	1492	9.5
+Ditidaht	1	1492	1492	0.1
+Dja Dja Wurrung	6	1600	1800	8.5
+Djabuganjdji	6	1600	1800	1.3
+Djabwurung	6	1600	1800	3.6
+Djargurdwurung	6	1600	1800	1.3
+Djeoromitxí	1	1492	1492	0.3
+Djibouti	6	1914	2010	10.4
+Djirbalngan	6	1600	1800	3.3
+Dodecanese Islands	1	1930	1930	0.1
+Dokapuara (Tuyuca)	1	1492	1492	0.1
+Dominica	15	1715	2010	0.9
+Dominican Republic	12	1878	2010	43.9
+Dominion of Newfoundland	3	1920	1938	92.0
+Donghu tribes	1	-400	-400	43.3
+Doolboong/Miriwoong	7	1600	1815	10.5
+Dorset	9	500	1400	877.0
+Dravidians	4	-2000	-700	741.8
+Duchy of Benevento	3	1000	1200	9.8
+Duchy of Swabia	1	1000	1000	3.2
+Dumnonia	2	600	700	1.9
+Dumonii	5	-1	400	4.6
+Durdzuks	1	1100	1100	0.5
+Dutch Brazil	2	1650	1700	54.9
+Dutch East Indies	10	1650	1938	1110.0
+Dutch Formosa	2	1650	1700	2.6
+Dutch Guiana	3	1878	1900	36.2
+Dutch Guinea	1	1945	1945	30.6
+Dutch Republic	4	1600	1715	10.7
+Dutch settlements	2	1783	1800	21.9
+Duwamish	1	1492	1492	0.1
+Dvaravati	4	600	1000	27.7
+Dyo'xaiya-o-Ivo'tsa (Okaina)	1	1492	1492	4.3
+Dyungungoo (Gubbi Gubbi)	6	1600	1800	8.3
+Dâw	1	1492	1492	1.2
+Dënéndeh	1	1492	1492	305.2
+E'ñepá	1	1492	1492	1.6
+East Francia	1	900	900	34.2
+East Germany	1	1960	1960	9.1
+East Getaes	1	700	700	2.5
+East Java	3	1000	1200	45.6
+East Prussia	2	1920	1930	3.8
+Eastern Masurian culture	8	-500	100	48.1
+Eastern Mono/Monache	1	1492	1492	1.1
+Eastern North American hunter-gatherers	20	-1500	1400	5743.1
+Eastern Roman Empire	4	400	700	623.9
+Eastern Shoshone	1	1492	1492	15.4
+Ecuador	12	1878	2010	310.4
+Ecuana	1	1492	1492	1.3
+Eduria (Taiwano)	1	1492	1492	0.5
+Eeyou Istchee	1	1492	1492	34.3
+Egypt	19	-2000	2010	1416.6
+El Paraiso	4	-1500	-500	50.8
+El Salvador	12	1878	2010	19.7
+Elam	4	-2000	-700	123.7
+Electoral Hesse	1	1815	1815	0.7
+Emberá	1	1492	1492	1.3
+Emberá Chamí	1	1492	1492	7.5
+Emberá Dobidá	1	1492	1492	4.2
+Emberá Katío/Eyabida	1	1492	1492	8.3
+Emberá/Eperara/Épera	1	1492	1492	23.6
+Emirate of Bin Shal'an	3	1920	1938	272.4
+Emirate of Córdoba	2	800	900	80.2
+Emirate of Sicily	2	900	1000	3.9
+Emirate of Tiflis	1	1100	1100	0.2
+Emirate of the White Sheep Turks	2	1492	1500	289.2
+Empire of Alexander	1	-323	-323	404.6
+Empire of Ghana	5	300	700	135.6
+Empire of Japan	4	1914	1938	322.1
+Enawenê-nawê	1	1492	1492	0.7
+Enenlhet-Toba	1	1492	1492	0.6
+Enets	2	1530	1600	15.4
+England	4	1000	1500	55.0
+England and Ireland	4	1530	1700	73.0
+English territory	3	1279	1400	70.0
+Enlhet	1	1492	1492	1.4
+Enlhet-Enenlhet	1	1492	1492	4.7
+Eno	1	1492	1492	0.3
+Entiat	1	1492	1492	0.1
+Envuga (Kawahib)	1	1492	1492	0.1
+Enxet	1	1492	1492	2.2
+Eora	6	1600	1800	0.4
+Eperara Siapidara	1	1492	1492	6.7
+Equatorial Guinea	9	1914	2010	18.1
+Erie	6	1492	1715	50.4
+Eritrea	8	1914	2010	82.9
+Eritrea (Italy)	1	1938	1938	10.4
+Esketemculeucw (Esk'etemc)	1	1492	1492	1.2
+Esse ejja	1	1492	1492	6.0
+Esselen	1	1492	1492	0.2
+Essequibo	2	1650	1700	10.1
+Essex	2	800	900	1.1
+Estonia	6	1920	2010	18.9
+Ests	1	800	800	3.8
+Ethiopia	24	1279	2010	1123.3
+Ethiopia (Italy)	1	1938	1938	91.8
+Ethiopian Highland Peoples	1	700	700	23.8
+Ethiopian highland farmers	6	-1500	-323	182.2
+Etrurians	2	-500	-400	5.0
+Eyak	1	1492	1492	1.1
+Eyaq	7	1530	1800	125.1
+Fante	1	1815	1815	3.3
+Far Eastern SSR	2	1920	1930	256.8
+Fatimid Caliphate	3	1000	1200	438.2
+Fernandeño Tataviam	1	1492	1492	0.5
+Fezzan (Frech Lybia)	1	1945	1945	42.4
+Fiji	14	1878	2010	652.8
+Finland	8	1920	2010	225.9
+Finnmark	4	1600	1800	8.6
+Finno-Ugric taiga hunter-gatherers	25	-2000	1200	5407.1
+Finns	1	800	800	18.6
+First Samori Empire	1	1900	1900	14.6
+Flathead	2	1530	1600	9.6
+Florence	2	1530	1600	5.8
+Florida	2	1650	1700	30.9
+Florida (Spain)	1	1715	1715	15.4
+Fourche Maline Culture	7	-100	500	40.2
+Fox	5	1530	1715	6.8
+France	28	1279	2010	1024.1
+Franche-Comté	2	1650	1700	1.8
+Frankish Kingdom	2	600	700	100.7
+Franks	2	400	500	26.6
+French Cameroons	3	1920	1938	112.3
+French Equatorial Africa	4	1914	1938	619.2
+French Guiana	12	1878	2010	79.8
+French Indo-China	3	1920	1938	87.5
+French Indochina	4	1878	1914	156.4
+French Somaliland	3	1920	1938	5.2
+French West Africa	4	1914	1938	1669.2
+Frisians	2	600	700	6.3
+Fulani Empire	1	1815	1815	75.3
+Funan	2	500	600	40.2
+Funj	4	1492	1800	81.3
+Futa Jalon	3	1878	1900	9.8
+Futa Toro	3	1878	1900	11.4
+Féénemɨnaa	1	1492	1492	1.2
+Gabalbara	6	1600	1800	5.5
+Gabon	8	1878	2010	110.3
+Gadubanud	6	1600	1800	1.3
+Gagudju	7	1600	1815	0.9
+Gamberre	7	1600	1815	2.1
+Gambia	3	1878	1900	2.1
+Gambia, The	9	1914	2010	7.1
+Gandhara grave culture	1	-1000	-1000	10.1
+Gandhāra	1	-500	-500	3.5
+Ganggalida	6	1600	1800	6.4
+Gangulu	6	1600	1800	12.1
+Garawa	6	1600	1800	10.3
+Garingbal	6	1600	1800	4.2
+Garífuna	1	1492	1492	1.7
+Gaya	4	100	400	0.5
+Gayiri	6	1600	1800	10.4
+Geats	1	400	400	2.2
+Geawegal	6	1600	1800	6.4
+Genoa	5	1530	1715	2.9
+Georgia	12	1200	2010	54.8
+Georgian Kingdom	1	700	700	2.9
+Gepids	1	400	400	2.0
+German E. Africa (Tanganyika)	1	1914	1914	80.9
+German Empire	1	1914	1914	42.1
+German South-West Africa	1	1914	1914	65.2
+Germanic tribes	1	-400	-400	30.7
+Germany	9	1878	2010	321.9
+Germany (France)	1	1945	1945	2.8
+Germany (Soviet)	1	1945	1945	9.1
+Germany (UK)	1	1945	1945	7.9
+Germany (USA)	1	1945	1945	8.2
+Ghana	11	800	2010	195.9
+Gharra	4	1530	1700	30.2
+Ghaznavid Emirate	3	1000	1200	281.4
+Giraiwurung	6	1600	1800	2.2
+Gitanyow Lax’yip	1	1492	1492	0.6
+Gitga’at	1	1492	1492	0.1
+Gitga’at Lax Yuup	1	1492	1492	0.1
+Gitxaała	1	1492	1492	0.3
+Gitx̱san Lax̱yip	1	1492	1492	2.8
+Giya	6	1600	1800	1.2
+Glades Culture	11	-500	400	52.5
+Goa	3	1783	1815	0.4
+Goghtn	1	1100	1100	0.3
+Gojoseon	1	-400	-400	45.5
+Golconda	1	1783	1783	15.5
+Gold Coast	3	1914	1945	53.8
+Gold Coast (GB)	2	1878	1880	4.0
+Golden Horde	2	1492	1500	200.2
+Golkonda	5	1492	1650	42.4
+Gondwana	1	1492	1492	14.5
+Goodall Focus	7	-100	500	28.6
+Gooniyandi	7	1600	1815	5.9
+Gooty	2	1783	1800	1.0
+Goreng	7	1600	1815	7.8
+Goryeo	1	1200	1200	15.7
+Goshute	1	1492	1492	6.2
+Goths	1	700	700	1.5
+Granada	3	1279	1400	7.3
+Grand Duchy of Finland	1	1914	1914	29.2
+Grand Duchy of Hesse	2	1815	1815	0.6
+Grand Duchy of Moscow	3	1300	1500	368.5
+Graton Rancheria	1	1492	1492	0.4
+Great Khanate	3	1279	1400	2848.8
+Great Moravia	1	900	900	12.9
+Great Zimbabwe	6	1000	1400	104.1
+Greece	12	1878	2010	107.2
+Greek city-states	11	-1500	-300	79.9
+Greek colonies	3	-400	-400	9.9
+Greenland	7	1878	2010	1329.1
+Griqualand West	3	1878	1900	12.7
+Gros Ventre	3	1650	1715	17.2
+Guacata	1	1492	1492	0.1
+Guachichil	1	1492	1492	8.5
+Guachichiles	2	1530	1600	15.8
+Guachimis	2	1530	1600	9.3
+Guadeloupe	13	1715	2010	1.3
+Guahibo/Hiwi	1	1492	1492	14.6
+Guajajara	1	1492	1492	4.6
+Guamar / Pecchichitane	2	1530	1600	4.9
+Guamares	1	1492	1492	2.6
+Guanaca	1	1492	1492	0.1
+Guanahatabey	1	1492	1492	1.3
+Guanahatabeyes	6	1000	1400	10.3
+Guanches	34	-1500	1815	24.4
+Guane	1	1492	1492	0.9
+Guaná	1	1492	1492	0.5
+Guarasugwe	1	1492	1492	1.9
+Guarayo	1	1492	1492	4.4
+Guarijío/Guarijó	1	1492	1492	0.9
+Guasaves/Tamazulas	1	1492	1492	0.3
+Guatemala	12	1878	2010	99.4
+Guató	1	1492	1492	5.7
+Guaycura	1	1492	1492	1.7
+Guenoa-Muinanes	1	1492	1492	12.5
+Gugu-Badhun	6	1600	1800	30.4
+Guiana	1	1815	1815	16.7
+Guinea	5	1945	2010	103.0
+Guinea-Bissau	7	1920	2010	15.9
+Guinea-Bissau (Portugal)	1	1945	1945	2.3
+Gujarat	1	1492	1492	13.8
+Gulidjan	6	1600	1800	1.3
+Gumbainggir	6	1600	1800	8.8
+Guna Yala	1	1492	1492	0.2
+Guna of Madugandí	1	1492	1492	0.2
+Gunadule (Kuna-Tule)	1	1492	1492	0.3
+Gunditjmara	6	1600	1800	4.7
+Gundungurra	6	1600	1800	7.5
+Gungabula	6	1600	1800	4.3
+Gunggari	6	1600	1800	20.1
+Gunindiri	6	1600	1800	6.2
+Gunu	6	1600	1800	4.4
+Gunwinggu	7	1600	1815	4.1
+Gupta Empire	3	300	500	489.2
+Gureng Gureng	6	1600	1800	9.2
+Gurindji	7	1600	1815	18.5
+Guringai	6	1600	1800	1.1
+Gurjara Pratihara	2	800	900	99.7
+Guta	2	600	700	0.5
+Guugu-Yimidhirr	6	1600	1800	2.3
+Guwa	6	1600	1800	12.9
+Guwinmal	6	1600	1800	3.0
+Guyana	9	1914	2010	153.0
+Guyana (Netherlands)	1	1715	1715	12.7
+Gwa’Sala-‘Nakwaxda’xw	1	1492	1492	0.3
+Gwich'in Nành	1	1492	1492	27.4
+Gwitch'in Settlement Region	1	1492	1492	7.3
+Göktürks	2	600	700	607.4
+Günün a atük (Günün a küna)	1	1492	1492	75.0
+Ha Shuta Enima (Mazateco)	1	1492	1492	0.3
+Habsburg Netherlands	2	1530	1600	8.5
+Hach Winik (Lacandon)	1	1492	1492	0.8
+Hadramaut	21	-323	1700	314.5
+Hafsid Caliphate	5	1279	1500	201.5
+Haida Gwaii	1	1492	1492	0.5
+Hail	3	1920	1938	27.7
+Hainan	14	-1	1400	33.9
+Haiti	14	1715	2010	29.0
+Hallstatt culture	1	-400	-400	191.6
+Halíti	1	1492	1492	3.6
+Han	3	-1	200	996.9
+Han Empire	2	-200	-100	416.6
+Han Zhao	1	300	300	29.9
+Hanis Coos	1	1492	1492	0.1
+Hanover	5	1715	1815	5.0
+Harakbut	1	1492	1492	1.5
+Harapunchai	1	1200	1200	29.5
+Harer (Egypt)	3	1878	1900	30.6
+Haripunjaya	1	1000	1000	16.3
+Hausa States	9	1492	1800	222.7
+Havasu Baaja (Havasupai)	1	1492	1492	1.4
+Havasupai	2	1530	1600	2.8
+Heiltsuk	1	1492	1492	0.5
+Hejaz	5	600	1938	142.9
+Helvetic Republic	1	1800	1800	3.1
+Henîa-Kamiare	1	1492	1492	10.1
+Heruli	2	200	300	0.9
+Hi Ui (Pame/Chichimeco Jonaz)	1	1492	1492	2.8
+Hia-Ced O'odham	1	1492	1492	2.9
+Hiaitsiihi	1	1492	1492	0.3
+Himyarite Kingdom	6	-1	500	224.1
+Hindu Shahis	1	900	900	20.5
+Hindu kingdoms	19	-500	1715	898.4
+Hindu kingdoms and republics	3	-323	-300	194.8
+Hindu states	3	700	800	84.0
+Hispaniola (Spain)	4	1530	1700	27.0
+Hitchiti	2	1530	1600	9.8
+Hittites	4	-2000	-700	120.6
+Hixkaryana	1	1492	1492	1.7
+Ho-de-no-sau-nee-ga (Haudenosaunee)	1	1492	1492	14.4
+Hohokam	1	1492	1492	7.8
+Holikachuk	1	1492	1492	2.0
+Holstein	3	1783	1815	2.1
+Holy Roman Empire	15	1000	1715	752.1
+Homalco	1	1492	1492	0.9
+Honduras	12	1878	2010	110.7
+Hong Kong	18	1650	2010	1.7
+Hoocąk (Ho-Chunk)	1	1492	1492	6.7
+Hoopa	1	1492	1492	0.1
+Hopewell	1	1492	1492	8.2
+Hopewell Culture	7	-100	500	436.2
+Hopi	1	1500	1500	27.5
+Hopie	4	1530	1700	2.7
+Hopitutskwa	1	1492	1492	6.0
+Hoti	1	1492	1492	1.1
+Houma	5	1492	1700	3.4
+Hualapai	1	1492	1492	3.5
+Huancas	1	1492	1492	2.1
+Huari Empire	7	600	1200	238.2
+Huarpe	1	1492	1492	13.6
+Huasteco/Teenek	1	1492	1492	1.2
+Huaylas	1	1492	1492	1.1
+Huetar	1	1492	1492	0.9
+Hul Kuhk’u	1	1492	1492	0.1
+Hul'qumi'num Treaty Group	1	1492	1492	0.3
+Hungary	12	1100	2010	181.7
+Huni Kuin	1	1492	1492	1.7
+Hunkpapa	1	1492	1492	2.2
+Hunnic Empire	1	400	400	73.7
+Huns	1	700	700	3.1
+Hunters-gatherers	1	-2000	-2000	1.8
+Hupacasath	1	1492	1492	0.2
+Hupd'äh	1	1492	1492	0.1
+Huron	1	1500	1500	34.4
+Hurrian Kingdoms	1	-2000	-2000	6.0
+Huu-ay-aht	1	1492	1492	0.1
+Hän	1	1492	1492	4.1
+Hñähñu (Otomí)	1	1492	1492	5.2
+Hövsgöl Nuur	1	-100	-100	0.2
+I'târap	1	1492	1492	0.1
+Ibadan	3	1878	1900	10.1
+Ibadites	1	1200	1200	9.3
+Iceland	11	1878	2010	87.9
+Icelandic Commonwealth	2	1000	1100	16.0
+Idrisid Caliphate	2	800	900	92.8
+Ifat	1	1200	1200	67.5
+Ijku (Arhuaco)	1	1492	1492	0.6
+Ikitu	1	1492	1492	0.6
+Ikolen	1	1492	1492	0.2
+Ikoots/Kunajts/Ikoojts (Huave)	1	1492	1492	0.2
+Ikpeng	1	1492	1492	4.8
+Ilkhanate	2	1279	1300	628.0
+Illinois	5	1530	1715	89.6
+Illyrians	4	-1500	-500	70.3
+Imbangala	1	1815	1815	1.0
+Imerina	3	1878	1900	56.4
+Imperial Hungary	2	1492	1500	57.7
+Imperial Japan	3	1878	1900	89.7
+Imperial Japan (Fujiwara)	3	1000	1200	68.5
+In-SHUCK-ch	1	1492	1492	0.4
+Inca Empire	3	1500	1600	323.2
+India	8	1783	2010	1271.7
+Indonesia	6	1945	2010	656.0
+Indus valley civilization	1	-2000	-2000	63.5
+Ineseño	1	1492	1492	0.2
+Inga	1	1492	1492	0.4
+Inikana/Kukama Kukamiria/Kokama	1	1492	1492	13.3
+Iningai	6	1600	1800	36.6
+Inkal Awá	1	1492	1492	0.6
+Innu	9	800	1500	132.7
+Inuit	1	1492	1492	203.9
+Inupiaq	7	1530	1800	314.5
+Inupiat	1	1492	1492	34.1
+Inuvialuit	1	1492	1492	24.8
+Iogys	1	1492	1492	0.9
+Iowa	6	1492	1715	38.4
+Iowa (Oklahoma)	1	1492	1492	0.1
+Iran	8	1920	2010	1035.5
+Iranian pastoralists	3	-1500	-700	666.1
+Iraq	5	1945	2010	177.1
+Ireland	6	1938	2010	32.6
+Irlanda	2	800	900	13.4
+Iron Age chieftainships	1	-200	-200	12.5
+Iron Age megalith cultures	1	-500	-500	78.0
+Iroquois	6	1500	1715	50.7
+Irritilas	2	1530	1600	2.0
+Irritilas/Lagunero	1	1492	1492	2.6
+Ishir Tomárãho	1	1492	1492	0.1
+Ishir Ybytoso	1	1492	1492	2.0
+Iskonawa	1	1492	1492	1.1
+Islamic and Hindu states	3	1530	1650	365.9
+Islamic city-states	10	1000	1600	240.9
+Islamic states	3	1500	1500	66.5
+Israel	6	1938	2010	14.9
+Italian Somaliland	4	1914	1938	128.1
+Italy	15	-300	2010	285.2
+Itazipco	1	1492	1492	2.4
+Itelmen	4	1530	1700	52.7
+Itonama	1	1492	1492	1.0
+Ivory Coast	8	1878	2010	131.4
+Iwaidja	7	1600	1815	1.5
+Ixil	1	1492	1492	0.1
+Jabirrjabirr	7	1600	1815	1.5
+Jaitmatang	6	1600	1800	6.6
+Jamaica	7	1920	2010	5.1
+Jamaica (UK)	2	1715	1945	1.4
+Jamamadi	1	1492	1492	4.0
+Jaminjung	7	1600	1815	6.3
+Janabres	2	1530	1600	1.8
+Janos	1	1492	1492	1.2
+Japan	10	800	2010	285.9
+Japan (USA)	1	1945	1945	29.2
+Japan (Warring States)	2	1530	1600	45.6
+Jaqaru	1	1492	1492	0.1
+Jarawara	1	1492	1492	0.3
+Jardwadjali	6	1600	1800	9.4
+Jaru	7	1600	1815	22.8
+Jawoyn	7	1600	1815	13.6
+Jeaga	1	1492	1492	0.1
+Jicarilla	4	1530	1700	13.0
+Jicarilla Apache	1	1492	1492	13.7
+Jin	2	300	400	533.4
+Jin Empire	1	500	500	212.3
+Jingili	7	1600	1815	12.1
+Jiwarli	7	1600	1815	4.3
+Jiwere	1	1492	1492	2.4
+Jococobas	1	1492	1492	0.8
+Jordan	5	1945	2010	36.5
+Judea	1	-1	-1	4.0
+Juhup-Yuju/Yuhupdëh	1	1492	1492	0.9
+Jukun	7	1600	1815	0.9
+Julimes	1	1492	1492	0.8
+Jumanos	1	1492	1492	26.6
+Jupaú (Kawahib)	1	1492	1492	1.6
+Jurruru	7	1600	1815	3.5
+Jōmon	1	-2000	-2000	14.1
+K'iche'	1	1492	1492	0.8
+Ka'apor	1	1492	1492	0.7
+Ka:’yu:’k’t’h’/Che:k’tles7et’h’	1	1492	1492	0.1
+Kaantju	6	1600	1800	3.8
+Kaarta	3	1783	1815	87.7
+Kacha Edze (Urarina)	1	1492	1492	1.2
+Kadambas	1	500	500	6.5
+Kadiwéu	1	1492	1492	0.5
+Kadjerong	7	1600	1815	3.1
+Kaiabi	1	1492	1492	10.8
+Kaingang	1	1492	1492	27.7
+Kakataibo	1	1492	1492	0.6
+Kakheti-Hereti	1	1100	1100	1.1
+Kalaako/Malpa	7	1600	1815	36.2
+Kalaamaya	7	1600	1815	57.6
+Kalapalo	1	1492	1492	0.1
+Kalapuya	6	1492	1715	8.9
+Kali	1	1715	1715	4.3
+Kalina/Kariña	1	1492	1492	9.2
+Kalinago	1	1400	1400	0.6
+Kalinago (Island Carib)	1	1492	1492	0.6
+Kalinga	6	-1	1000	122.4
+Kalispel	6	1492	1715	7.1
+Kalkadoon	6	1600	1800	11.9
+Kallawaya	1	1492	1492	1.4
+Kalmar Union	2	1400	1500	523.0
+Kamarupa	2	600	1200	23.8
+Kambeba/Omagua	1	1492	1492	1.1
+Kamejeya (Yukuna)	1	1492	1492	0.2
+Kamerun	1	1914	1914	67.0
+Kamia	2	1530	1600	2.4
+Kamilaroi	6	1600	1800	48.8
+Kamëntsá	1	1492	1492	0.2
+Kanara	1	1800	1800	1.5
+Kanauj	2	600	700	83.3
+Kandozi	1	1492	1492	1.5
+Kandy	5	1650	1800	8.8
+Kanem	5	800	1200	101.2
+Kanem-Bornu	16	1279	1900	474.9
+Kanienʼkehá꞉ka (Mohawk)	1	1492	1492	4.3
+Kaniyang	7	1600	1815	9.6
+Kankuamo	1	1492	1492	0.2
+Kansa	5	1530	1715	15.5
+Kapanawa	1	1492	1492	1.0
+Kaqchikel	1	1492	1492	0.6
+Kara Khitai Khaganate	1	1200	1200	380.2
+Karajarri	7	1600	1815	5.0
+Karajá do Norte	1	1492	1492	0.8
+Karakalpaks	1	1100	1100	4.2
+Karangpurru	7	1600	1815	5.0
+Karangura	6	1600	1800	2.4
+Karanka	1	1492	1492	3.2
+Karankawa	4	1492	1600	8.0
+Karanki	1	1492	1492	0.2
+Karapana/Muteamasa	1	1492	1492	1.5
+Karasuk culture	3	-1500	-700	1092.4
+Karelians	2	800	1000	24.1
+Karenggapa	6	1600	1800	8.1
+Karijona	1	1492	1492	2.0
+Kariyarra	7	1600	1815	6.9
+Karkhanids	1	1100	1100	143.2
+Karluks	2	700	900	109.3
+Karuk	1	1492	1492	0.3
+Karuwali	6	1600	1800	15.8
+Kashaya	1	1492	1492	0.1
+Kashmir and Ladakh	3	1279	1400	65.4
+Kasi	1	-500	-500	2.0
+Kaska Dena Kayeh	1	1492	1492	21.2
+Kaskaskia	1	1492	1492	37.4
+Kathlamet	1	1492	1492	0.1
+Katukina	1	1492	1492	0.2
+Kaurna Pangkarra	6	1600	1800	3.8
+Kauwets'a:ka	1	1492	1492	0.2
+Kawahib (Jiahui)	1	1492	1492	0.1
+Kawahib (Parintintin)	1	1492	1492	1.1
+Kawahib (Tenharim)	1	1492	1492	1.4
+Kawahsu	5	1530	1715	5.8
+Kawaiisu	1	1492	1492	1.4
+Kawashkar	1	1492	1492	2.1
+Kaxarari	1	1492	1492	0.7
+Kaxixó	1	1492	1492	0.3
+Kayambi	1	1492	1492	0.1
+Kaytej	7	1600	1815	31.2
+Kazakhstan	3	1994	2010	656.6
+Kazan Khanate	1	1530	1530	43.1
+Kazembe	1	1815	1815	11.2
+Kañari	1	1492	1492	1.2
+Kediri	3	1279	1400	45.6
+Kelly Lake Metis Settlement Society	1	1492	1492	7.8
+Kent	2	800	900	0.6
+Kenya	8	1920	2010	386.7
+Kerma	1	-2000	-2000	6.9
+Ket Chonhab’ Kob’a (Chuj)	1	1492	1492	0.3
+Keyauwee	1	1492	1492	1.0
+Khanate of Sibir	3	1492	1530	156.8
+Khanate of the Golden Horde	2	1279	1300	975.5
+Khanty	1	1530	1530	20.6
+Khazars	5	600	1000	377.0
+Khitans	1	900	900	83.7
+Khiva Khanate	5	1530	1715	388.3
+Khmer Empire	7	900	1400	261.8
+Khoisan	28	-2000	1500	18599.8
+Khundzi	1	1100	1100	0.5
+Khwarazmian dynasty	1	1200	1200	30.6
+Kichwa	1	1492	1492	3.5
+Kichwa (Amazónico)	1	1492	1492	3.0
+Kichwa Lamista	1	1492	1492	2.6
+Kichwa del Río Napo	1	1492	1492	4.8
+Kichwa del Río Pastaza	1	1492	1492	1.6
+Kichwa del Río Tigre	1	1492	1492	1.3
+Kickapoo (Oklahoma)	1	1492	1492	0.1
+Kievan Rus	2	1100	1100	132.6
+Kiikaapoi (Kickapoo)	1	1492	1492	75.7
+Kija	7	1600	1815	27.3
+Kijkitat	2	1530	1600	1.6
+Kiliwa	1	1492	1492	0.9
+Killaka Asanajaqi	1	1492	1492	2.4
+Kimek-Kipchak khaganate	1	1000	1000	252.0
+Kingdom of Antigonus	1	-300	-300	58.6
+Kingdom of Brazil	3	1878	1900	1956.0
+Kingdom of David and Solomon	3	-1500	-700	37.6
+Kingdom of France	3	1000	1200	98.0
+Kingdom of Gala	1	-200	-200	6.6
+Kingdom of Georgia	2	1000	1100	11.7
+Kingdom of Hawaii	4	1815	1900	4.5
+Kingdom of Hungary	1	1400	1400	32.2
+Kingdom of Ireland	3	1715	1800	20.1
+Kingdom of Italy	1	1914	1914	23.8
+Kingdom of Kapisa	1	700	700	13.1
+Kingdom of Kashmir	1	700	700	9.2
+Kingdom of Kassander	1	-300	-300	9.9
+Kingdom of Lysimachus	1	-300	-300	9.6
+Kingdom of Norway	1	900	900	20.9
+Kingdom of Pagan	1	1000	1000	21.6
+Kingdom of Sardinia	5	1783	1815	14.6
+Kingdom of Sind	1	700	700	38.7
+Kingdom of Sukhotai	1	1100	1100	62.0
+Kingdom of Syphax	1	-200	-200	24.0
+Kingdom of Zunbil	1	700	700	7.0
+Kingdom of the Two Sicilies	3	1783	1815	22.6
+Kinja	1	1492	1492	2.3
+Kiowa	5	1530	1715	64.2
+Kiowa-Comanche-Apache (Oklahoma)	1	1492	1492	1.0
+Kisêdjê	1	1492	1492	0.5
+Kitanemuk	1	1492	1492	0.3
+Kitasoo/Xai'xais	1	1492	1492	0.1
+Kitselas	1	1492	1492	0.7
+Kitsumkalum	1	1492	1492	0.5
+Kitsé Cha’tnio (Chatino)	1	1492	1492	0.5
+Kitu Kara	1	1492	1492	0.2
+Kizh	1	1492	1492	0.8
+Kl'bal Pom Wintu	1	1492	1492	0.1
+Klachuris	1	1100	1100	7.9
+Klahoose	1	1492	1492	0.3
+Klamath	1	1492	1492	1.6
+Kluane	1	1492	1492	2.8
+Knucati	2	1530	1600	5.0
+Koasati (Coushatta)	1	1492	1492	4.0
+Kogui/Kaggabba	1	1492	1492	0.8
+Koguryo	8	-1	700	116.3
+Kojomk'awi (Konkow)	1	1492	1492	0.5
+Kokatha	7	1600	1815	88.2
+Koknar	6	1600	1800	2.7
+Koko-bera	6	1600	1800	0.8
+Kokomini	6	1600	1800	4.0
+Kokowarra	6	1600	1800	9.3
+Kolla	1	1492	1492	9.9
+Kolla-Atacameño	1	1492	1492	11.6
+Komi	1	1530	1530	10.6
+Konbudj	7	1600	1815	0.7
+Kong	1	1900	1900	0.8
+Kong Empire	4	1783	1880	54.3
+Konnaack	1	1492	1492	0.1
+Kooma	6	1600	1800	16.3
+Korea	15	1000	1900	242.1
+Korea (USA)	1	1945	1945	7.2
+Korea (USSR)	1	1945	1945	10.9
+Korea, Democratic People's Republic of	4	1960	2010	41.7
+Korea, Republic of	4	1960	2010	31.5
+Koreans	1	-2000	-2000	68.4
+Korubo	1	1492	1492	0.2
+Koryaks	4	1530	1700	63.0
+Kosala	1	-500	-500	2.4
+Koyukon	1	1492	1492	14.0
+Krenyê	1	1492	1492	1.1
+Kriol	1	1492	1492	0.3
+Kryvichs	1	700	700	18.0
+Krĩcatijê	1	1492	1492	0.1
+Ktunaxa ɁamakɁis	1	1492	1492	22.3
+Kuba	3	1878	1900	14.8
+Kubéwa/Cubeo	1	1492	1492	1.2
+Kukatj	6	1600	1800	4.8
+Kukatja	7	1600	1815	20.8
+Kuku-yalanji	6	1600	1800	10.9
+Kulina Pano	1	1492	1492	0.2
+Kullilla	6	1600	1800	5.3
+Kumeyaay	1	1492	1492	2.3
+Kundjey’mi	7	1600	1815	0.9
+Kungarakany	7	1600	1815	3.8
+Kunja	6	1600	1800	7.2
+Kunjen	6	1600	1800	22.6
+Kureinji	6	1600	1800	4.1
+Kuril Islands	2	1800	1815	0.6
+Kurnai	6	1600	1800	12.8
+Kurrama	7	1600	1815	14.3
+Kurs	1	1000	1000	1.3
+Kurtjar	6	1600	1800	9.7
+Kuru	1	-500	-500	5.9
+Kuruaya	1	1492	1492	0.1
+Kurykans	1	500	500	15.9
+Kurâ	1	1492	1492	1.0
+Kush	4	-1500	-400	104.9
+Kushan Empire	2	-100	100	302.9
+Kushan Principalities	1	500	500	17.9
+Kushites	1	700	700	56.5
+Kusso	1	1492	1492	0.7
+Kuthant	6	1600	1800	0.6
+Kuuku-yani	6	1600	1800	0.4
+Kuuku-ya’u	6	1600	1800	1.1
+Kuungkari	6	1600	1800	15.3
+Kuuvuan KaNianiq	1	1492	1492	4.0
+Kuwait	6	1914	2010	7.7
+Kuwarra	7	1600	1815	27.3
+Kuyam	1	1492	1492	0.4
+Kuyani	6	1600	1800	15.7
+Kwakwaka'wakw	2	1530	1600	4.6
+Kwakwaka’wakw	1	1492	1492	2.2
+Kwanlin Dün	1	1492	1492	1.4
+Kwantlen	1	1492	1492	0.3
+Kwarezm	1	700	700	6.3
+Kwazá	1	1492	1492	0.1
+Kwikwetlem	1	1492	1492	0.1
+Kwini	7	1600	1815	3.8
+Kyivan Rus	2	900	1000	151.4
+Kyrgyzstan	3	1994	2010	48.1
+Kō Hawaiʻi Paeʻāina (Hawaiian Kingdom)	1	1492	1492	1.1
+K’asho Got’ine	1	1492	1492	7.9
+K’áálǫ Got’ine	1	1492	1492	3.3
+K’ómoks	1	1492	1492	0.6
+La Tène culture	1	-700	-700	2.3
+Lagos	3	1878	1900	1.6
+Lagunero	2	1530	1600	2.0
+Lahore	1	1783	1783	35.8
+Lake Segozerskoye	1	700	700	0.1
+Lake Vygozero	1	700	700	0.1
+Laklanõ	1	1492	1492	0.7
+Lamalama	6	1600	1800	2.2
+Lambakannas	1	900	900	5.0
+Lan Na	4	1600	1715	38.9
+Laos	10	1492	2010	149.4
+Laotian states	3	1650	1715	58.7
+Larrakia	7	1600	1815	2.0
+Lassik	1	1492	1492	0.1
+Late Jomon culture	5	-1500	-400	105.0
+Latje Latje	6	1600	1800	3.4
+Latvia	6	1920	2010	30.2
+Laurel complex	7	-100	500	210.7
+Lavo	1	500	500	15.8
+Lebanon	5	1945	2010	4.2
+Leco	1	1492	1492	0.7
+Leks	1	1100	1100	0.6
+Lemhi-Shoshone	1	1492	1492	1.2
+Lenca	1	1492	1492	2.3
+Lesotho	9	1914	2010	22.1
+León	3	1000	1200	23.6
+Lheidli T'enneh	1	1492	1492	3.8
+Liao	3	1000	1200	194.3
+Liberia	12	1878	2010	76.1
+Libya	6	1914	2010	753.9
+Libya (IT)	2	1920	1930	257.9
+Lickanantay	1	1492	1492	6.0
+Lil'wat	1	1492	1492	0.6
+Limilngan	7	1600	1815	2.4
+Lingít Aaní (Tlingit)	1	1492	1492	6.5
+Lipan	4	1530	1700	19.0
+Lipi	1	1492	1492	5.8
+Lippe-Detmold	3	1783	1815	0.3
+Lithuania	8	1279	2010	53.1
+Lokono (Arawak)	1	1492	1492	15.1
+Lombard duchies	2	800	900	7.7
+Lombard principalities	3	600	700	23.0
+Lombardy	6	1650	1815	4.5
+Lopburi Kingdom	1	1100	1100	0.7
+Louisiana	1	1715	1715	3.8
+Lower Tohono O’odham (Lower Pima)	1	1492	1492	2.2
+Lozi	8	1783	1900	84.7
+Luba	10	1530	1900	203.0
+Lucca	6	1650	1815	0.7
+Luckiamute	1	1492	1492	0.1
+Luiseno	2	1530	1600	1.7
+Luisiana	2	1783	1800	536.2
+Lule	1	1492	1492	7.0
+Lumbee	1	1492	1492	8.8
+Lumnanas	1	1492	1492	1.3
+Lunda	11	1530	1900	178.7
+Luritja	7	1600	1815	38.8
+Lusatian culture	1	-700	-700	18.1
+Luthigh	6	1600	1800	2.5
+Luva	2	1279	1300	1.4
+Luxembourg	18	1650	2010	12.7
+Lübeck	1	1715	1715	2.3
+Lənape Haki-nk (Lenni-Lenape)	1	1492	1492	2.8
+M?ori	1	1878	1878	20.3
+Maan	2	-200	-100	35.5
+Macedon and Hellenic League	1	-200	-200	12.0
+Macedonia	3	1994	2010	6.3
+Macorix	1	1492	1492	1.5
+Macuxi	1	1492	1492	3.3
+Madagascar	22	1000	2010	988.0
+Madagascar (France)	5	1914	1945	237.5
+Madi Madi	6	1600	1800	4.4
+Madija	1	1492	1492	5.3
+Madras	2	1783	1800	0.7
+Magadha	4	-500	200	251.7
+Magyars	4	700	1000	69.5
+Magüta/Ticuna	1	1492	1492	6.9
+Mahican	2	1530	1600	4.2
+Mahra	4	1530	1700	37.0
+Mahratta states	1	1783	1783	53.3
+Maiawali	6	1600	1800	24.4
+Maijuna	1	1492	1492	0.4
+Maiou	5	1530	1715	6.9
+Maitraka Kingdom	1	700	700	26.4
+Maize farmers	7	-1500	-200	724.0
+Makah	1	1492	1492	0.1
+Makkura	11	500	1400	436.2
+Makurap	1	1492	1492	0.7
+Maká	1	1492	1492	0.9
+Malabar	2	1783	1800	1.8
+Malacatos	1	1492	1492	0.1
+Malacca	4	1492	1600	58.5
+Malagasy	2	800	900	95.0
+Malak malak	7	1600	1815	2.6
+Malawi	8	1914	2010	72.1
+Malay	2	800	900	159.5
+Malaya	10	1650	1914	260.9
+Malays	2	-200	1200	185.8
+Malaysia	8	1920	2010	208.7
+Malaysian Islamic states	4	1492	1600	504.1
+Mali	16	1000	2010	1083.2
+Malkana	7	1600	1815	5.2
+Malla	1	-500	-500	0.7
+Malyangaba	6	1600	1800	16.7
+Malécu	1	1492	1492	0.1
+Mamluke Sultanate	5	1279	1500	532.8
+Manahoac	1	1492	1492	2.0
+Manchu Empire	9	1650	1914	5765.4
+Manchuria	3	1920	1945	278.4
+Mandan	5	1530	1715	2.1
+Mandan, Hidatsa, and Arikara	1	1492	1492	4.8
+Mandandanji	6	1600	1800	10.2
+Mandatory Palestine (GB)	3	1920	1938	7.5
+Mandes	1	900	900	218.9
+Mandjindja	7	1600	1815	39.9
+Mangala	7	1600	1815	23.4
+Mangarayi	7	1600	1815	2.8
+Manioc farmers	9	-1500	-100	3571.8
+Manoki	1	1492	1492	0.3
+Manteño-Huancavilca	1	1492	1492	1.4
+Maori	9	1279	1815	182.9
+Maoris	2	1530	1600	40.6
+Mapuche	1	1878	1878	6.1
+Mara	6	1600	1800	4.7
+Maranunggu	7	1600	1815	0.5
+Maratha	1	1715	1715	7.0
+Maratha Confederacy	3	1783	1815	362.4
+Maratines	2	1530	1600	0.4
+Mardu	7	1600	1815	97.4
+Margany	6	1600	1800	13.2
+Mari	1	800	800	4.5
+Marksville Culture	7	-100	500	85.0
+Marringarr	7	1600	1815	0.8
+Marrithiyel	7	1600	1815	0.9
+Martinique	9	1715	2010	0.8
+Martinique (France)	1	1945	1945	0.1
+Martuthunira	7	1600	1815	2.6
+Marubo	1	1492	1492	0.4
+Mascat	1	-1	-1	22.1
+Mashco Piro	1	1492	1492	2.9
+Maskat	1	1100	1100	0.8
+Massa-adchu-es-et (Massachusett)	1	1492	1492	0.4
+Massachusett	2	1530	1600	0.6
+Massachusetts Bay	2	1650	1700	7.2
+Massawomeck	1	1492	1492	2.5
+Matagalpa/Cacaopera	1	1492	1492	1.1
+Mataram	4	600	900	32.3
+Matawai	1	1492	1492	0.5
+Matetamãe/Cinta Larga	1	1492	1492	2.4
+Matlatzinco/Tlahuica/Ocuiltec	1	1492	1492	0.5
+Matses (Matis)	1	1492	1492	0.2
+Matsigenka	1	1492	1492	5.2
+Matsés (Mayoruna)	1	1492	1492	1.8
+Mattamuskeet	1	1492	1492	0.1
+Mattaponi	1	1492	1492	0.1
+Mauretania	2	-200	-100	41.3
+Mauri	1	700	700	14.4
+Mauritania	5	1945	2010	417.6
+Mauryan Empire	3	-300	-100	572.1
+Maxakalí	1	1492	1492	4.2
+Maya	7	1600	1815	10.0
+Maya Yucateco	1	1492	1492	13.9
+Maya chiefdoms and states	9	-323	400	259.5
+Maya city-states	9	800	1500	126.8
+Maya states	3	500	700	83.0
+Mayaimi	1	1492	1492	0.3
+Mayangna	1	1492	1492	2.3
+Mayas	2	1530	1600	13.9
+Mayi-Kulan	6	1600	1800	11.6
+Mayi-Kutuna	6	1600	1800	8.8
+Mayi-Thakurti	6	1600	1800	5.5
+Mayi-Yapi	6	1600	1800	9.4
+Mazahua	1	1492	1492	0.4
+Mazun	2	600	700	9.5
+Mbabaram	6	1600	1800	0.6
+Mbailundu	3	1878	1900	17.5
+Mbara	6	1600	1800	9.8
+Mbeiwum	6	1600	1800	0.7
+Mbukarla	7	1600	1815	0.7
+Mbya	1	1492	1492	57.2
+Mdewakanton	1	1492	1492	7.3
+Me-Wuk (Bay Miwok)	1	1492	1492	0.1
+Me-Wuk (Central Sierra Miwok)	1	1492	1492	0.6
+Me-Wuk (Coast Miwok)	1	1492	1492	0.2
+Me-Wuk (Northern Sierra Miwok)	1	1492	1492	0.2
+Me-Wuk (Southern Sierra Miwok)	1	1492	1492	0.4
+Mebêngôkre (Kayapó)	1	1492	1492	8.5
+Mecklenburg-Schwerin	3	1783	1815	4.1
+Mecklenburg-Strelitz	3	1783	1815	6.8
+Meherrin	1	1492	1492	0.2
+Mehin	1	1492	1492	1.2
+Menominee	1	1492	1492	4.8
+Menomini	5	1530	1715	12.5
+Mercia	2	800	900	13.0
+Merina Kingdom	16	1000	1815	191.0
+Merinides	1	1279	1279	11.9
+Meroe	10	-500	400	454.4
+Meru	6	1600	1800	17.9
+Mescalero	4	1530	1700	66.7
+Mescalero Apache	1	1492	1492	24.2
+Mesoamerican city-states and chiefdoms	5	800	1200	189.3
+Mesoamerican hunter-gatherers and maïze farmers	1	-2000	-2000	373.4
+Mesopotamia (GB)	3	1920	1938	133.2
+Methow	1	1492	1492	0.3
+Mexicanero (Nahuas)	1	1492	1492	0.2
+Mexico	12	1878	2010	1860.0
+Mexihcah (Triple Alliance)	1	1492	1492	16.0
+Meškwahki·aša·hina (Fox)	1	1492	1492	1.1
+Me̱'pha̱a̱ (Tlapaneco)	1	1492	1492	0.8
+Mi'kma'ki	8	1492	1715	99.8
+Miami	5	1530	1715	18.8
+Michif Piyii (Métis)	1	1492	1492	209.0
+Micqanaqa’n	1	1492	1492	0.3
+Middag Kingdom	2	1650	1700	0.3
+Milan	5	1530	1715	9.8
+Milano (Austria)	1	1783	1783	1.0
+Mill Creek Culture	7	-100	500	14.3
+Miller	7	-100	500	24.9
+Milograd culture	9	-700	100	78.8
+Miluk Coos	1	1492	1492	0.1
+Min-Yue	2	-200	-100	35.5
+Minang	7	1600	1815	10.8
+Ming Chinese Empire	3	1500	1600	1361.2
+Ming Empire	1	1492	1492	343.0
+Mingin	6	1600	1800	0.7
+Minoan	1	-2000	-2000	0.7
+Mirambo Unyanyembe Ukimbu	3	1878	1900	40.9
+Miranha	1	1492	1492	5.3
+Mirning	7	1600	1815	64.7
+Misak	1	1492	1492	1.2
+Miskito	1	1492	1492	3.2
+Mississauga	1	1492	1492	12.9
+Mississaugas of the Credit First Nation	1	1492	1492	1.5
+Missouri	5	1530	1715	19.9
+Mithaka	6	1600	1800	5.9
+Miwa	7	1600	1815	2.2
+Miwkoʔ Waaliʔ	1	1492	1492	0.8
+Miwok	5	1530	1715	7.8
+Mixtec Empire	4	1279	1500	20.2
+Mixtecs	2	800	900	8.2
+Miyan	6	1600	1800	5.2
+Mnicoujou	1	1492	1492	4.6
+Moche	8	-1	700	50.3
+Modena	6	1650	1815	4.4
+Modoc	6	1492	1715	7.1
+Mogollon	2	800	900	177.1
+Mohegan	1	1492	1492	0.2
+Mohican	1	1492	1492	1.9
+Mojeño	1	1492	1492	3.7
+Mokaná	1	1492	1492	0.3
+Molalla	1	1492	1492	1.9
+Moldova	4	1400	2010	12.2
+Mon States	1	900	900	8.0
+Mon state	3	800	1200	24.1
+Mon-Khmer	1	-200	-200	99.8
+Monacan	1	1492	1492	1.8
+Moneton	1	1492	1492	2.8
+Mongol Empire	1	1200	1200	465.2
+Mongolia	9	1914	2010	1136.9
+Mongols	1	1100	1100	392.4
+Monqui	1	1492	1492	0.1
+Montagnais Innu	5	1530	1715	114.5
+Montana	2	1530	1600	0.6
+Monte Albán	12	-323	700	61.6
+Montenegro	8	1715	2010	10.4
+Moose Cree	1	1492	1492	4.9
+Mopan	1	1492	1492	0.7
+Moqoit	1	1492	1492	15.0
+Moratok	1	1492	1492	0.3
+Moravians	1	700	700	3.0
+Mordvinians	1	800	800	12.4
+Moregena	1	1492	1492	0.1
+Morocco	19	1300	2010	774.0
+Morocco (France)	1	1938	1938	33.3
+Moses/Columbia	1	1492	1492	0.8
+Mosetén	1	1492	1492	1.0
+Mosquito Coast	1	1715	1715	0.7
+Mossi States	13	1492	1900	156.8
+Mount Tabor Indian Community	1	1492	1492	0.1
+Mountain Maidu	1	1492	1492	0.7
+Mountain Métis	1	1492	1492	9.8
+Movima	1	1492	1492	2.6
+Mozambique	9	1878	2010	493.1
+Mozambique (Portugal)	2	1938	1945	126.1
+Mpalitjanh	6	1600	1800	1.4
+Muckleshoot	1	1492	1492	0.1
+Mudburra	7	1600	1815	20.9
+Mughal Empire	5	1530	1715	1120.1
+Muina Murui / Murui-Muinanɨ	1	1492	1492	7.2
+Muisca	1	1492	1492	3.6
+Multan	2	900	1783	27.0
+Multnomah	1	1492	1492	0.1
+Mundurukânia (Wuy jugu)	1	1492	1492	7.2
+Munsee Lenape	1	1492	1492	2.1
+Murrinh-patha	7	1600	1815	2.0
+Muruwari	6	1600	1800	10.5
+Muscat	8	1000	1500	67.1
+Muscat and Oman	3	1920	1938	75.0
+Muscogee (Oklahoma)	1	1492	1492	1.0
+Musgamagw Dzawada'enuxw	1	1492	1492	0.2
+Muskogee	2	1530	1600	17.5
+Muteamasa (Karapanã)	1	1492	1492	0.6
+Mutumui	6	1600	1800	1.2
+Muwekma	1	1492	1492	0.8
+Mvskoke (Muscogee / Creek)	1	1492	1492	20.7
+Mwenemutapa	4	1492	1600	111.7
+Myaamia	1	1492	1492	28.4
+Mysore	2	1783	1800	21.1
+Mysore (Indian princely state)	1	1815	1815	5.5
+Mánekenk/Haush	1	1492	1492	0.2
+Māori	4	1783	1900	81.3
+N. European Bronze Age cultures	5	-1500	-700	444.2
+NWT Métis Nation	1	1492	1492	21.8
+Na-cho Nyak Dun	1	1492	1492	13.0
+Nabatean Kingdom	5	-300	100	70.1
+Nacotchtank (Anacostan)	1	1492	1492	0.1
+Nadleh Whut'en	1	1492	1492	0.4
+Nadöb	1	1492	1492	2.0
+Nahua	1	1492	1492	0.9
+Nahua ( Morelos, Puebla, Tlaxcala, Veracruz, Hidalgo, San Luis Potosi)	1	1492	1492	8.7
+Nahua (Guerrero)	1	1492	1492	1.6
+Nahua (Mexico)	1	1492	1492	0.6
+Nahua (Michoacan)	1	1492	1492	0.6
+Nahuas	1	1492	1492	0.1
+Nakako	7	1600	1815	37.0
+Namazga	1	-2000	-2000	6.2
+Nambikwara	1	1492	1492	3.6
+Namibia	5	1945	2010	326.1
+Nan Chao	5	800	1200	164.3
+Nan-Yue	2	-200	-100	30.4
+Nan-Zhao	1	700	700	18.1
+Nana	7	1600	1815	19.4
+Naniaho	2	1530	1600	4.0
+Nanrantsouak	1	1492	1492	2.9
+Nansemond	1	1492	1492	0.1
+Nanti	1	1492	1492	0.4
+Naples	5	1530	1715	27.9
+Narangga	6	1600	1800	3.0
+Nari Nari	6	1600	1800	2.8
+Narragansett	1	1492	1492	0.1
+Nasa	1	1492	1492	3.6
+Naskapi Innu	5	1530	1715	140.6
+Nassau	1	1815	1815	0.2
+Natal	3	1878	1900	13.2
+Natchez	6	1492	1700	62.2
+Natchitoches	1	1492	1492	0.1
+Nauset	1	1492	1492	0.1
+Navaho	2	1530	1600	14.0
+Navajo	1	1500	1500	21.6
+Navarre	8	1000	1500	13.4
+Nawa	1	1492	1492	2.0
+Nawu	6	1600	1800	14.9
+Nayarit	2	1530	1600	8.2
+Nazca	7	-100	500	23.6
+Ndebele	3	1878	1900	14.5
+Ndee/Nnēē: (Western Apache)	1	1492	1492	4.1
+Ndongo	2	1492	1500	2.4
+Ndé Kónitsąąíí Gokíyaa (Lipan Apache)	1	1492	1492	35.3
+Nehalem	1	1492	1492	0.1
+Nejd	3	1783	1815	159.7
+Nenets	1	1530	1530	28.9
+Nentego (Nanticoke)	1	1492	1492	1.2
+Nepal	18	1200	2010	213.6
+Nespelem	1	1492	1492	0.3
+Nestucca	1	1492	1492	0.1
+Netherlands	14	1715	2010	37.4
+Netherlands Indies	4	1878	1914	549.2
+Neusiok	1	1492	1492	0.4
+Neustria	2	600	700	16.8
+New Amsterdam	2	1650	1700	5.7
+New Caledonia	1	1938	1938	1.4
+New France	2	1650	1700	8.8
+New Hebrides	1	1938	1938	0.6
+New River Shasta	1	1492	1492	0.1
+New South Wales	1	1815	1815	316.6
+New South Wales (UK)	3	1878	1900	198.2
+New Zealand	9	1914	2010	182.9
+Newe (Western Shoshone)	1	1492	1492	17.7
+Nez Perce	6	1500	1715	23.0
+Ngaanyatjarra	7	1600	1815	42.6
+Ngadjuri	6	1600	1800	13.8
+Ngalakan	7	1600	1815	6.0
+Ngalawangka	7	1600	1815	10.5
+Ngalea	7	1600	1815	24.9
+Ngaliwuru	7	1600	1815	2.4
+Ngalkbun	7	1600	1815	4.0
+Ngambri	6	1600	1800	4.5
+Ngamini	6	1600	1800	12.3
+Nganasan	2	1530	1600	26.4
+Ngandi	6	1600	1800	2.7
+Ngandji	6	1600	1800	8.4
+Nganyaywana	6	1600	1800	6.3
+Ngan’giwumirri	7	1600	1815	3.4
+Ngarabal	6	1600	1800	10.4
+Ngargad	6	1600	1800	14.2
+Ngarigo	6	1600	1800	15.6
+Ngarinman	7	1600	1815	12.4
+Ngarinyin	7	1600	1815	31.2
+Ngarla	7	1600	1815	1.7
+Ngarluma	7	1600	1815	2.7
+Ngarrindjeri	6	1600	1800	6.1
+Ngarti	7	1600	1815	25.4
+Ngatatjara	7	1600	1815	43.1
+Ngatjumay	7	1600	1815	18.1
+Ngawun	6	1600	1800	11.0
+Ngi-iva (Popoloca)	1	1492	1492	1.8
+Ngombur	7	1600	1815	0.6
+Nguburinji	6	1600	1800	7.5
+Ngumbarl	7	1600	1815	2.1
+Ngunawal	6	1600	1800	5.7
+Nguni	3	1878	1900	8.6
+Nguri	6	1600	1800	5.2
+Ngurraiillam	6	1600	1800	2.4
+Ngwato	3	1878	1900	7.3
+Nhanta	7	1600	1815	12.9
+Nhuwala	7	1600	1815	7.7
+Nicaragua	12	1878	2010	118.4
+Nicarao/Nahoa	1	1492	1492	0.3
+Niger	5	1945	2010	483.8
+Nigeria	9	1914	2010	658.0
+Niitsítpiis-stahkoii ᖹᐟᒧᐧᐨᑯᐧ ᓴᐦᖾᐟ (Blackfoot / Niitsítapi ᖹᐟᒧᐧᒣᑯ)	1	1492	1492	53.5
+Nimanburu	7	1600	1815	3.0
+Nimiipuu (Nez Perce)	1	1492	1492	4.6
+Ninticoy	2	1530	1600	1.6
+Nipmuc	1	1492	1492	0.8
+Nisenan	1	1492	1492	1.3
+Nisg̱a'a	1	1492	1492	2.2
+Nisqually	1	1492	1492	0.3
+Nitaskinan (Atikamekw / Nehirowisi Aski)	1	1492	1492	6.7
+Nitassinan (Innu)	1	1492	1492	52.7
+Nivaclé	1	1492	1492	4.6
+Nizam's Dominions	1	1800	1800	15.5
+Niúachi	1	1492	1492	0.4
+Nkore	1	1815	1815	7.7
+No'iria	1	1492	1492	0.7
+Nobatia	2	600	700	22.9
+Nogai Horde	5	1530	1715	265.6
+Nom Sus Wintu	1	1492	1492	0.2
+Nomatsigenga	1	1492	1492	0.3
+Nomlaki	1	1492	1492	0.6
+Nongatl	1	1492	1492	0.2
+Nonuya	1	1492	1492	1.4
+Nor Rel Muk Wintu	1	1492	1492	0.2
+Norsemen	1	-200	-200	30.7
+Norte Chico	1	-2000	-2000	23.8
+North American Pacific foraging, hunting and fishing peoples	26	-1500	1500	1030.2
+Northern Liang	1	400	400	13.0
+Northern Paiute	5	1530	1715	94.7
+Northern Pomo	1	1492	1492	0.3
+Northern Rhodesia	2	1938	1945	123.2
+Northern Territory (UK)	3	1878	1900	306.4
+Northern Yuki	1	1492	1492	0.3
+Northmen	2	800	800	25.6
+Northumbria	2	800	900	1.8
+Norway	13	1100	2010	389.0
+Novgorod	3	1279	1400	221.6
+Novgorod-Seversky	1	1500	1500	0.3
+Nukunu	6	1600	1800	2.8
+Numidia	1	-100	-100	26.8
+Numu (Northern Paiute)	1	1492	1492	18.5
+Nunatsiavut	1	1492	1492	6.0
+NunatuKavut	1	1492	1492	18.6
+Nunavik	1	1492	1492	42.8
+Nungali	7	1600	1815	2.0
+Nunggubuyu	6	1600	1800	2.2
+Nuwuvi (Southern Paiute)	1	1492	1492	15.5
+Nuxalk	1	1492	1492	1.1
+Nuxwsa'7aq (Nooksack)	1	1492	1492	0.2
+Nyaki-nyaki	7	1600	1815	25.1
+Nyamal	7	1600	1815	25.9
+Nyanganyatjara	7	1600	1815	70.1
+Nyangumarda	7	1600	1815	57.3
+Nyasaland	1	1945	1945	9.0
+Nyawaygi	6	1600	1800	2.4
+Nyikina	7	1600	1815	18.0
+Nyul Nyul	7	1600	1815	0.7
+Nyvukagmit (Naukan)	1	1492	1492	0.1
+Náayerite (Cora)	1	1492	1492	0.8
+Núu-agha-tʉvʉ-pʉ̱ (Ute)	1	1492	1492	33.9
+Nükak Makü	1	1492	1492	1.1
+Nüwüwü (Chemehuevi)	1	1492	1492	3.4
+Nłeʔkepmx Tmíxʷ (Nlaka'pamux)	1	1492	1492	3.8
+Nʉmʉnʉʉ (Comanche)	1	1492	1492	47.3
+O'odham Jeweḍ	1	1492	1492	11.5
+O-ga-xpa Ma-zhoⁿ (O-ga-xpa)	1	1492	1492	33.5
+Obispeño	1	1492	1492	0.1
+Obiwa	4	1530	1700	192.7
+Occaneechi	1	1492	1492	0.7
+Occohannock	1	1492	1492	0.1
+Ocloya	1	1492	1492	0.6
+Odawa	1	1492	1492	4.9
+Odrysian Kingdom	1	-1	-1	5.5
+Odǫhwęja:deˀ (Cayuga)	1	1492	1492	0.2
+Ofaié	1	1492	1492	5.5
+Oghuz	1	1100	1100	50.4
+Oghuz Turks	1	900	900	356.8
+Oglala	1	1492	1492	1.2
+Ohlone	1	1492	1492	0.9
+Oirat Confederation	2	1492	1500	131.3
+Okanagan	1	1492	1492	3.3
+Okwanuchu	1	1492	1492	0.1
+Oldenburg	4	1715	1815	1.3
+Olmec	5	-1500	-400	19.6
+Omaguaca	1	1492	1492	1.0
+Omaha	5	1530	1715	7.6
+Oman	16	1530	2010	185.9
+Oman (British Raj)	1	1938	1938	24.9
+Omàmìwininìwag (Algonquin)	1	1492	1492	13.1
+Onundagaonoga (Onondaga)	1	1492	1492	1.0
+Onöndowa'ga:' (Seneca)	1	1492	1492	1.4
+Onʌyote'a•ka (Oneida)	1	1492	1492	1.4
+Oohenumpa	1	1492	1492	2.3
+Opiscopank	1	1492	1492	0.1
+Opobo	3	1878	1900	1.7
+Orange Free State	3	1878	1900	30.5
+Orissa	8	1000	1600	60.0
+Oromo	7	1530	1800	287.9
+Osage	5	1530	1715	86.0
+Osage (Oklahoma)	1	1492	1492	0.5
+Ostrogoths	4	400	600	53.1
+Otavalo	1	1492	1492	0.2
+Other Rus Principalities	1	1200	1200	44.0
+Oto	5	1530	1715	5.7
+Otomies	2	1530	1600	1.1
+Ottoman Empire	21	1400	1914	3717.3
+Ottoman Sultanate	1	1920	1920	19.9
+Oudh	3	1783	1815	15.5
+Ovimbundu	3	1878	1900	14.8
+Oxus	1	-2000	-2000	22.6
+Oyo	13	1492	1900	76.5
+Očhéthi Šakówiŋ	1	1492	1492	224.9
+O’ de püt/Angpøn (Zoque)	1	1492	1492	1.2
+Pacahuara	1	1492	1492	3.4
+Pacamoro	1	1492	1492	0.6
+Pacaxes	1	1492	1492	0.1
+Pacheedaht	1	1492	1492	0.1
+Paekche	7	100	700	23.1
+Pagan	4	900	1400	189.3
+Paipai (Akwa'ala)	1	1492	1492	0.8
+Pakajaqi	1	1492	1492	2.8
+Pakistan	5	1945	2010	353.8
+Palas	5	700	1100	163.4
+Palatinate	1	1815	1815	0.6
+Paleo-Inuit	7	-500	400	59.1
+Paleo-Koreans	3	-1500	-700	36.3
+Paleo-Siberian hunter-gatherers	23	-2000	1200	13778.9
+Pallava	1	900	900	10.4
+Pallava state	1	800	800	10.4
+Pallavas	3	500	700	43.6
+Palouse	1	1492	1492	1.4
+Paltas	1	1492	1492	0.7
+Palyku	7	1600	1815	18.3
+Pamlico (Pomouik)	1	1492	1492	0.3
+Pamoari	1	1492	1492	0.9
+Pampas cultures	35	-1500	1878	4603.2
+Panama	9	1914	2010	53.1
+Panará	1	1492	1492	0.7
+Pancala	1	-500	-500	5.9
+Pandya state	5	800	1400	27.4
+Pandyas	2	500	700	3.7
+Pankararu	1	1492	1492	0.1
+Panzaleo	1	1492	1492	0.3
+Papago	2	1530	1600	7.9
+Papal States	16	800	1815	50.4
+Papua New Guinea	16	1492	2010	546.0
+Papuan	1	-200	-200	84.4
+Papuan neolithic farmers	5	-1500	-400	395.9
+Papuans	8	800	1815	453.6
+Paracas	4	-400	-200	9.4
+Paraguay	15	1783	2010	440.3
+Paramas	1	1100	1100	13.5
+Parhae	1	800	800	18.8
+Parikwene	1	1492	1492	0.4
+Parkatejê	1	1492	1492	0.1
+Parma	6	1650	1815	3.1
+Parthia	2	-200	-100	76.1
+Parthian Empire	4	-1	300	609.8
+Passamaquoddy	1	1492	1492	1.1
+Pasto	1	1492	1492	1.2
+Patagonian shellfish and marine mammal hunters	35	-1500	1878	730.9
+Patamona/Ingarikó	1	1492	1492	2.8
+Pataxó	1	1492	1492	1.2
+Pataxó Hã-Hã-Hãe	1	1492	1492	0.1
+Patwin	3	1492	1600	3.2
+Paugussett	1	1492	1492	0.3
+Pawnee	5	1530	1715	45.0
+Pawnee (Oklahoma)	1	1492	1492	0.1
+Pawtucket	1	1492	1492	0.3
+Payungu	7	1600	1815	7.3
+Payómkawichum (Luiseño)	1	1492	1492	0.5
+Pech	1	1492	1492	1.7
+Pechenegs	1	900	900	3.5
+Pee Dee	1	1492	1492	0.4
+Pegu	4	1492	1600	27.6
+Pemón	1	1492	1492	13.1
+Pennacook	3	1492	1600	6.5
+Penobscot	1	1492	1492	2.2
+Pentucket	1	1492	1492	0.1
+Peoria	1	1492	1492	18.7
+Pequawket	1	1492	1492	0.4
+Pequonnock	1	1492	1492	0.1
+Peramangk	6	1600	1800	1.8
+Pergamon	1	-200	-200	1.4
+Pericú	1	1492	1492	0.6
+Permians	1	800	800	74.6
+Persia	8	400	1914	1172.9
+Peru	12	1878	2010	1217.3
+Pescado	1	1492	1492	0.7
+Peshemegs	2	1000	1000	115.0
+Petun	1	1492	1492	0.6
+Pewa	2	1530	1600	1.1
+Philippines	20	1492	2010	375.5
+Phrygians	3	-1500	-700	44.1
+Picts	2	800	900	5.0
+Piipaash (Maricopa)	1	1492	1492	0.8
+Pijao	1	1492	1492	1.4
+Pilagal'ek	1	1492	1492	1.9
+Pima	2	1530	1600	6.5
+Pinikura	7	1600	1815	3.2
+Pinjarup	7	1600	1815	1.0
+Pintupi	7	1600	1815	92.2
+Pipa Aha Macav (Mojave)	1	1492	1492	0.8
+Pirlatapa	6	1600	1800	6.7
+Piscataway	1	1492	1492	1.2
+Pisones	2	1530	1600	0.9
+Pit River	1	1492	1492	1.6
+Pitjantjatjara	7	1600	1815	36.1
+Pitta-Pitta	6	1600	1800	21.6
+Plain bison hunters	26	-1500	1500	6365.3
+Plain-Pottery culture	8	-500	100	168.3
+Plains Miwok	1	1492	1492	0.3
+Plateau fichers and hunter gatherers	27	-1500	1530	1520.0
+Pocomoke	1	1492	1492	0.1
+Pocumtuc	1	1492	1492	0.3
+Pocumtuk	2	1530	1600	1.6
+Point Peninsula	7	-100	500	141.1
+Pokanoket	1	1492	1492	0.4
+Poland	14	1000	2010	369.5
+Poland-Lithuania	5	1400	1600	384.5
+Polanes	1	700	700	5.9
+Polish–Lithuanian Commonwealth	3	1650	1715	187.4
+Polyanians	1	900	900	2.5
+Polynesians	15	1000	1800	16.8
+Pomerania	1	1000	1000	3.0
+Pomeranian culture	8	-500	100	28.5
+Pomo	6	1500	1715	43.9
+Ponca	6	1492	1715	14.6
+Popeloutchom (Amah Mutsun)	1	1492	1492	0.7
+Popoluca (mixe-zoque)	1	1492	1492	0.4
+Popti'	1	1492	1492	0.3
+Popũkare	1	1492	1492	5.0
+Poqomam	1	1492	1492	0.7
+Poqomchi’	1	1492	1492	0.1
+Porter	7	-100	500	28.7
+Portugal	26	1200	2010	195.2
+Portuguese Brazil	2	1650	1700	120.7
+Portuguese East Africa	7	1650	1900	68.6
+Portuguese Guinea	10	1650	1914	8.4
+Post-Ming Warlords	2	1650	1700	144.2
+Potawatomi	5	1530	1715	35.0
+Potawatomi-Shawnee (Oklahoma)	1	1492	1492	0.2
+Poverty point culture	2	-1500	500	13.2
+Pratiharas	2	1000	1100	43.8
+Principality of Galicia-Volhynia	1	1200	1200	18.7
+Principality of Kyiv	1	1200	1200	8.1
+Principality of Novgorod	1	1200	1200	28.1
+Principality of Polotsk	1	1100	1100	3.8
+Principality of Vladimir-Suzdal	1	1200	1200	26.8
+Principality of Wallachia	1	1400	1400	5.5
+Proto-Altaic pastoralists	5	-1500	-400	1692.5
+Proto-Scythian culture	1	-700	-700	30.4
+Proto-Slavs	1	700	700	48.5
+Proto-Thai cultures	1	-400	-400	49.6
+Proto-Tibetan cultures	1	-400	-400	252.4
+Prussia	11	1530	1815	77.8
+Prussians	2	1000	1100	12.9
+Pskov	2	1492	1500	3.6
+Ptolemaic Kingdom	3	-300	-100	139.9
+Pueblos	1	1492	1492	27.8
+Puerto Rico	9	1914	2010	5.6
+Puinave	1	1492	1492	10.3
+Punjab	1	1492	1492	10.4
+Punuba	7	1600	1815	3.1
+Purduna	7	1600	1815	5.5
+Purehno	1	1492	1492	2.9
+Puri	1	1492	1492	17.8
+Puruborá	1	1492	1492	0.5
+Puruwá	1	1492	1492	0.4
+Puyallup	1	1492	1492	0.3
+Pyu state	3	800	1200	25.0
+Pâri (Pawnee)	1	1492	1492	19.7
+P’urhépecha	1	1492	1492	9.1
+Q'anjob'al	1	1492	1492	1.1
+Q'eqchi'	1	1492	1492	2.5
+Q'ero	1	1492	1492	0.1
+Qataban	4	-323	-100	81.3
+Qatar	13	1878	2010	10.6
+Qhara Qhara	1	1492	1492	2.8
+Qin	2	-323	-300	94.4
+Qing Empire	2	1783	1800	2077.5
+Qom	1	1492	1492	10.5
+Quapaw	5	1530	1715	33.4
+Quatsino	1	1492	1492	0.2
+Quazaq Khanate	5	1530	1715	792.6
+Quebec	2	1783	1800	156.3
+Quechan (Kwatsáan)	1	1492	1492	1.4
+Quechua	1	1492	1492	63.0
+Queensland (UK)	3	1878	1900	416.7
+Queets	1	1492	1492	0.1
+Quileute	1	1492	1492	0.2
+Quillacinga	1	1492	1492	0.5
+Quinault	1	1492	1492	0.3
+Quinnipiac	1	1492	1492	0.1
+Quiyoughcohannock	1	1492	1492	0.1
+Quuiich (Lower Umpqua)	1	1492	1492	0.1
+Quw'utsun	1	1492	1492	0.2
+Qwû'lh-hwai-pûm (Klickitat)	1	1492	1492	0.8
+Rabih az-Zubayr	2	1878	1880	16.7
+Rajastan	2	1492	1500	79.9
+Rajput Clans and Small States	1	800	800	69.3
+Rajput kingdoms	2	1000	1200	291.1
+Rajputana	2	1530	1600	49.8
+Rajputs	1	1800	1800	45.7
+Rama	1	1492	1492	1.8
+Ramaytush	1	1492	1492	0.1
+Rankülche	1	1492	1492	10.3
+Rarámuri (Tarahumara-Guarijio)	1	1492	1492	6.4
+Rashtrakuta	1	900	900	51.4
+Rashtrakuta state	1	800	800	40.8
+Rattanakosin Kingdom	9	1783	1930	518.6
+Rayados (Borrados)	1	1492	1492	2.5
+Raška	1	1300	1300	6.8
+Rembarnga	7	1600	1815	4.6
+Republic of Kraków	1	1815	1815	0.3
+Republic of Turkey	1	1930	1930	42.0
+Republic of the Seven Zenden	6	1530	1783	2.1
+Resighini Rancheria (Yurok)	1	1492	1492	0.2
+Rhodesia	2	1914	1945	125.8
+Rift Valley States	2	1783	1800	27.1
+Rikbaktsá	1	1492	1492	4.9
+Rio De Oro	4	1914	1938	53.3
+Riro	2	1530	1600	1.5
+Roanoke	1	1492	1492	0.1
+Roman Empire	3	-1	200	1130.2
+Roman Republic	4	-400	-100	103.6
+Romania	12	1878	2010	227.6
+Rome	2	-323	-200	44.1
+Rome (Constantinus)	1	300	300	60.3
+Rome (Diocletianus)	1	300	300	119.2
+Rome (Galerius)	1	300	300	49.4
+Rome (Maximian)	1	300	300	120.0
+Rozwi	5	1650	1800	64.4
+Ruanruan	2	400	500	442.9
+Rumsen	1	1492	1492	0.1
+Runixa Ngiigua (Chocho)	1	1492	1492	0.1
+Rupert's Land	3	1715	1800	1288.6
+Rus' Khaganate	1	800	800	9.9
+Russia	5	1994	2010	2009.0
+Russian Empire	11	1783	1914	6257.4
+Rwanda	9	1815	2010	34.8
+Rwanda (Belgium)	3	1920	1938	6.6
+Ryazan	4	1279	1500	222.2
+S'Klallam	1	1492	1492	0.5
+Saami	16	-1500	700	788.9
+Saar Protectorate	1	1945	1945	0.2
+Saba	8	-1500	-100	65.8
+Sabines	1	-323	-323	1.6
+Sabini	2	-500	-400	1.5
+Sabirs	1	700	700	5.0
+Sac and Fox (Oklahoma)	1	1492	1492	0.2
+Saces	1	-100	-100	48.4
+Safavid Empire	5	1530	1715	808.1
+Saffarids	1	900	900	143.8
+Saharan Nomadic Tribes	1	700	700	744.1
+Saharan pastoral nomads	11	-2000	-200	7221.7
+Sahtu	2	1700	1715	58.6
+Sahtu Dene and Metis	1	1492	1492	25.8
+Sahtú Got’ine	1	1492	1492	10.6
+Saka Kingdom	4	-1	300	396.4
+Sakhalin (RU)	1	1914	1914	2.6
+Sakurabiat	1	1492	1492	0.1
+Salinan	1	1492	1492	0.9
+Salish & Kootenai Tribes	1	1492	1492	0.4
+Salish Kootenai (Flathead)	1	1492	1492	4.4
+Samanid Empire	1	900	900	123.4
+Sambian-Nothangian culture	8	-500	100	5.3
+Sami	1	900	900	47.8
+Samis	2	1000	1300	82.4
+Samnites	2	-500	-400	1.5
+Samoa	13	1878	2010	2.4
+Samoyèdes	1	700	700	99.2
+San Carlos Apache	1	1492	1492	0.6
+San Poil	1	1492	1492	0.3
+Sana	1	1492	1492	2.9
+Sanapaná	1	1492	1492	0.7
+Sanavirones	1	1492	1492	4.2
+Santee	5	1492	1700	46.6
+Santiam	1	1492	1492	0.1
+Santo Domingo (Spain)	1	1715	1715	3.7
+Sapara	1	1492	1492	2.2
+Sappony	1	1492	1492	1.2
+Sardinia	11	1000	1715	19.5
+Sardinia-Piedmont	3	1650	1715	8.5
+Sarmates	1	-100	-100	67.1
+Sasanian Empire	3	500	700	773.0
+Sasanian dependencies	2	600	700	55.1
+Sataré-Mawé	1	1492	1492	13.8
+Satavahanihara	5	-1	400	248.3
+Saudi Arabia	6	1938	2010	933.9
+Saugeen Complex	7	-100	500	18.3
+Sauk Suiattle	1	1492	1492	0.6
+Sauk and Meskwaki	1	1492	1492	16.2
+Saunan	2	1530	1600	1.7
+Saura	1	1492	1492	0.5
+Savanna hunter-gatherers	31	-1500	1715	9671.2
+Savoy	2	1530	1600	5.1
+Saxons	3	500	700	16.9
+Saxony	3	1783	1815	7.9
+Saylan	2	1530	1600	9.9
+Schitsu’umsh (Coeur d’Alene)	1	1492	1492	2.0
+Schleswig	1	1815	1815	0.4
+Scotland	12	1000	1700	56.7
+Scots	2	800	900	2.0
+Scythians	4	-400	100	695.5
+Second Samori Empire	1	1900	1900	5.7
+Secotan	1	1492	1492	0.2
+Secwepemcúl'ecw (Secwépemc)	1	1492	1492	11.4
+Segu	3	1715	1800	76.7
+Seleucid Kingdom	3	-300	-100	560.0
+Seljuk Caliphate	3	1279	1400	74.1
+Seljuk Empire	1	1100	1100	169.1
+Selk'nam	1	1492	1492	3.5
+Selkirk	1	1492	1492	3.2
+Seminole	1	1492	1492	8.7
+Seminole (Oklahoma)	1	1492	1492	0.1
+Semites	1	-2000	-2000	242.9
+Senas	2	1000	1100	30.3
+Senegal	14	1530	2010	156.4
+Senegal (FR)	2	1878	1880	18.3
+Serano	5	1530	1715	12.7
+Serbia	11	900	2010	60.4
+Severians	1	700	700	4.8
+Shakori	1	1492	1492	0.4
+Shan states	5	1530	1715	134.9
+Shanenawa	1	1492	1492	0.2
+Sharanahua	1	1492	1492	0.1
+Shaskanka	1	600	600	27.8
+Shasta	1	1492	1492	1.1
+Shawanaua	1	1492	1492	0.4
+Shawandasse Tula (Shawanwaki/Shawnee)	1	1492	1492	26.6
+Shawi	1	1492	1492	2.3
+Shawnee	5	1530	1715	70.0
+Shellfish gatherers	18	-1500	800	206.9
+Shipibo-Konibo	1	1492	1492	4.5
+Shirvan	2	1000	1100	3.7
+Shita Got’ine	1	1492	1492	16.4
+Shiwiar	1	1492	1492	1.1
+Shiwilu	1	1492	1492	0.6
+Shiwinna (Zuni)	1	1492	1492	3.6
+Shmuwich (Barbareño)	1	1492	1492	0.1
+Shoa	3	1279	1400	11.8
+Shogun Japan (Kamakura)	3	1279	1400	68.5
+Shona	3	1878	1900	35.6
+Shoshone-Bannock	1	1492	1492	20.3
+Shoshoni	5	1530	1715	213.8
+Shuar	12	1279	1815	16.0
+Shuar-Wampis	1	1492	1492	3.5
+Shíshálh	1	1492	1492	0.2
+Siam	1	1938	1938	41.5
+Siberians	5	1279	1500	395.5
+Sicangu	1	1492	1492	1.5
+Sicily	9	1279	1715	32.3
+Siekopa’aiInte/Aido-Pãi (Secoya)	1	1492	1492	2.7
+Sierra Leone	13	1815	2010	60.2
+Sihapsa	1	1492	1492	4.2
+Sikhs	1	1800	1800	43.2
+Sikkim (Indian princely state)	1	1815	1815	0.7
+Silia	1	800	800	11.7
+Silla	9	-1	900	49.6
+Simhala	14	-500	700	69.6
+Sind	2	1492	1783	44.3
+Sindh	2	900	1800	21.7
+Sinhalese kingdom	3	1279	1400	14.9
+Sinhalese kingdoms	3	800	1500	14.9
+Sinic	3	-1500	-700	412.1
+Sinkyone	1	1492	1492	0.2
+Sintashta	1	-2000	-2000	11.6
+Siria-masã (Siriano)	1	1492	1492	0.5
+Sirionó	1	1492	1492	6.0
+Sisseton	1	1492	1492	4.1
+Sissipahaw	1	1492	1492	0.1
+Siuslaw	1	1492	1492	0.2
+Sivuqaq (St. Lawrence Island) Yupik	1	1492	1492	0.3
+Sixteen Kingdoms	1	400	400	86.7
+Skagit	1	1492	1492	0.4
+Skaruhreh/Tuscarora (North Carolina)	1	1492	1492	3.1
+Skirii	1	400	400	0.8
+Skwxwú7mesh-ulh Temíx̱w (Squamish)	1	1492	1492	0.5
+Skykomish	1	1492	1492	0.2
+Slavic tribes	1	900	900	51.0
+Slavonic tribes	1	800	800	166.2
+Slavs	2	600	700	5.2
+Slijuala Xanuc (Chontal)	1	1492	1492	0.3
+Slovakia	3	1994	2010	11.6
+Slovenia	3	1994	2010	5.0
+Snohomish	1	1492	1492	0.1
+Snuneymuxw	1	1492	1492	0.2
+So'to (Yekuana)	1	1492	1492	8.7
+Sobaipuri	1	1492	1492	1.6
+Sokoto Caliphate	3	1878	1900	244.6
+Solankis	1	1100	1100	20.9
+Somalia	6	1815	2010	267.7
+Somi Se'k (Esto’k Gna)	1	1492	1492	1.9
+Somvamsis	1	900	900	5.5
+Song Empire	3	1000	1200	743.3
+Songhai	9	1492	1800	247.9
+Soomra Emirate	1	1100	1100	30.6
+Sotho	3	1783	1815	12.6
+South Africa	6	1914	2010	613.0
+South Australia (UK)	3	1878	1900	261.9
+South Carolina	3	1650	1715	2.2
+South Russia	1	1920	1920	1.9
+Southern Cameroon	1	1945	1945	3.9
+Southern Paiute	5	1530	1715	48.0
+Southern Pomo	1	1492	1492	0.1
+Southern Rhodesia	1	1938	1938	31.9
+Southern Xiongnu	2	100	200	30.1
+Spain	24	1530	2010	860.2
+Spanish Guinea	3	1878	1900	3.3
+Spanish Morocco	1	1914	1914	3.0
+Spanish Sahara	4	1914	1938	32.6
+Spokane	3	1492	1600	3.8
+Squaxin	1	1492	1492	0.1
+Sri Lanka	5	1945	2010	24.8
+Srivijaya Empire	8	800	1400	405.0
+Stellat'en	1	1492	1492	0.6
+Stillaguamish	1	1492	1492	0.6
+Stoney	1	1492	1492	7.4
+Stz'uminus	1	1492	1492	0.2
+St̓át̓imc Tmicw (St'at'imc)	1	1492	1492	1.8
+Subarctic forest hunter-gatherers	32	-1500	1715	7894.8
+Subtiaba	1	1492	1492	0.1
+Sudan	8	1920	2010	1648.1
+Suebi	1	500	500	8.2
+Sugaree	1	1492	1492	0.3
+Sui Empire	2	600	700	649.1
+Sukhothai	5	1279	1400	101.0
+Sultanate of Damagaram	2	1878	1880	6.4
+Sultanate of Delhi	6	1200	1500	783.0
+Sultanate of Utetera	3	1878	1900	74.0
+Sultanate of Zanzibar	2	1880	1900	47.7
+Sultinate of Zanzibar	1	1878	1878	23.9
+Sumas	1	1492	1492	5.5
+Suomi	1	1000	1000	7.2
+Suquamish	1	1492	1492	0.1
+Sura	1	1492	1492	2.1
+Surasena	1	-500	-500	3.9
+Suren Kingdom	5	-1	400	394.5
+Surinam	2	1650	1700	2.3
+Suriname	9	1914	2010	108.7
+Surui Paiter	1	1492	1492	0.2
+Suruwaha	1	1492	1492	0.2
+Suspiaq	7	1530	1800	43.4
+Susquehanna	2	1530	1600	10.3
+Susquehannock	1	1492	1492	6.0
+Swabia	1	1800	1800	6.8
+Swaziland	12	1878	2010	16.5
+Sweden	25	1000	2010	941.6
+Sweden–Norway	4	1815	1900	256.3
+Swedes	4	400	700	30.2
+Swedes and Goths	2	800	900	15.4
+Swift Creek Culture	7	-100	500	126.2
+Swiss Confederation	8	1492	1783	21.5
+Switzerland	10	1815	1960	33.0
+Syilx tmixʷ (Okanagan)	1	1492	1492	8.5
+Syria	5	1945	2010	78.3
+Syria (France)	3	1920	1938	78.1
+Syunik	1	1100	1100	1.5
+Sámi	9	200	1530	327.4
+S’atsoyaha (Yuchi)	1	1492	1492	26.4
+S’ólh Téméxw (Stó:lō)	1	1492	1492	1.1
+T'atsaot'ine	7	1530	1800	644.5
+Ta'an Kwäch'än	1	1492	1492	1.0
+Tacana	1	1492	1492	1.2
+Tagish	1	1492	1492	1.0
+Tagé Cho Hudän (Little Salmon/Carmacks)	1	1492	1492	1.8
+Tahues	1	1492	1492	1.2
+Taino	7	1000	1492	100.3
+Taiwan	9	1492	2010	25.3
+Taiwanese Tribes	1	1200	1200	2.9
+Tajikistan	3	1994	2010	35.5
+Takalak	6	1600	1800	5.2
+Takelma	1	1492	1492	0.8
+Takla	1	1492	1492	7.5
+Takrur	3	1000	1200	16.9
+Taku River Tlingit	1	1492	1492	3.2
+Tama Dujo	1	1492	1492	0.4
+Tamalipueca	2	1530	1600	9.1
+Tamaulipeco tribes	1	1492	1492	3.9
+Tamien Nation	1	1492	1492	0.3
+Tampachoa (Mansos)	1	1492	1492	2.3
+Tanacross	1	1492	1492	1.8
+Tanana	1	1492	1492	5.9
+Tancalba	2	1530	1600	0.6
+Tang Empire	2	800	900	542.2
+Tanimuka	1	1492	1492	1.9
+Tano	4	1530	1700	1.4
+Tanzania, United Republic of	8	1920	2010	611.5
+Tapachulteco (mixe-zoque)	1	1492	1492	0.7
+Tapieté/Guaraní-Ñandeva	1	1492	1492	2.2
+Tariana	1	1492	1492	0.1
+Tashir	1	1100	1100	1.0
+Tasmanian hunter-gatherers	32	-2000	1715	151.6
+Tastil	1	1492	1492	1.2
+Taungurung	6	1600	1800	9.5
+Tawahka	1	1492	1492	0.1
+Tawakoni	1	1492	1492	2.8
+Tecuexe	3	1492	1600	3.2
+Teke	3	1878	1900	18.6
+Tekohá (Guarani)	1	1492	1492	164.2
+Tekohá (Paĩ Tavytera/Kaiowá)	1	1492	1492	6.2
+Tekohá (Ñandeva - Avá Guaraní)	1	1492	1492	22.9
+Tekrur	1	1715	1715	7.1
+Tenetehara (Tembé)	1	1492	1492	1.5
+Tenimo	5	1530	1715	6.8
+Tenino	1	1492	1492	1.6
+Teotihuacan	12	-323	700	39.5
+Tepehua	1	1492	1492	0.1
+Tepehuane	2	1530	1600	9.9
+Tepehuán	1	1492	1492	10.2
+Tequesta	1	1492	1492	0.5
+Terena	1	1492	1492	1.5
+Teslin Tlingit Council (BC)	1	1492	1492	0.9
+Teslin Tlingit Council (Yukon)	1	1492	1492	2.2
+Tetlit Gwich’in	1	1492	1492	3.0
+Teton	5	1530	1715	54.1
+Teutonic Knights	5	1279	1500	50.5
+Te’mexw Treaty Association	1	1492	1492	0.2
+Thaayorre	6	1600	1800	1.5
+Thai	2	-2000	-200	546.4
+Thai Kingdoms	2	600	700	48.6
+Thailand	5	1945	2010	207.7
+Thalanyji	7	1600	1815	6.4
+Tharawal	6	1600	1800	2.4
+Tharrgari	7	1600	1815	7.5
+Thiin	7	1600	1815	9.5
+Thompson	2	1530	1600	0.3
+Thrace	3	-1500	-700	62.9
+Thul Garrie Waja (Bindal)	6	1600	1800	1.3
+Thule	13	800	1500	1018.5
+Thuringia	5	1783	1815	1.6
+Tiahuanaco Empire	7	600	1200	234.6
+Tibet	19	1000	1960	2728.8
+Tibetan Empire	2	800	900	739.4
+Tibetans	3	-1500	-700	805.7
+Tibeto-Burmanese	1	-2000	-2000	115.0
+Tilian	1	1492	1492	0.8
+Tillamook	1	1492	1492	0.2
+Timotes	1	1492	1492	2.4
+Timucua	3	1492	1600	15.0
+Timurid Emirates	2	1492	1500	336.0
+Timurid Empire	1	1400	1400	420.8
+Tinigua	1	1492	1492	1.3
+Tjalkanti	7	1600	1815	21.1
+Tjer-di/Teribe Broram	1	1492	1492	0.7
+Tjupany	7	1600	1815	26.0
+Tlinoit	1	1500	1500	33.0
+Toara	1	1492	1492	0.4
+Toba Wei	1	500	500	112.5
+Toba-Lengua	1	1492	1492	0.9
+Toboso	2	1530	1600	2.8
+Tobosos	1	1492	1492	5.6
+Tocobaga	1	1492	1492	0.9
+Togo	8	1920	2010	38.9
+Togoland	1	1914	1914	8.2
+Tohono O'odham	1	1492	1492	4.6
+Tojolwinik’otik (Tojolabal)	1	1492	1492	0.7
+Tokugawa shogunate	3	1650	1715	88.2
+Tolowa Dee-ni’	1	1492	1492	1.0
+Toltec Empire	5	800	1200	30.7
+Tolupan	1	1492	1492	1.1
+Tongva	1	1492	1492	0.8
+Tonkawa	6	1492	1715	40.0
+Tonkin	1	1945	1945	9.8
+Tonokoté	1	1492	1492	5.5
+Tontotuna (Totoró)	1	1492	1492	0.1
+Toromona	1	1492	1492	0.3
+Totonaco	1	1492	1492	0.7
+Totorames	1	1492	1492	1.6
+Touareg	1	1279	1279	363.6
+Transvaal	3	1878	1900	74.8
+Travancore	3	1783	1815	3.7
+Trebizond	3	1279	1400	6.3
+Trinidad	10	1715	2010	3.7
+Trio/Wü tarëno	1	1492	1492	5.4
+Tripolitana (UK Lybia)	1	1945	1945	18.1
+Tripolitania	4	1715	1815	22.0
+Trucial Oman	7	1878	1938	46.2
+Tr’ondëk Hwëch’in	1	1492	1492	5.6
+Ts'msyen La̱xyuup (Tsimshian)	1	1492	1492	1.8
+Tsa'chila	1	1492	1492	0.1
+Tsankupi	1	1492	1492	0.1
+Tsardom of Muscovy	5	1530	1715	2980.6
+Tsase/Piapoco	1	1492	1492	6.5
+Tseshaht	1	1492	1492	0.2
+Tse’khene	1	1492	1492	5.1
+Tsimane’	1	1492	1492	0.2
+Tsnungwe	2	1492	1492	0.5
+Tsuu T'ina	1	1492	1492	15.3
+Tŝilhqot’in Nen	1	1492	1492	5.5
+Ts’uubaa-asatx	1	1492	1492	0.1
+Tuareg Nomadic Tribes	1	1200	1200	491.6
+Tuaregs	1	900	900	299.4
+Tufan Empire	1	700	700	191.1
+Tukular Caliphate	3	1878	1900	89.8
+Tulalip	1	1492	1492	0.6
+Tungus	4	-200	900	620.7
+Tungusic Tribes	1	1200	1200	85.2
+Tunica	6	1492	1715	8.1
+Tunis	4	1715	1815	30.7
+Tunisia	10	1900	2010	125.6
+Tunxis	1	1492	1492	0.1
+Tupari	1	1492	1492	0.1
+Tupinambá	1	1492	1492	0.2
+Tupis	2	800	900	479.9
+Turan	1	1815	1815	175.9
+Turcik tribes	1	-200	-200	180.2
+Turingians	1	500	500	6.0
+Turkey	6	1938	2010	361.8
+Turkish Cypriot-administered area	3	1994	2010	1.0
+Turkmenistan	3	1994	2010	114.3
+Tuscany	6	1650	1815	11.7
+Tuscarora	1	1492	1492	0.2
+Tutelo	3	1492	1600	11.5
+Tututni	1	1492	1492	0.2
+Tuxá	1	1492	1492	0.1
+Tuʻi Tonga Empire	18	500	1815	1112.7
+Twana/Skokomish	1	1492	1492	0.1
+Tz'utujil	1	1492	1492	0.1
+Tzjon Non/ Tzo'tyio (Amuzgo)	1	1492	1492	0.7
+Tübatulabal	1	1492	1492	0.5
+Tāłtān Konelīne (Tahltan)	1	1492	1492	7.5
+Tłı̨chǫ Ndè	1	1492	1492	20.8
+U'wa	1	1492	1492	1.5
+USSR	6	1920	1960	5000.0
+Uganda	9	1914	2010	178.9
+Ukarãngmã	1	1492	1492	3.3
+Ukraine	4	1920	2010	178.8
+Ulwas	1	1492	1492	0.5
+Umatilla	5	1530	1715	2.9
+Umayyad Caliphate	1	700	700	136.1
+Umbindhamu	6	1600	1800	0.4
+Umida	7	1600	1815	1.5
+Umoⁿhoⁿ (Omaha)	1	1492	1492	2.1
+Umpila	6	1600	1800	0.4
+Umukomasã/Desana	1	1492	1492	0.3
+Umurecoómajá (Tatuyo)	1	1492	1492	0.6
+Unangam Tanangin (Unangax̂ /Aleut)	1	1492	1492	0.9
+Ungazigmit (Chaplino) Yupik	1	1492	1492	0.1
+Unggarangi	7	1600	1815	1.0
+Unggumi	7	1600	1815	7.6
+Union of South Africa	3	1920	1938	503.8
+United Arab Emirates	5	1945	2010	41.6
+United Kingdom	12	1715	2010	167.7
+United Kingdom of Great Britain and Ireland	7	1815	1930	171.9
+United Provinces of the Río de la Plata	1	1815	1815	190.8
+United States	14	1815	2010	7456.4
+United States of America	5	1783	1900	2703.9
+Upper Kuskokwim	1	1492	1492	2.5
+Upper Tanana	1	1492	1492	2.8
+Ur	1	-2000	-2000	27.9
+Urartu	3	-1500	-700	69.2
+Urnfield cultures	4	-1500	-700	446.4
+Uru	1	1492	1492	33.4
+Uruguay	12	1878	2010	170.2
+Utapinõmakãphõná	1	1492	1492	0.1
+Ute	5	1530	1715	116.9
+Uutaalnganu	6	1600	1800	0.6
+Uwottüja	1	1492	1492	4.1
+Uyghurs	3	700	900	585.2
+Uzbekistan	3	1994	2010	109.7
+Vakataka	1	500	500	44.2
+Valdivia	1	-2000	-2000	13.2
+Vallabhi	2	800	900	15.2
+Vandals	1	500	500	28.6
+Vanyumé	1	1492	1492	0.3
+Vasconia	2	600	700	2.5
+Vatsa	1	-500	-500	0.5
+Vazimba	2	600	700	95.0
+Vedic Aryans	3	-1500	-700	373.6
+Venetia	3	1783	1815	6.8
+Venezuela	12	1878	2010	955.5
+Vengi	1	900	900	2.2
+Venice	13	1000	1715	29.1
+Veps	1	800	800	12.2
+Veracruz civilization	3	500	700	24.7
+Viceroyalty of Brazil	4	1715	1815	2168.6
+Viceroyalty of New Granada	3	1783	1815	751.9
+Viceroyalty of New Spain	8	1530	1815	2082.1
+Viceroyalty of Peru	6	1650	1815	1701.4
+Viceroyalty of the Río de la Plata	2	1783	1800	381.7
+Victoria (UK)	3	1878	1900	56.6
+Vietnam	4	1960	2010	108.3
+Vijayanagara	5	1492	1650	161.3
+Vilela	1	1492	1492	5.7
+Virgin Islands (Danemark)	1	1715	1715	0.6
+Virginia	2	1650	1700	7.7
+Vishnu-Kundins	1	500	500	5.7
+Visigothic Kingdom	2	600	700	43.3
+Visigoths	2	400	500	52.5
+Volga Bulgars	5	800	1200	167.9
+Vuntut Gwitchin	1	1492	1492	7.4
+Waanyi	6	1600	1800	8.9
+Wabanaki (Dawnland Confederacy)	1	1492	1492	27.6
+Waccamaw (Woccon)	1	1492	1492	0.9
+Waco	1	1492	1492	0.8
+Wadai	7	1530	1800	62.7
+Wadai Empire	2	1878	1880	41.4
+Wadi Wadi	6	1600	1800	2.4
+Wadigali	6	1600	1800	9.1
+Wadjigu	6	1600	1800	5.0
+Wagiman	7	1600	1815	8.8
+Wahkiakum	1	1492	1492	0.1
+Wahpekute	1	1492	1492	3.5
+Wahpeton	1	1492	1492	4.9
+Wailaki	1	1492	1492	0.1
+Wailwan	6	1600	1800	20.0
+Waiwai	1	1492	1492	7.4
+Wajuk	7	1600	1815	5.3
+Wajuru	1	1492	1492	0.2
+Waka Waka	6	1600	1800	9.4
+Wakabunga	6	1600	1800	14.9
+Wakaya	6	1600	1800	28.3
+Wakuenai/Walimanai (Kuripako)	1	1492	1492	5.2
+Walangama	6	1600	1800	6.8
+Walapai	2	1530	1600	3.1
+Walbis Bay	1	1938	1938	0.4
+Waldeck	3	1783	1815	0.2
+Walimanai (Baniwa)	1	1492	1492	13.5
+Wallmapu (Mapuche)	1	1492	1492	93.6
+Walmatjarri	7	1600	1815	19.6
+Wambaya	6	1600	1800	9.5
+Wanano/Kotiria	1	1492	1492	1.2
+Wanapum	1	1492	1492	0.5
+Wandjiwalgu	6	1600	1800	2.8
+Wangan	6	1600	1800	3.5
+Wangkamana	6	1600	1800	18.4
+Wangkangurru	6	1600	1800	34.1
+Wangkathaa	7	1600	1815	37.7
+Wangkumara	6	1600	1800	20.3
+Wangunks	1	1492	1492	0.1
+Wankarani	5	-400	-100	8.0
+Waorani	1	1492	1492	1.1
+Wapishana/Wapixana	1	1492	1492	5.3
+Wappinger	1	1492	1492	0.6
+Wappo	1	1492	1492	0.2
+Wappynger	2	1530	1600	1.3
+Waranka	1	1492	1492	0.2
+Warao	1	1492	1492	5.1
+Wardaman	7	1600	1815	9.7
+Wardandi	7	1600	1815	2.2
+Warekena	1	1492	1492	0.3
+Wargamaygan	6	1600	1800	1.7
+Wari	1	1492	1492	29.6
+Wari’	1	1492	1492	0.9
+Warlmanpa	7	1600	1815	20.8
+Warlpiri	7	1600	1815	79.1
+Warluwarra	6	1600	1800	6.0
+Warraskoyack	1	1492	1492	0.1
+Warray	7	1600	1815	4.6
+Warriyangga	7	1600	1815	6.7
+Warsenis	1	700	700	13.3
+Warumungu	7	1600	1815	46.7
+Warwa	7	1600	1815	2.4
+Wasco and Wishram	1	1492	1492	0.3
+Washtáge Moⁿzháⁿ (Kaw / Kansa)	1	1492	1492	10.2
+Wassoulou Empire	2	1878	1880	7.0
+Watassid Morocco	2	1530	1600	58.6
+Wateree	1	1492	1492	0.4
+Wathaurong	6	1600	1800	6.3
+Watjarri	7	1600	1815	82.3
+Wattasid Caliphate	2	1492	1500	24.2
+Waveroo	6	1600	1800	5.7
+Wawula	7	1600	1815	48.6
+Waxhaw	1	1492	1492	0.6
+Wayana	1	1492	1492	5.0
+Wayúu	1	1492	1492	4.0
+Waíkhana	1	1492	1492	0.1
+Waípinõmakã (Bará)	1	1492	1492	0.7
+Wašišiw Ɂítdeʔ (Washoe)	1	1492	1492	2.7
+We Wai Kai	1	1492	1492	1.6
+We Wai Kum	1	1492	1492	0.6
+Weenhayek	1	1492	1492	2.5
+Weenhayek/Wichí	1	1492	1492	10.4
+Welsh	2	800	900	3.3
+Wemba Wemba	6	1600	1800	3.8
+Wendake-Nionwentsïo	1	1492	1492	8.6
+Wenrohronon	1	1492	1492	0.4
+Wergaia	6	1600	1800	20.9
+Wessex	2	800	900	1.9
+West African cereal farmers	26	-1500	1500	11807.9
+West Francia	1	900	900	32.1
+West Germany	1	1960	1960	19.0
+West Getaes	1	700	700	3.3
+Western Australia (UK)	3	1878	1900	620.4
+Western Chalukyas	1	1100	1100	53.0
+Western Gangas	2	500	700	6.7
+Western Gokturk Khaganate	2	700	700	142.5
+Western Masurian culture	8	-500	100	21.0
+Western Mono/Monache	1	1492	1492	1.0
+Western Roman Empire	2	400	500	199.2
+Western Sahara	5	1945	2010	107.9
+Westo	1	1492	1492	0.4
+Wet'suwet'en Yintikh	1	1492	1492	1.8
+Whilkut	1	1492	1492	0.1
+White Horde	3	1400	1500	828.2
+White Mountain Apache	1	1492	1492	0.6
+White River-Kluane	1	1492	1492	2.8
+White Russia	3	1920	1930	871.9
+WiYaPeMiAk (Weapemeoc-Yeopim)	2	1492	1492	0.3
+Wichita	6	1492	1715	66.8
+Wichita-Caddo-Delaware (Oklahoma)	1	1492	1492	0.2
+Wiilman	7	1600	1815	11.7
+Wik	6	1600	1800	9.7
+Wiljali	6	1600	1800	11.9
+Willapa	1	1492	1492	0.2
+Winaq Qo’ (Mam)	1	1492	1492	1.2
+Winda Winda	6	1600	1800	1.2
+Winebago	5	1530	1715	4.9
+Winefelly	1	1492	1492	0.2
+Winik Atel (Tzeltal)	1	1492	1492	3.7
+Winikon bä lojon/Xk’ukwits/Ajlumob/Otulob (Ch'ol)	1	1492	1492	3.3
+Winnimem Wintu	1	1492	1492	0.2
+Wintʰu• Po•m (Northern Wintu)	1	1492	1492	1.0
+Winyah	1	1492	1492	0.1
+Wiradjuri	6	1600	1800	88.1
+Wirangu	7	1600	1815	43.2
+Wisijsa	1	1492	1492	0.6
+Wiwa	1	1492	1492	0.2
+Wixárika (Huichol)	1	1492	1492	1.9
+Wiyot	1	1492	1492	0.1
+Wolastoqiyik Wahsipekuk (Maliseet)	1	1492	1492	4.8
+Wongaibon	6	1600	1800	26.5
+Wonnarua	6	1600	1800	4.7
+Woodland Cree	1	1492	1492	3.9
+Woolna	7	1600	1815	2.2
+Worimi	6	1600	1800	3.1
+Worla	7	1600	1815	12.1
+Worora	7	1600	1815	5.2
+Wounaan	1	1492	1492	1.4
+Wu	3	-1500	-700	52.6
+Wudjari	7	1600	1815	31.0
+Wuikinuxv (Oweekeno)	1	1492	1492	0.5
+Wulgurukaba	6	1600	1800	0.8
+Wuli-wuli	6	1600	1800	4.0
+Wunambul	7	1600	1815	4.6
+Wuningangk	7	1600	1815	2.8
+Wunumara	6	1600	1800	20.9
+Wurundjeri	6	1600	1800	8.2
+Wuthathi	6	1600	1800	0.9
+Wôpanâak (Wampanoag)	1	1492	1492	0.5
+Württemberg	3	1783	1815	3.0
+Xakriabá	1	1492	1492	2.7
+Xawiƚƚ kwñchawaay (Cocopah)	1	1492	1492	8.0
+Xecora	2	1530	1600	3.2
+Xetá	1	1492	1492	0.6
+Xhosa	3	1783	1815	13.7
+Xia	1	-2000	-2000	20.5
+Xinca	1	1492	1492	0.7
+Xinjiang	5	1914	1945	658.4
+Xiongnu	4	-400	-1	1160.0
+Xixia	3	1000	1200	180.7
+Xixime	1	1492	1492	1.0
+Yadhaigana	6	1600	1800	0.5
+Yagalingu	6	1600	1800	8.5
+Yagán	1	1492	1492	0.6
+Yahooskin	1	1492	1492	1.3
+Yaka	3	1878	1900	18.2
+Yakama	1	1492	1492	4.0
+Yakima	5	1530	1715	7.7
+Yakina	1	1492	1492	0.1
+Yalarrnga	6	1600	1800	3.7
+Yamassee	1	1492	1492	2.2
+Yamato	4	500	900	69.6
+Yamayeka (Yamaye)	1	1492	1492	0.7
+Yambina	6	1600	1800	4.2
+Yamhill	1	1492	1492	0.2
+Yaminawá	1	1492	1492	9.4
+Yana	1	1492	1492	0.2
+Yanam (Ninam)	1	1492	1492	1.1
+Yanda	6	1600	1800	3.2
+Yandruwandha	6	1600	1800	15.0
+Yanesha	1	1492	1492	2.6
+Yanga	6	1600	1800	5.0
+Yangga	6	1600	1800	7.9
+Yangman	7	1600	1815	13.3
+Yankontai	5	1530	1715	38.3
+Yankton	6	1492	1715	41.6
+Yanktonai	1	1492	1492	11.8
+Yankuntjatjara	7	1600	1815	37.3
+Yanomami	1	1492	1492	15.7
+Yanyuwa	6	1600	1800	2.4
+Yarluyandi	6	1600	1800	8.6
+Yaros	1	1492	1492	0.3
+Yaruro/Pumé	1	1492	1492	4.3
+Yavapai	4	1530	1700	14.5
+Yavapaiv Apache	1	1492	1492	4.4
+Yawanawá	1	1492	1492	0.1
+Yawarawarka	6	1600	1800	12.3
+Yawuru	7	1600	1815	2.4
+Yayoi	2	-400	100	32.1
+Yazne	1	1492	1492	0.1
+Ye"pâ-masa	1	1492	1492	1.2
+Yeba-masã	1	1492	1492	0.1
+Yeke	3	1878	1900	45.4
+Yekooche	1	1492	1492	0.8
+Yemen	20	1000	2010	378.9
+Yemen (UK)	1	1938	1938	23.8
+Yeopim	1	1492	1492	0.1
+Yidinjdji	6	1600	1800	0.6
+Yihamwo (Yagua)	1	1492	1492	4.5
+Yiiji	7	1600	1815	1.4
+Yilba	6	1600	1800	8.6
+Yiman	6	1600	1800	6.0
+Yindjibarndi	7	1600	1815	9.5
+Yine	1	1492	1492	10.0
+Yinggarda	7	1600	1815	11.3
+Yinhawangka	7	1600	1815	7.8
+Yinwum	6	1600	1800	1.2
+Yirandali	6	1600	1800	23.8
+Yitha Yitha	6	1600	1800	6.1
+Yjxa	1	1492	1492	0.4
+Yoeme (Yaqui)	1	1492	1492	1.0
+Yoko T’aan (Chontal)	1	1492	1492	0.6
+Yokuts	6	1492	1715	22.4
+Yoli (Concho)	1	1492	1492	8.1
+Yolngu	6	1600	1800	11.3
+Yoncalla	1	1492	1492	0.7
+Yoreme (Mayo)	1	1492	1492	1.8
+Yorta Yorta	6	1600	1800	3.7
+Yuat	7	1600	1815	11.0
+Yuchi	4	1530	1700	7.7
+Yudjá	1	1492	1492	2.4
+Yue	2	-323	-300	8.6
+Yueban	4	100	400	22.5
+Yuezhi	1	-200	-200	209.1
+Yugambeh	6	1600	1800	2.9
+Yuggera	6	1600	1800	1.9
+Yugoslavia	5	1920	1960	98.8
+Yuhaviatam/Maarenga’yam (Serrano)	1	1492	1492	2.5
+Yuin	6	1600	1800	7.7
+Yukagir	2	1530	1600	11.2
+Yukpa	1	1492	1492	0.8
+Yulparitja	7	1600	1815	31.8
+Yuma	2	1530	1600	2.7
+Yup'ik & Cup'ik	7	1530	1800	123.9
+Yup’ik/Cup’ik	1	1492	1492	16.6
+Yuracaré	1	1492	1492	2.6
+Yurok	1	1492	1492	0.2
+Yuru	6	1600	1800	0.5
+Yurutí	1	1492	1492	0.2
+Yurí	1	1492	1492	1.0
+Yuwi	6	1600	1800	1.5
+Zacateco	1	1492	1492	6.0
+Zacatecs	2	1530	1600	14.5
+Zaire	5	1945	2010	950.1
+Zaire (Belgium)	2	1920	1930	380.0
+Zambia	6	1920	2010	369.5
+Zanzibar	4	1715	1815	69.9
+Zapotec	1	-400	-400	2.8
+Zapotec Empire	3	1279	1400	22.3
+Zayyanid Caliphate	2	1492	1500	52.1
+Zenú	1	1492	1492	3.8
+Zhangzhung Kingdom	5	-400	-100	267.4
+Zhoa	3	-1500	-700	279.0
+Zhou states	4	-500	-300	551.3
+Zimbabwe	6	1920	2010	191.7
+ZioBain (Siona)	1	1492	1492	1.1
+Zoró/Pangyjej	1	1492	1492	0.3
+Zo’é	1	1492	1492	0.6
+Zulu	3	1783	1815	26.6
+Zululand	3	1878	1900	6.1
+Zuni	2	1530	1600	1.2
+[Gáuigú (Kiowa)	1	1492	1492	25.6
+central Asian khanates	14	1530	1900	2445.7
+city-states	1	-2000	-2000	18.4
+ditidaqiic̓aq disib̓aʔk (Ditidaht)	1	1492	1492	0.1
+kòréβahώ (korebaju/Koreguaje)	1	1492	1492	0.6
+minor Hindu and Buddhist kingdoms	2	1300	1400	56.9
+minor Hindu and Buddhist states	9	800	1200	106.0
+minor Hindu kingdoms	2	1279	1300	186.0
+minor states	2	-200	-100	110.6
+minor states under Indian influence	4	600	700	59.9
+np̓əšqʷáw̓səxʷ (Wenatchi)	1	1492	1492	0.5
+nuučaan̓uuɫɁatḥ nism̓a (Nuu-chah-nulth)	1	1492	1492	0.5
+oθaakiiwaki‧hina‧ki (Sauk)	1	1492	1492	1.7
+pʌʌsíʌhʌ (Andoque/Paasiaja)	1	1492	1492	1.0
+sc̓əwaθenaɁɬ təməxʷ (Tsawwassen)	1	1492	1492	0.1
+sdukʷalbixʷ (Snoqualmie)	1	1492	1492	0.2
+snʕickstx tmxʷúlaʔxʷ (Sinixt)	1	1492	1492	5.9
+sq̓əc̓iy̓aɁɬ təməxʷ (Katzie)	1	1492	1492	0.2
+state societies and Aramaean kingdoms	6	-1500	-700	88.3
+səl̓ilwətaɁɬ təməxʷ (Tsleil-Waututh)	1	1492	1492	0.1
+x̣àʼisla w̓áwís (Haisla)	1	1492	1492	1.0
+Á,LEṈENEȻ ȽTE (W̱SÁNEĆ)	1	1492	1492	0.2
+Ãwa	1	1492	1492	9.5
+Älsé (Alsea)	1	1492	1492	0.1
+Épera	1	1492	1492	0.1
+Ñuu Savi (Mixtecapan)	1	1492	1492	3.2
+Ópata (Tegüima-Eudebe-Hoba)	1	1492	1492	6.0
+Únětice	1	-2000	-2000	2.8
+Đại Việt	14	1100	1800	272.8
+šxʷməθkʷəy̓əmaɁɬ təməxʷ (Musqueam)	1	1492	1492	0.1
+ɬaʔamɩn gɩǰɛ (Tla'amin/Sliammon)	1	1492	1492	0.2
+ᏣᎳᎫᏪᏘᏱ Tsalaguwetiyi (Cherokee, East)	1	1492	1492	26.1
+ᒋᑦ ᐊᔅᒋᓄᐤ St'aschinuw (Naskapi)	1	1492	1492	16.5
+ᓀᐦᐃᔭᐤ ᐊᐢᑭᕀ Nêhiyaw-Askiy (Plains Cree)	1	1492	1492	4.4
+无主之地	198	-2000	2010	136844.6
+𐓏𐒰𐓓𐒰𐓓𐒷  𐒼𐓂𐓊𐒻  𐓆𐒻𐒿𐒷  𐓀𐒰^𐓓𐒰^(Osage)	1	1492	1492	84.4
