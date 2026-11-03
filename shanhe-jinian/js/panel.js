@@ -92,9 +92,12 @@ export class Panel {
     this.nameEl.textContent = head;
     this.nameEl.style.fontSize = head.length > 9 ? '21px' : '27px';
     const bits = [];
-    if (c.place) bits.push('城址');
-    if (c.place && (c.zh || c.name)) bits.push(c.zh || c.name);
-    if (c.entity && c.entity.k) bits.push(c.entity.k);
+    if (c.place) {
+      bits.push('城址');
+      if (c.zh || c.name) bits.push(c.zh || c.name);
+    } else if (c.entity && c.entity.k) {
+      bits.push(c.entity.k);
+    }
     if (c.span) bits.push(c.span);
     if (c.regionKey) bits.push(REGION_LABEL[c.regionKey] || '');
     if (c.sub) bits.push(c.sub);
@@ -125,7 +128,11 @@ export class Panel {
   _now(c) {
     const out = [];
     if (c.place && c.place.note) out.push(`<p class="quote place-note">${esc(c.place.note)}</p>`);
-    if (c.note) out.push(`<p class="noindent">${esc(c.note)}</p>`);
+    if (c.place && c.place.intro) out.push(`<p class="noindent">${esc(c.place.intro)}</p>`);
+    if (c.note) {
+      if (c.place && c.zh) out.push(`<h4>此地此刻 · ${esc(c.zh)}</h4>`);
+      out.push(`<p class="noindent">${esc(c.note)}</p>`);
+    }
     if (c.note2) out.push(`<p>${esc(c.note2)}</p>`);
     if (c.entity && c.entity.k) {
       out.push(`<div class="factrow"><span class="pill">${esc(c.entity.k)}</span>${c.span ? `<span class="pill">${esc(c.span)}</span>` : ''}${c.regionKey ? `<span class="pill">${esc(REGION_LABEL[c.regionKey] || '')}</span>` : ''}</div>`);
