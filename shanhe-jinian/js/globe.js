@@ -54,7 +54,8 @@ export class Globe {
 
     this.geom = new THREE.SphereGeometry(R, 150, 104);
 
-    // 两层球，交叉淡化
+    // 两层球，交叉淡化。每层自带一张画布与纹理，反复重绘只更新同一张纹理，
+    // 免得拖动时间轴时每一步都新分配 4096×2048 RGBA。
     this.slots = [0, 1].map(() => {
       const mat = new THREE.MeshBasicMaterial({
         color: 0xffffff, transparent: true, opacity: 1,
@@ -62,7 +63,14 @@ export class Globe {
       const mesh = new THREE.Mesh(this.geom, mat);
       mesh.userData.pickable = true;
       this.group.add(mesh);
-      return { mesh, mat, tex: null };
+      const canvas = document.createElement('canvas');
+      canvas.width = this.painter.W;
+      canvas.height = this.painter.H;
+      const tex = new THREE.CanvasTexture(canvas);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      tex.anisotropy = Math.min(8, this.renderer.capabilities.getMaxAnisotropy());
+      mat.map = tex;
+      return { mesh, mat, tex, canvas };
     });
     this.active = 0;
     this.slots[0].mesh.visible = true;
@@ -172,18 +180,13 @@ export class Globe {
   setEra(mapData, { instant = false } = {}) {
     this.era = mapData;
     const t0 = performance.now();
-    const cnv = this.painter.paint(mapData);
-    const tex = new THREE.CanvasTexture(cnv);
-    tex.colorSpace = THREE.SRGBColorSpace;
-    tex.anisotropy = Math.min(8, this.renderer.capabilities.getMaxAnisotropy());
-    tex.needsUpdate = true;
-    this.paintMs = performance.now() - t0;
 
     const next = 1 - this.active;
     const slot = this.slots[next];
-    if (slot.tex) slot.tex.dispose();
-    slot.tex = tex;
-    slot.mat.map = tex;
+    this.painter.paint(mapData, { canvas: slot.canvas });
+    slot.tex.needsUpdate = true;
+    this.paintMs = performance.now() - t0;
+
     slot.mat.opacity = instant ? 1 : 0;
     slot.mat.needsUpdate = true;
     slot.mesh.visible = true;
