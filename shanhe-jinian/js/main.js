@@ -518,6 +518,20 @@ function bindUI() {
     if (e.target.id === 'helpSheet') $('#helpSheet').classList.add('is-hidden');
   });
 
+  // 读图前的免责声明：点「入图」或回车才收起
+  const notice = $('#notice');
+  if (notice) {
+    const dismiss = () => {
+      notice.classList.add('is-hidden');
+      setTimeout(() => notice.remove(), 520);
+    };
+    $('#noticeOk').addEventListener('click', dismiss);
+    window.addEventListener('keydown', (e) => {
+      if (!notice.isConnected) return;
+      if (e.key === 'Enter' || e.key === 'Escape') dismiss();
+    }, { once: false });
+  }
+
   bindSearch();
 }
 
