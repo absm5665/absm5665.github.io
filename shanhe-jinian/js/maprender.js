@@ -17,8 +17,8 @@ export function hashStr(s) {
 export function landTone(name) {
   const h = hashStr(name);
   const hue = 36 + ((h % 11) - 5);
-  const sat = 38 + ((h >> 5) % 14);
-  const lit = 75 + ((h >> 9) % 6);
+  const sat = 44 + ((h >> 5) % 12);
+  const lit = 70 + ((h >> 9) % 5);
   return `hsl(${hue} ${sat}% ${lit}%)`;
 }
 
@@ -129,9 +129,9 @@ function graticule(ctx, W, H) {
 /** 海面：旧纸 + 水纹 */
 function sea(ctx, W, H) {
   const g = ctx.createLinearGradient(0, 0, 0, H);
-  g.addColorStop(0, '#b1926a');
-  g.addColorStop(0.5, '#a5855c');
-  g.addColorStop(1, '#b1926a');
+  g.addColorStop(0, '#96724a');
+  g.addColorStop(0.5, '#87653d');
+  g.addColorStop(1, '#96724a');
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, W, H);
 
@@ -165,7 +165,11 @@ export class EraPainter {
     this.idCtx = this.idCanvas.getContext('2d', { alpha: false });
   }
 
-  paint(eraData, { ids = false } = {}) {
+  paint(eraData, { ids = false, canvas = null } = {}) {
+    if (canvas) {
+      this.base = canvas;
+      this.ctx = canvas.getContext('2d', { alpha: false });
+    }
     const { W, H, ctx } = this;
     sea(ctx, W, H);
     mottle(ctx, W, H, 130, W * 0.075, 0.10);
