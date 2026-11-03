@@ -416,8 +416,8 @@ function _buildPointCtx() {
 
   if (!f) {
     return {
-      era, regionKey, place, name: '无际之水', zh: '无际之水',
-      note: '此处为洋面，未属一邦。', note2: regionText,
+      era, regionKey, place, name: place ? '' : '无际之水', zh: place ? '' : '无际之水',
+      note: place ? '此城临海，图上此处未绘出陆地，城仍在此。' : '此处为洋面，未属一邦。', note2: regionText,
       affairs: [], lineage: [], entity: null,
       eraNote: S.eraNotes[era.key] || '',
     };
@@ -781,6 +781,7 @@ async function gotoEntity(en) {
 
 /* ------------------------------------------------------------ go */
 window.__S = S;
+window.__featureAt = featureAt;
 window.__dbg = () => ({ globe, timeline, panel, relations, relItems: relations && relations.items.length });
 
 boot().catch((err) => {
