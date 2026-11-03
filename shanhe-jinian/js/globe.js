@@ -25,7 +25,8 @@ export class Globe {
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(32, 1, 0.5, 3000);
     // 初始朝向东亚（约 100°E, 28°N），赤道略高一点的视角
-    this.camera.position.copy(new THREE.Vector3(-0.153, 0.469, 0.870).normalize().multiplyScalar(520));
+    const start = lonLatToVec3(100, 28, 1);
+    this.camera.position.set(start.x, start.y, start.z).normalize().multiplyScalar(520);
 
     this.controls = new OrbitControls(this.camera, canvas);
     this.controls.enableDamping = true;
